@@ -26,10 +26,6 @@
     --radius: 0.75rem;
   }
 
-  * {
-    @apply border-border;
-  }
-
   body {
     @apply bg-cream text-charcoal antialiased;
     font-size: 1.125rem; /* 18px — minimum for adult literacy learners */
