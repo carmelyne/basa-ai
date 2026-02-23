@@ -1,0 +1,45 @@
+{
+  "id": "l1-01",
+  "level": 1,
+  "order": 1,
+  "title": "Ang mga Patinig",
+  "titleTranslation": "The Vowels",
+  "description": "Matuto ng limang patinig: A, E, I, O, U",
+  "estimatedMinutes": 5,
+  "blocks": [
+    {
+      "type": "intro",
+      "text": "May limang patinig sa Filipino.",
+      "translation": "There are five vowels in Filipino."
+    },
+    {
+      "type": "letter-grid",
+      "letters": [
+        { "char": "A", "sound": "ah", "example": "ama", "exampleMeaning": "father" },
+        { "char": "E", "sound": "eh", "example": "edad", "exampleMeaning": "age" },
+        { "char": "I", "sound": "ee", "example": "ilaw", "exampleMeaning": "light" },
+        { "char": "O", "sound": "oh", "example": "oras", "exampleMeaning": "time/hour" },
+        { "char": "U", "sound": "oo", "example": "ulap", "exampleMeaning": "cloud" }
+      ]
+    },
+    {
+      "type": "read-aloud",
+      "instruction": "Basahin nang malakas:",
+      "instructionTranslation": "Read aloud:",
+      "words": ["ama", "ate", "ina", "ubo", "ulo"]
+    },
+    {
+      "type": "practice",
+      "instruction": "I-tap ang bawat salita para marinig:",
+      "instructionTranslation": "Tap each word to hear it:",
+      "words": [
+        { "word": "ama", "meaning": "father" },
+        { "word": "ina", "meaning": "mother" },
+        { "word": "ate", "meaning": "older sister" },
+        { "word": "kuya", "meaning": "older brother" },
+        { "word": "ulo", "meaning": "head" },
+        { "word": "ilaw", "meaning": "light" }
+      ]
+    }
+  ]
+}

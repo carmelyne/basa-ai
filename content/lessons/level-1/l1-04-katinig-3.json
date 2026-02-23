@@ -1,0 +1,44 @@
+{
+  "id": "l1-04",
+  "level": 1,
+  "order": 4,
+  "title": "Mga Katinig: P, R, S, T",
+  "titleTranslation": "Consonants: P, R, S, T",
+  "description": "Matuto ng apat pang katinig",
+  "estimatedMinutes": 5,
+  "blocks": [
+    {
+      "type": "intro",
+      "text": "Halos tapos na tayo sa lahat ng titik!",
+      "translation": "We're almost done with all the letters!"
+    },
+    {
+      "type": "letter-grid",
+      "letters": [
+        { "char": "P", "sound": "pa", "example": "pera", "exampleMeaning": "money" },
+        { "char": "R", "sound": "ra", "example": "relo", "exampleMeaning": "watch/clock" },
+        { "char": "S", "sound": "sa", "example": "sabi", "exampleMeaning": "said/say" },
+        { "char": "T", "sound": "ta", "example": "tayo", "exampleMeaning": "we/let's" }
+      ]
+    },
+    {
+      "type": "read-aloud",
+      "instruction": "Basahin nang malakas:",
+      "instructionTranslation": "Read aloud:",
+      "words": ["pera", "relo", "sabi", "tayo", "puso", "regalo", "salita", "tama"]
+    },
+    {
+      "type": "practice",
+      "instruction": "I-tap ang bawat salita para marinig:",
+      "instructionTranslation": "Tap each word to hear it:",
+      "words": [
+        { "word": "pera", "meaning": "money" },
+        { "word": "puso", "meaning": "heart" },
+        { "word": "sabi", "meaning": "said" },
+        { "word": "tama", "meaning": "correct" },
+        { "word": "relo", "meaning": "watch/clock" },
+        { "word": "tayo", "meaning": "we / let's" }
+      ]
+    }
+  ]
+}

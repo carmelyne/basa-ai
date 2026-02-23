@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 43 100% 97%;      /* cream #fef9f0 */
+    --foreground: 0 0% 10%;         /* charcoal #1a1a1a */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+    --primary: 162 38% 30%;         /* forest-700 */
+    --primary-foreground: 43 100% 97%;
+    --secondary: 33 85% 75%;        /* earth-300 */
+    --secondary-foreground: 0 0% 10%;
+    --muted: 33 50% 93%;
+    --muted-foreground: 0 0% 40%;
+    --accent: 162 38% 43%;          /* forest-600 */
+    --accent-foreground: 43 100% 97%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 33 30% 88%;
+    --input: 33 30% 88%;
+    --ring: 162 38% 30%;
+    --radius: 0.75rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-cream text-charcoal antialiased;
+    font-size: 1.125rem; /* 18px — minimum for adult literacy learners */
+    line-height: 1.75;
+  }
+
+  /* Touch targets — minimum 48px for mobile accessibility */
+  button, a, [role="button"] {
+    min-height: 48px;
+    min-width: 48px;
+  }
+
+  /* Focus styles — clear and visible */
+  :focus-visible {
+    @apply outline-none ring-2 ring-forest-600 ring-offset-2;
+  }
+}
+
+@layer utilities {
+  /* Word highlight animation for TTS */
+  .word-highlight {
+    @apply bg-earth-200 rounded px-0.5 transition-colors duration-150;
+  }
+
+  /* Tap-to-hear pulse */
+  .tap-pulse {
+    position: relative;
+  }
+  .tap-pulse::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: inherit;
+    border: 2px solid theme('colors.forest.500');
+    animation: pulse-ring 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}

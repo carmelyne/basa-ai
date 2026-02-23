@@ -1,0 +1,44 @@
+{
+  "id": "l1-02",
+  "level": 1,
+  "order": 2,
+  "title": "Mga Katinig: B, K, D, G",
+  "titleTranslation": "Consonants: B, K, D, G",
+  "description": "Matuto ng unang apat na katinig",
+  "estimatedMinutes": 5,
+  "blocks": [
+    {
+      "type": "intro",
+      "text": "Ngayon, matututunan natin ang mga katinig.",
+      "translation": "Now, we will learn the consonants."
+    },
+    {
+      "type": "letter-grid",
+      "letters": [
+        { "char": "B", "sound": "ba", "example": "baba", "exampleMeaning": "chin/jaw" },
+        { "char": "K", "sound": "ka", "example": "kain", "exampleMeaning": "eat" },
+        { "char": "D", "sound": "da", "example": "daan", "exampleMeaning": "road/way" },
+        { "char": "G", "sound": "ga", "example": "gabi", "exampleMeaning": "night/taro" }
+      ]
+    },
+    {
+      "type": "read-aloud",
+      "instruction": "Basahin nang malakas:",
+      "instructionTranslation": "Read aloud:",
+      "words": ["ba", "ka", "da", "ga", "bata", "kain", "daan", "gabi"]
+    },
+    {
+      "type": "practice",
+      "instruction": "I-tap ang bawat salita para marinig:",
+      "instructionTranslation": "Tap each word to hear it:",
+      "words": [
+        { "word": "bata", "meaning": "child" },
+        { "word": "kain", "meaning": "eat" },
+        { "word": "daan", "meaning": "road" },
+        { "word": "gabi", "meaning": "night" },
+        { "word": "bago", "meaning": "new" },
+        { "word": "dito", "meaning": "here" }
+      ]
+    }
+  ]
+}

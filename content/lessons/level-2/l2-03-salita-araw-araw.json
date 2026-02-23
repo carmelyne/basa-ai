@@ -1,0 +1,44 @@
+{
+  "id": "l2-03",
+  "level": 2,
+  "order": 3,
+  "title": "Mga Salitang Araw-Araw",
+  "titleTranslation": "Everyday Words",
+  "description": "Matuto ng mga salitang madalas gamitin",
+  "estimatedMinutes": 8,
+  "blocks": [
+    {
+      "type": "intro",
+      "text": "Narito ang mga salitang gagamitin mo sa araw-araw.",
+      "translation": "Here are words you'll use every day."
+    },
+    {
+      "type": "word-list",
+      "words": [
+        { "word": "tubig", "meaning": "water", "category": "pangunahing pangangailangan" },
+        { "word": "kanin", "meaning": "rice (cooked)", "category": "pagkain" },
+        { "word": "kape", "meaning": "coffee", "category": "pagkain" },
+        { "word": "bahay", "meaning": "house", "category": "lugar" },
+        { "word": "trabaho", "meaning": "work / job", "category": "buhay" },
+        { "word": "pamilya", "meaning": "family", "category": "tao" },
+        { "word": "gutom", "meaning": "hungry", "category": "damdamin" },
+        { "word": "pagod", "meaning": "tired", "category": "damdamin" }
+      ]
+    },
+    {
+      "type": "practice",
+      "instruction": "I-tap ang bawat salita para marinig:",
+      "instructionTranslation": "Tap each word to hear it:",
+      "words": [
+        { "word": "tubig", "meaning": "water" },
+        { "word": "kanin", "meaning": "rice" },
+        { "word": "kape", "meaning": "coffee" },
+        { "word": "bahay", "meaning": "house" },
+        { "word": "trabaho", "meaning": "work" },
+        { "word": "pamilya", "meaning": "family" },
+        { "word": "gutom", "meaning": "hungry" },
+        { "word": "pagod", "meaning": "tired" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "id": "l2-01",
+  "level": 2,
+  "order": 1,
+  "title": "Mga Pantig: BA BE BI BO BU",
+  "titleTranslation": "Syllables: BA BE BI BO BU",
+  "description": "Pag-aralan ang mga pantig na nagsisimula sa B",
+  "estimatedMinutes": 7,
+  "blocks": [
+    {
+      "type": "intro",
+      "text": "Ngayon, pagsamahin natin ang mga titik para gumawa ng pantig.",
+      "translation": "Now, let's combine letters to make syllables."
+    },
+    {
+      "type": "syllable-grid",
+      "syllables": [
+        { "syllable": "BA", "example": "bata", "exampleMeaning": "child" },
+        { "syllable": "BE", "example": "belo", "exampleMeaning": "veil" },
+        { "syllable": "BI", "example": "biro", "exampleMeaning": "joke" },
+        { "syllable": "BO", "example": "bola", "exampleMeaning": "ball" },
+        { "syllable": "BU", "example": "bukas", "exampleMeaning": "tomorrow / open" }
+      ]
+    },
+    {
+      "type": "read-aloud",
+      "instruction": "Basahin nang malakas:",
+      "instructionTranslation": "Read aloud:",
+      "words": ["bata", "biro", "bola", "bukas", "buhay", "bahay"]
+    },
+    {
+      "type": "practice",
+      "instruction": "I-tap ang bawat salita para marinig:",
+      "instructionTranslation": "Tap each word to hear it:",
+      "words": [
+        { "word": "bahay", "meaning": "house" },
+        { "word": "buhay", "meaning": "life / alive" },
+        { "word": "bata", "meaning": "child" },
+        { "word": "bola", "meaning": "ball" },
+        { "word": "bukas", "meaning": "tomorrow / open" },
+        { "word": "biro", "meaning": "joke" }
+      ]
+    }
+  ]
+}

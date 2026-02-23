@@ -1,0 +1,44 @@
+{
+  "id": "l1-03",
+  "level": 1,
+  "order": 3,
+  "title": "Mga Katinig: H, L, M, N",
+  "titleTranslation": "Consonants: H, L, M, N",
+  "description": "Matuto ng apat pang katinig",
+  "estimatedMinutes": 5,
+  "blocks": [
+    {
+      "type": "intro",
+      "text": "Magaling! Patuloy tayo sa mga bagong titik.",
+      "translation": "Great! Let's continue with new letters."
+    },
+    {
+      "type": "letter-grid",
+      "letters": [
+        { "char": "H", "sound": "ha", "example": "halo", "exampleMeaning": "mix" },
+        { "char": "L", "sound": "la", "example": "laba", "exampleMeaning": "laundry" },
+        { "char": "M", "sound": "ma", "example": "mahal", "exampleMeaning": "love/expensive" },
+        { "char": "N", "sound": "na", "example": "nata", "exampleMeaning": "cream layer" }
+      ]
+    },
+    {
+      "type": "read-aloud",
+      "instruction": "Basahin nang malakas:",
+      "instructionTranslation": "Read aloud:",
+      "words": ["halo", "laba", "mahal", "nana", "hindi", "luto", "mano", "nito"]
+    },
+    {
+      "type": "practice",
+      "instruction": "I-tap ang bawat salita para marinig:",
+      "instructionTranslation": "Tap each word to hear it:",
+      "words": [
+        { "word": "mahal", "meaning": "love / expensive" },
+        { "word": "hindi", "meaning": "no / not" },
+        { "word": "luto", "meaning": "cooked" },
+        { "word": "mano", "meaning": "hand" },
+        { "word": "nana", "meaning": "grandmother (informal)" },
+        { "word": "halo", "meaning": "mix" }
+      ]
+    }
+  ]
+}

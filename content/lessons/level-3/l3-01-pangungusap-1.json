@@ -1,0 +1,57 @@
+{
+  "id": "l3-01",
+  "level": 3,
+  "order": 1,
+  "title": "Mga Simpleng Pangungusap",
+  "titleTranslation": "Simple Sentences",
+  "description": "Basahin ang mga pangungusap na ginagamit sa buhay",
+  "estimatedMinutes": 10,
+  "blocks": [
+    {
+      "type": "intro",
+      "text": "Handa ka na! Basahin natin ang mga buong pangungusap.",
+      "translation": "You're ready! Let's read complete sentences."
+    },
+    {
+      "type": "sentences",
+      "sentences": [
+        {
+          "text": "Kumain na tayo.",
+          "translation": "Let's eat now.",
+          "context": "Sinasabi ito bago mag-almusal, tanghalian, o hapunan."
+        },
+        {
+          "text": "Mahal kita.",
+          "translation": "I love you.",
+          "context": "Para sa mga taong mahal mo."
+        },
+        {
+          "text": "Salamat sa iyo.",
+          "translation": "Thank you.",
+          "context": "Gamitin ito upang magpasalamat."
+        },
+        {
+          "text": "Saan ka pupunta?",
+          "translation": "Where are you going?",
+          "context": "Tanong sa isang tao."
+        },
+        {
+          "text": "Gutom na ako.",
+          "translation": "I'm hungry already.",
+          "context": "Para sabihin na gutom ka na."
+        }
+      ]
+    },
+    {
+      "type": "practice",
+      "instruction": "I-tap ang pangungusap para marinig:",
+      "instructionTranslation": "Tap the sentence to hear it:",
+      "words": [
+        { "word": "Kumain na tayo.", "meaning": "Let's eat now." },
+        { "word": "Mahal kita.", "meaning": "I love you." },
+        { "word": "Salamat sa iyo.", "meaning": "Thank you." },
+        { "word": "Gutom na ako.", "meaning": "I'm hungry already." }
+      ]
+    }
+  ]
+}

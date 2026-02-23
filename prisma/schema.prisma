@@ -1,0 +1,56 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Supabase auth user ID (nullable for anonymous users)
+  supabaseId String? @unique
+
+  // User's display name (optional, privacy-respecting)
+  name  String?
+  phone String? @unique
+
+  // Current level (1 = letters, 2 = syllables, 3 = words, 4 = sentences)
+  currentLevel Int @default(1)
+
+  progress LessonProgress[]
+
+  @@map("users")
+}
+
+model LessonProgress {
+  id          String   @id @default(cuid())
+  createdAt   DateTime @default(now())
+  completedAt DateTime?
+
+  userId   String
+  user     User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  lessonId String   // matches content file id (e.g., "l1-01")
+  level    Int      // 1, 2, or 3
+  status   LessonStatus @default(IN_PROGRESS)
+
+  // How many times they've attempted this lesson
+  attempts Int @default(1)
+
+  @@unique([userId, lessonId])
+  @@map("lesson_progress")
+}
+
+enum LessonStatus {
+  IN_PROGRESS
+  COMPLETED
+}

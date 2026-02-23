@@ -1,0 +1,45 @@
+{
+  "id": "l2-02",
+  "level": 2,
+  "order": 2,
+  "title": "Mga Pantig: MA ME MI MO MU",
+  "titleTranslation": "Syllables: MA ME MI MO MU",
+  "description": "Pag-aralan ang mga pantig na nagsisimula sa M",
+  "estimatedMinutes": 7,
+  "blocks": [
+    {
+      "type": "intro",
+      "text": "Handa ka na ba? Isa pang grupo ng mga pantig!",
+      "translation": "Are you ready? Another group of syllables!"
+    },
+    {
+      "type": "syllable-grid",
+      "syllables": [
+        { "syllable": "MA", "example": "mahal", "exampleMeaning": "love / expensive" },
+        { "syllable": "ME", "example": "mesa", "exampleMeaning": "table" },
+        { "syllable": "MI", "example": "misa", "exampleMeaning": "mass (church)" },
+        { "syllable": "MO", "example": "moda", "exampleMeaning": "fashion" },
+        { "syllable": "MU", "example": "mura", "exampleMeaning": "cheap / scold" }
+      ]
+    },
+    {
+      "type": "read-aloud",
+      "instruction": "Basahin nang malakas:",
+      "instructionTranslation": "Read aloud:",
+      "words": ["mahal", "mesa", "misa", "mura", "mundo", "maganda"]
+    },
+    {
+      "type": "practice",
+      "instruction": "I-tap ang bawat salita para marinig:",
+      "instructionTranslation": "Tap each word to hear it:",
+      "words": [
+        { "word": "mahal", "meaning": "love / expensive" },
+        { "word": "maganda", "meaning": "beautiful" },
+        { "word": "mura", "meaning": "cheap" },
+        { "word": "mundo", "meaning": "world" },
+        { "word": "mesa", "meaning": "table" },
+        { "word": "misa", "meaning": "church mass" }
+      ]
+    }
+  ]
+}

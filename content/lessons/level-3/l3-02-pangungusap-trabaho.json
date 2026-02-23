@@ -1,0 +1,57 @@
+{
+  "id": "l3-02",
+  "level": 3,
+  "order": 2,
+  "title": "Mga Salita sa Trabaho",
+  "titleTranslation": "Words at Work",
+  "description": "Matuto ng mga salitang ginagamit sa trabaho",
+  "estimatedMinutes": 10,
+  "blocks": [
+    {
+      "type": "intro",
+      "text": "Mahalaga ang marunong magbasa para sa trabaho.",
+      "translation": "Knowing how to read is important for work."
+    },
+    {
+      "type": "sentences",
+      "sentences": [
+        {
+          "text": "Anong oras tayo magsisimula?",
+          "translation": "What time do we start?",
+          "context": "Tanong sa trabaho."
+        },
+        {
+          "text": "Nandito na ako.",
+          "translation": "I'm here already.",
+          "context": "Para sabihin na nakarating ka na."
+        },
+        {
+          "text": "Kailangan ko ng tulong.",
+          "translation": "I need help.",
+          "context": "Huwag mahiyang humingi ng tulong."
+        },
+        {
+          "text": "Ayos lang ito.",
+          "translation": "This is fine / Okay.",
+          "context": "Para sabihin na maayos ang isang bagay."
+        },
+        {
+          "text": "Tapos na.",
+          "translation": "Done / Finished.",
+          "context": "Para sabihin na natapos ka na."
+        }
+      ]
+    },
+    {
+      "type": "practice",
+      "instruction": "I-tap ang pangungusap para marinig:",
+      "instructionTranslation": "Tap the sentence to hear it:",
+      "words": [
+        { "word": "Nandito na ako.", "meaning": "I'm here already." },
+        { "word": "Kailangan ko ng tulong.", "meaning": "I need help." },
+        { "word": "Tapos na.", "meaning": "Done / Finished." },
+        { "word": "Ayos lang ito.", "meaning": "This is fine." }
+      ]
+    }
+  ]
+}
