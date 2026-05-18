@@ -8,6 +8,7 @@ import { colors, spacing } from "../ui/theme";
 type ProgressSummaryScreenProps = {
   completedWords: number;
   correctAnswers: number;
+  lessonTitle: string;
   totalWords: number;
   onBackToLesson: () => void;
   onHome: () => void;
@@ -17,6 +18,7 @@ type ProgressSummaryScreenProps = {
 export function ProgressSummaryScreen({
   completedWords,
   correctAnswers,
+  lessonTitle,
   totalWords,
   onBackToLesson,
   onHome,
@@ -30,7 +32,7 @@ export function ProgressSummaryScreen({
         <Text style={styles.kicker}>Progress saved on this phone</Text>
         <Text style={styles.title}>Ang galing mo.</Text>
         <Text style={styles.subtitle}>
-          Natapos mo ang unang ikot ng Pagbebenta.
+          Natapos mo ang unang ikot ng {lessonTitle}.
         </Text>
       </View>
 

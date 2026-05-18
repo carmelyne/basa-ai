@@ -11,6 +11,7 @@ import { colors, spacing } from "../ui/theme";
 
 type WordPracticeScreenProps = {
   lessonWord: LessonWord;
+  scenarioTitle: string;
   wordIndex: number;
   totalWords: number;
   onBack: () => void;
@@ -20,6 +21,7 @@ type WordPracticeScreenProps = {
 
 export function WordPracticeScreen({
   lessonWord,
+  scenarioTitle,
   wordIndex,
   totalWords,
   onBack,
@@ -33,7 +35,7 @@ export function WordPracticeScreen({
   return (
     <ScreenScrollView>
       <LessonNavBar
-        label={`Salita ${wordIndex + 1} sa ${totalWords}`}
+        label={scenarioTitle}
         onBack={onBack}
         onHome={onHome}
       />

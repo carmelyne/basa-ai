@@ -3,8 +3,13 @@ import { useEffect, useState } from "react";
 import { StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-import { sellingScenario } from "./src/learning/lesson-data";
+import {
+  defaultScenario,
+  scenarioLessons,
+  type ScenarioLesson,
+} from "./src/learning/lesson-data";
 import { MissingLetterPracticeScreen } from "./src/learning/MissingLetterPracticeScreen";
+import { ScenarioPickerScreen } from "./src/learning/ScenarioPickerScreen";
 import { ScenarioPlaceholderScreen } from "./src/learning/ScenarioPlaceholderScreen";
 import { StartScreen } from "./src/learning/StartScreen";
 import { WordPracticeScreen } from "./src/learning/WordPracticeScreen";
@@ -17,18 +22,26 @@ import {
 } from "./src/progress/progress-storage";
 import { colors } from "./src/ui/theme";
 
-type AppRoute = "start" | "scenario" | "word" | "practice" | "summary";
+type AppRoute = "start" | "picker" | "scenario" | "word" | "practice" | "summary";
 
 export default function App() {
   const [routeStack, setRouteStack] = useState<AppRoute[]>(["start"]);
+  const [selectedScenario, setSelectedScenario] =
+    useState<ScenarioLesson>(defaultScenario);
   const [wordIndex, setWordIndex] = useState(0);
   const [completedWordIds, setCompletedWordIds] = useState<string[]>([]);
   const [correctAnswerIds, setCorrectAnswerIds] = useState<string[]>([]);
   const [progressLoaded, setProgressLoaded] = useState(false);
   const route = routeStack[routeStack.length - 1];
-  const lessonWords = sellingScenario.words;
+  const lessonWords = selectedScenario.words;
   const currentWord = lessonWords[wordIndex] ?? lessonWords[0];
   const isLastWord = wordIndex === lessonWords.length - 1;
+  const selectedScenarioCompletedIds = selectedScenario.words
+    .map((word) => word.id)
+    .filter((wordId) => completedWordIds.includes(wordId));
+  const selectedScenarioCorrectIds = selectedScenario.words
+    .map((word) => word.id)
+    .filter((wordId) => correctAnswerIds.includes(wordId));
 
   useEffect(() => {
     let isMounted = true;
@@ -100,10 +113,16 @@ export default function App() {
     }
 
     setWordIndex(nextWordIndex);
-    navigate("scenario");
+    navigate("picker");
   }
 
   function startLesson() {
+    setWordIndex(0);
+    navigate("picker");
+  }
+
+  function openScenario(lesson: ScenarioLesson) {
+    setSelectedScenario(lesson);
     setWordIndex(0);
     navigate("scenario");
   }
@@ -144,7 +163,8 @@ export default function App() {
       <StatusBar style="dark" />
       {route === "start" ? (
         <StartScreen
-          completedWords={completedWordIds.length}
+          completedWords={selectedScenarioCompletedIds.length}
+          nextLessonTitle={selectedScenario.shortTitle}
           onContinue={continueLesson}
           onStart={startLesson}
           totalWords={lessonWords.length}
@@ -153,14 +173,24 @@ export default function App() {
         <>
           {route === "scenario" ? (
             <ScenarioPlaceholderScreen
+              lesson={selectedScenario}
               onBack={goBack}
               onHome={goHome}
               onStart={() => navigate("word")}
             />
           ) : null}
+          {route === "picker" ? (
+            <ScenarioPickerScreen
+              lessons={scenarioLessons}
+              onBack={goBack}
+              onHome={goHome}
+              onSelect={openScenario}
+            />
+          ) : null}
           {route === "word" ? (
             <WordPracticeScreen
               lessonWord={currentWord}
+              scenarioTitle={selectedScenario.shortTitle}
               wordIndex={wordIndex}
               totalWords={lessonWords.length}
               onBack={goBack}
@@ -180,8 +210,9 @@ export default function App() {
           ) : null}
           {route === "summary" ? (
             <ProgressSummaryScreen
-              completedWords={completedWordIds.length}
-              correctAnswers={correctAnswerIds.length}
+              completedWords={selectedScenarioCompletedIds.length}
+              correctAnswers={selectedScenarioCorrectIds.length}
+              lessonTitle={selectedScenario.shortTitle}
               totalWords={lessonWords.length}
               onBackToLesson={() => resetTo("scenario")}
               onHome={goHome}

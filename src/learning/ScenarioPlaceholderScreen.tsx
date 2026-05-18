@@ -1,36 +1,43 @@
 import { StyleSheet, Text, View } from "react-native";
 
+import type { ScenarioLesson } from "./lesson-data";
 import { AppButton } from "../ui/AppButton";
 import { LessonNavBar } from "../ui/LessonNavBar";
 import { ScreenScrollView } from "../ui/ScreenScrollView";
 import { colors, spacing } from "../ui/theme";
 
 type ScenarioPlaceholderScreenProps = {
+  lesson: ScenarioLesson;
   onBack: () => void;
   onHome: () => void;
   onStart: () => void;
 };
 
 export function ScenarioPlaceholderScreen({
+  lesson,
   onBack,
   onHome,
   onStart,
 }: ScenarioPlaceholderScreenProps) {
+  const firstWord = lesson.words[0];
+
   return (
     <ScreenScrollView>
-      <LessonNavBar label="Pagbebenta" onBack={onBack} onHome={onHome} />
+      <LessonNavBar label={lesson.shortTitle} onBack={onBack} onHome={onHome} />
 
       <View style={styles.header}>
-        <Text style={styles.title}>Pagbebenta</Text>
-        <Text style={styles.subtitle}>Mga salitang gamit sa tindahan.</Text>
+        <Text style={styles.title}>{lesson.title}</Text>
+        <Text style={styles.subtitle}>{lesson.description}</Text>
       </View>
 
       <View style={styles.visualCard}>
-        <Text style={styles.visualIcon}>Presyo</Text>
+        <Text style={styles.visualIcon}>{firstWord.imageLabel}</Text>
         <View style={styles.wordRow}>
-          <Text style={styles.wordChip}>presyo</Text>
-          <Text style={styles.wordChip}>sukli</Text>
-          <Text style={styles.wordChip}>bayad</Text>
+          {lesson.seedWords.map((word) => (
+            <Text key={word} style={styles.wordChip}>
+              {word}
+            </Text>
+          ))}
         </View>
       </View>
 

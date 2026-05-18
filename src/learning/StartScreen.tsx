@@ -6,6 +6,7 @@ import { colors, spacing } from "../ui/theme";
 
 type StartScreenProps = {
   completedWords: number;
+  nextLessonTitle: string;
   onContinue: () => void;
   onStart: () => void;
   totalWords: number;
@@ -13,6 +14,7 @@ type StartScreenProps = {
 
 export function StartScreen({
   completedWords,
+  nextLessonTitle,
   onContinue,
   onStart,
   totalWords,
@@ -28,7 +30,7 @@ export function StartScreen({
 
       <View style={styles.card}>
         <Text style={styles.cardLabel}>Susunod na aralin</Text>
-        <Text style={styles.cardTitle}>Pagbebenta</Text>
+        <Text style={styles.cardTitle}>{nextLessonTitle}</Text>
         <Text style={styles.cardText}>
           {hasProgress
             ? `${completedWords} sa ${totalWords} salita ang naka-save.`
