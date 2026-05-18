@@ -1,9 +1,10 @@
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
 import type { LessonWord } from "./lesson-data";
 import { speakFilipino } from "../tts/speak";
 import { useTtsSupport } from "../tts/useTtsSupport";
 import { AppButton } from "../ui/AppButton";
+import { LessonNavBar } from "../ui/LessonNavBar";
 import { SoundButton } from "../ui/SoundButton";
 import { colors, spacing } from "../ui/theme";
 
@@ -12,6 +13,7 @@ type WordPracticeScreenProps = {
   wordIndex: number;
   totalWords: number;
   onBack: () => void;
+  onHome: () => void;
   onPractice: () => void;
 };
 
@@ -20,6 +22,7 @@ export function WordPracticeScreen({
   wordIndex,
   totalWords,
   onBack,
+  onHome,
   onPractice,
 }: WordPracticeScreenProps) {
   const ttsSupportStatus = useTtsSupport();
@@ -28,10 +31,13 @@ export function WordPracticeScreen({
 
   return (
     <View style={styles.content}>
+      <LessonNavBar
+        label={`Salita ${wordIndex + 1} sa ${totalWords}`}
+        onBack={onBack}
+        onHome={onHome}
+      />
+
       <View style={styles.header}>
-        <Pressable accessibilityRole="button" onPress={onBack}>
-          <Text style={styles.backText}>Pagbebenta</Text>
-        </Pressable>
         <Text style={styles.contextText}>
           Salita {wordIndex + 1} sa {totalWords}
         </Text>
@@ -84,11 +90,6 @@ const styles = StyleSheet.create({
   header: {
     gap: spacing.sm,
     paddingTop: spacing.md,
-  },
-  backText: {
-    color: colors.forestSoft,
-    fontSize: 16,
-    fontWeight: "700",
   },
   contextText: {
     color: colors.muted,

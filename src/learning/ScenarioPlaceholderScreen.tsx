@@ -1,23 +1,25 @@
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
 import { AppButton } from "../ui/AppButton";
+import { LessonNavBar } from "../ui/LessonNavBar";
 import { colors, spacing } from "../ui/theme";
 
 type ScenarioPlaceholderScreenProps = {
   onBack: () => void;
+  onHome: () => void;
   onStart: () => void;
 };
 
 export function ScenarioPlaceholderScreen({
   onBack,
+  onHome,
   onStart,
 }: ScenarioPlaceholderScreenProps) {
   return (
     <View style={styles.content}>
+      <LessonNavBar label="Pagbebenta" onBack={onBack} onHome={onHome} />
+
       <View style={styles.header}>
-        <Pressable accessibilityRole="button" onPress={onBack}>
-          <Text style={styles.backText}>Pumili ng iba</Text>
-        </Pressable>
         <Text style={styles.title}>Pagbebenta</Text>
         <Text style={styles.subtitle}>Mga salitang gamit sa tindahan.</Text>
       </View>
@@ -54,11 +56,6 @@ const styles = StyleSheet.create({
   header: {
     gap: spacing.sm,
     paddingTop: spacing.md,
-  },
-  backText: {
-    color: colors.forestSoft,
-    fontSize: 16,
-    fontWeight: "700",
   },
   title: {
     color: colors.forest,

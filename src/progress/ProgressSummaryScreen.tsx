@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View } from "react-native";
 
 import { AppButton } from "../ui/AppButton";
+import { LessonNavBar } from "../ui/LessonNavBar";
 import { colors, spacing } from "../ui/theme";
 
 type ProgressSummaryScreenProps = {
@@ -8,6 +9,7 @@ type ProgressSummaryScreenProps = {
   correctAnswers: number;
   totalWords: number;
   onBackToLesson: () => void;
+  onHome: () => void;
   onRestart: () => void;
 };
 
@@ -16,10 +18,13 @@ export function ProgressSummaryScreen({
   correctAnswers,
   totalWords,
   onBackToLesson,
+  onHome,
   onRestart,
 }: ProgressSummaryScreenProps) {
   return (
     <View style={styles.content}>
+      <LessonNavBar label="Progress" onBack={onBackToLesson} onHome={onHome} />
+
       <View style={styles.header}>
         <Text style={styles.kicker}>Progress saved on this phone</Text>
         <Text style={styles.title}>Ang galing mo.</Text>

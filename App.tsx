@@ -84,6 +84,10 @@ export default function App() {
     setRouteStack([nextRoute]);
   }
 
+  function goHome() {
+    resetTo("start");
+  }
+
   function continueLesson() {
     const nextWordIndex = lessonWords.findIndex(
       (word) => !completedWordIds.includes(word.id)
@@ -149,6 +153,7 @@ export default function App() {
           {route === "scenario" ? (
             <ScenarioPlaceholderScreen
               onBack={goBack}
+              onHome={goHome}
               onStart={() => navigate("word")}
             />
           ) : null}
@@ -158,6 +163,7 @@ export default function App() {
               wordIndex={wordIndex}
               totalWords={lessonWords.length}
               onBack={goBack}
+              onHome={goHome}
               onPractice={() => navigate("practice")}
             />
           ) : null}
@@ -167,6 +173,7 @@ export default function App() {
               isLastWord={isLastWord}
               onBack={goBack}
               onCorrect={() => markWordComplete(true)}
+              onHome={goHome}
               onSkip={() => markWordComplete(false)}
             />
           ) : null}
@@ -176,6 +183,7 @@ export default function App() {
               correctAnswers={correctAnswerIds.length}
               totalWords={lessonWords.length}
               onBackToLesson={() => resetTo("scenario")}
+              onHome={goHome}
               onRestart={restartLesson}
             />
           ) : null}

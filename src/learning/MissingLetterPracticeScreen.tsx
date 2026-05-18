@@ -6,6 +6,7 @@ import { KuyaHintCard } from "../kuya-ai/KuyaHintCard";
 import { speakFilipino } from "../tts/speak";
 import { useTtsSupport } from "../tts/useTtsSupport";
 import { AppButton } from "../ui/AppButton";
+import { LessonNavBar } from "../ui/LessonNavBar";
 import { SoundButton } from "../ui/SoundButton";
 import { colors, spacing } from "../ui/theme";
 
@@ -14,6 +15,7 @@ type MissingLetterPracticeScreenProps = {
   isLastWord: boolean;
   onBack: () => void;
   onCorrect: () => void;
+  onHome: () => void;
   onSkip: () => void;
 };
 
@@ -22,6 +24,7 @@ export function MissingLetterPracticeScreen({
   isLastWord,
   onBack,
   onCorrect,
+  onHome,
   onSkip,
 }: MissingLetterPracticeScreenProps) {
   const [selectedLetter, setSelectedLetter] = useState<string | null>(null);
@@ -48,10 +51,9 @@ export function MissingLetterPracticeScreen({
 
   return (
     <View style={styles.content}>
+      <LessonNavBar label="Subukan ko" onBack={onBack} onHome={onHome} />
+
       <View style={styles.header}>
-        <Pressable accessibilityRole="button" onPress={onBack}>
-          <Text style={styles.backText}>Bumalik sa salita</Text>
-        </Pressable>
         <Text style={styles.prompt}>Anong nawawalang letra?</Text>
         <Text style={styles.helper}>Pakinggan muna, tapos subukan.</Text>
       </View>
@@ -148,11 +150,6 @@ const styles = StyleSheet.create({
   header: {
     gap: spacing.sm,
     paddingTop: spacing.md,
-  },
-  backText: {
-    color: colors.forestSoft,
-    fontSize: 16,
-    fontWeight: "700",
   },
   prompt: {
     color: colors.forest,
