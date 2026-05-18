@@ -5,10 +5,12 @@ import { colors, spacing } from "../ui/theme";
 
 type ScenarioPlaceholderScreenProps = {
   onBack: () => void;
+  onStart: () => void;
 };
 
 export function ScenarioPlaceholderScreen({
   onBack,
+  onStart,
 }: ScenarioPlaceholderScreenProps) {
   return (
     <View style={styles.content}>
@@ -35,7 +37,7 @@ export function ScenarioPlaceholderScreen({
       </View>
 
       <View style={styles.footer}>
-        <AppButton label="Simulan" onPress={() => undefined} />
+        <AppButton label="Simulan" onPress={onStart} />
       </View>
     </View>
   );
