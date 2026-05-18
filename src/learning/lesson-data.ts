@@ -4,6 +4,8 @@ export type LessonWord = {
   imageLabel: string;
   imageCaption: string;
   sentence: string;
+  phoneticHint: string;
+  phoneticSound: string;
   missingLetterPrompt: string;
   missingLetterAnswer: string;
   missingLetterOptions: string[];
@@ -31,6 +33,8 @@ export const sellingScenario: ScenarioLesson = {
       imageLabel: "Presyo",
       imageCaption: "Halaga ng bibilhin",
       sentence: "Presyo ng bigas.",
+      phoneticHint: "Hanapin ang tunog na /eh/ sa presyo.",
+      phoneticSound: "eh",
       missingLetterPrompt: "pr_syo",
       missingLetterAnswer: "e",
       missingLetterOptions: ["e", "a", "i"],
@@ -41,6 +45,8 @@ export const sellingScenario: ScenarioLesson = {
       imageLabel: "Sukli",
       imageCaption: "Baryang ibinabalik",
       sentence: "May sukli si ate.",
+      phoneticHint: "Hanapin ang tunog na /oo/ sa sukli.",
+      phoneticSound: "oo",
       missingLetterPrompt: "s_kli",
       missingLetterAnswer: "u",
       missingLetterOptions: ["o", "u", "a"],
@@ -51,6 +57,8 @@ export const sellingScenario: ScenarioLesson = {
       imageLabel: "Bayad",
       imageCaption: "Pera para sa binili",
       sentence: "Inabot ni kuya ang bayad.",
+      phoneticHint: "Hanapin ang tunog na /yuh/ sa bayad.",
+      phoneticSound: "yuh",
       missingLetterPrompt: "ba_ad",
       missingLetterAnswer: "y",
       missingLetterOptions: ["y", "w", "r"],

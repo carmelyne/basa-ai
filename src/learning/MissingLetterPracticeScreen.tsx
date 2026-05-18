@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 
 import type { LessonWord } from "./lesson-data";
+import { KuyaHintCard } from "../kuya-ai/KuyaHintCard";
 import { speakFilipino } from "../tts/speak";
 import { useTtsSupport } from "../tts/useTtsSupport";
 import { AppButton } from "../ui/AppButton";
@@ -25,6 +26,7 @@ export function MissingLetterPracticeScreen({
 }: MissingLetterPracticeScreenProps) {
   const [selectedLetter, setSelectedLetter] = useState<string | null>(null);
   const [feedback, setFeedback] = useState<string | null>(null);
+  const [showHint, setShowHint] = useState(false);
   const ttsSupportStatus = useTtsSupport();
   const showVoiceNote =
     ttsSupportStatus === "missing" || ttsSupportStatus === "unknown";
@@ -98,6 +100,12 @@ export function MissingLetterPracticeScreen({
         </View>
 
         {feedback ? <Text style={styles.feedback}>{feedback}</Text> : null}
+        {showHint ? (
+          <KuyaHintCard
+            hint={lessonWord.phoneticHint}
+            sound={lessonWord.phoneticSound}
+          />
+        ) : null}
       </View>
 
       {showVoiceNote ? (
@@ -113,7 +121,14 @@ export function MissingLetterPracticeScreen({
           onPress={onSkip}
           variant="secondary"
         />
-        <Text style={styles.hintText}>Hint mula kay Kuya AI</Text>
+        <Pressable
+          accessibilityRole="button"
+          onPress={() => setShowHint((currentValue) => !currentValue)}
+        >
+          <Text style={styles.hintText}>
+            {showHint ? "Itago ang hint" : "Hint mula kay Kuya AI"}
+          </Text>
+        </Pressable>
       </View>
     </View>
   );
