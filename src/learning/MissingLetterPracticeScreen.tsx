@@ -7,6 +7,7 @@ import { speakFilipino } from "../tts/speak";
 import { useTtsSupport } from "../tts/useTtsSupport";
 import { AppButton } from "../ui/AppButton";
 import { LessonNavBar } from "../ui/LessonNavBar";
+import { ScreenScrollView } from "../ui/ScreenScrollView";
 import { SoundButton } from "../ui/SoundButton";
 import { colors, spacing } from "../ui/theme";
 
@@ -50,7 +51,7 @@ export function MissingLetterPracticeScreen({
   }
 
   return (
-    <View style={styles.content}>
+    <ScreenScrollView>
       <LessonNavBar label="Subukan ko" onBack={onBack} onHome={onHome} />
 
       <View style={styles.header}>
@@ -135,18 +136,11 @@ export function MissingLetterPracticeScreen({
           variant="secondary"
         />
       </View>
-    </View>
+    </ScreenScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  content: {
-    flex: 1,
-    gap: spacing.lg,
-    justifyContent: "space-between",
-    paddingHorizontal: spacing.lg,
-    paddingVertical: spacing.xl,
-  },
   header: {
     gap: spacing.sm,
     paddingTop: spacing.md,

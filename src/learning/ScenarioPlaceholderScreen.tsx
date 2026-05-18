@@ -2,6 +2,7 @@ import { StyleSheet, Text, View } from "react-native";
 
 import { AppButton } from "../ui/AppButton";
 import { LessonNavBar } from "../ui/LessonNavBar";
+import { ScreenScrollView } from "../ui/ScreenScrollView";
 import { colors, spacing } from "../ui/theme";
 
 type ScenarioPlaceholderScreenProps = {
@@ -16,7 +17,7 @@ export function ScenarioPlaceholderScreen({
   onStart,
 }: ScenarioPlaceholderScreenProps) {
   return (
-    <View style={styles.content}>
+    <ScreenScrollView>
       <LessonNavBar label="Pagbebenta" onBack={onBack} onHome={onHome} />
 
       <View style={styles.header}>
@@ -41,18 +42,11 @@ export function ScenarioPlaceholderScreen({
       <View style={styles.footer}>
         <AppButton label="Simulan" onPress={onStart} />
       </View>
-    </View>
+    </ScreenScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  content: {
-    flex: 1,
-    gap: spacing.lg,
-    justifyContent: "space-between",
-    paddingHorizontal: spacing.lg,
-    paddingVertical: spacing.xl,
-  },
   header: {
     gap: spacing.sm,
     paddingTop: spacing.md,

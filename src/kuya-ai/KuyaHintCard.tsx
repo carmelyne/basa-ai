@@ -12,7 +12,7 @@ type KuyaHintCardProps = {
 
 export function KuyaHintCard({ hint, sound }: KuyaHintCardProps) {
   useEffect(() => {
-    speakFilipino("Hey", { rate: 0.75 });
+    speakFilipino("Hey, nandito si Kuya AI.", { rate: 0.75 });
   }, []);
 
   return (

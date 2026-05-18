@@ -5,6 +5,7 @@ import { speakFilipino } from "../tts/speak";
 import { useTtsSupport } from "../tts/useTtsSupport";
 import { AppButton } from "../ui/AppButton";
 import { LessonNavBar } from "../ui/LessonNavBar";
+import { ScreenScrollView } from "../ui/ScreenScrollView";
 import { SoundButton } from "../ui/SoundButton";
 import { colors, spacing } from "../ui/theme";
 
@@ -30,7 +31,7 @@ export function WordPracticeScreen({
     ttsSupportStatus === "missing" || ttsSupportStatus === "unknown";
 
   return (
-    <View style={styles.content}>
+    <ScreenScrollView>
       <LessonNavBar
         label={`Salita ${wordIndex + 1} sa ${totalWords}`}
         onBack={onBack}
@@ -75,18 +76,11 @@ export function WordPracticeScreen({
       <View style={styles.footer}>
         <AppButton label="Subukan ko" onPress={onPractice} />
       </View>
-    </View>
+    </ScreenScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  content: {
-    flex: 1,
-    gap: spacing.lg,
-    justifyContent: "space-between",
-    paddingHorizontal: spacing.lg,
-    paddingVertical: spacing.xl,
-  },
   header: {
     gap: spacing.sm,
     paddingTop: spacing.md,

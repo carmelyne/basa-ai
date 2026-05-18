@@ -2,6 +2,7 @@ import { StyleSheet, Text, View } from "react-native";
 
 import { AppButton } from "../ui/AppButton";
 import { LessonNavBar } from "../ui/LessonNavBar";
+import { ScreenScrollView } from "../ui/ScreenScrollView";
 import { colors, spacing } from "../ui/theme";
 
 type ProgressSummaryScreenProps = {
@@ -22,7 +23,7 @@ export function ProgressSummaryScreen({
   onRestart,
 }: ProgressSummaryScreenProps) {
   return (
-    <View style={styles.content}>
+    <ScreenScrollView>
       <LessonNavBar label="Progress" onBack={onBackToLesson} onHome={onHome} />
 
       <View style={styles.header}>
@@ -59,18 +60,11 @@ export function ProgressSummaryScreen({
           variant="secondary"
         />
       </View>
-    </View>
+    </ScreenScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  content: {
-    flex: 1,
-    gap: spacing.lg,
-    justifyContent: "space-between",
-    paddingHorizontal: spacing.lg,
-    paddingVertical: spacing.xl,
-  },
   header: {
     gap: spacing.sm,
     paddingTop: spacing.md,
