@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
 import { speakFilipino } from "../tts/speak";
@@ -10,6 +11,10 @@ type KuyaHintCardProps = {
 };
 
 export function KuyaHintCard({ hint, sound }: KuyaHintCardProps) {
+  useEffect(() => {
+    speakFilipino("Hey", { rate: 0.75 });
+  }, []);
+
   return (
     <View style={styles.card}>
       <View style={styles.copy}>
