@@ -1,6 +1,7 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
 
 import type { LessonWord } from "./lesson-data";
+import { speakFilipino } from "../tts/speak";
 import { AppButton } from "../ui/AppButton";
 import { SoundButton } from "../ui/SoundButton";
 import { colors, spacing } from "../ui/theme";
@@ -37,7 +38,7 @@ export function WordPracticeScreen({
           <Text style={styles.word}>{lessonWord.word}</Text>
           <SoundButton
             label={`Pakinggan ang salitang ${lessonWord.word}`}
-            onPress={() => undefined}
+            onPress={() => speakFilipino(lessonWord.word, { rate: 0.75 })}
           />
         </View>
 
@@ -45,7 +46,7 @@ export function WordPracticeScreen({
           <Text style={styles.sentence}>{lessonWord.sentence}</Text>
           <SoundButton
             label={`Pakinggan ang pangungusap: ${lessonWord.sentence}`}
-            onPress={() => undefined}
+            onPress={() => speakFilipino(lessonWord.sentence)}
           />
         </View>
       </View>

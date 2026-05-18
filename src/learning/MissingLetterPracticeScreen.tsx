@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 
 import type { LessonWord } from "./lesson-data";
+import { speakFilipino } from "../tts/speak";
 import { AppButton } from "../ui/AppButton";
 import { SoundButton } from "../ui/SoundButton";
 import { colors, spacing } from "../ui/theme";
@@ -53,7 +54,7 @@ export function MissingLetterPracticeScreen({
           <Text style={styles.missingWord}>{lessonWord.missingLetterPrompt}</Text>
           <SoundButton
             label={`Pakinggan ang salitang ${lessonWord.word}`}
-            onPress={() => undefined}
+            onPress={() => speakFilipino(lessonWord.word, { rate: 0.75 })}
           />
         </View>
 
