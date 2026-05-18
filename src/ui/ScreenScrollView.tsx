@@ -22,9 +22,9 @@ export function ScreenScrollView({ children }: ScreenScrollViewProps) {
 const styles = StyleSheet.create({
   content: {
     flexGrow: 1,
-    gap: spacing.lg,
+    gap: spacing.md,
     justifyContent: "space-between",
-    paddingHorizontal: spacing.lg,
-    paddingVertical: spacing.xl,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.lg,
   },
 });

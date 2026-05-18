@@ -55,13 +55,13 @@ const styles = StyleSheet.create({
   navText: {
     color: colors.forestSoft,
     fontSize: 15,
-    fontWeight: "900",
+    fontWeight: "700",
   },
   label: {
     color: colors.muted,
     flex: 1,
     fontSize: 14,
-    fontWeight: "900",
+    fontWeight: "700",
     textAlign: "center",
   },
 });

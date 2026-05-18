@@ -30,6 +30,9 @@ export function MissingLetterPracticeScreen({
 }: MissingLetterPracticeScreenProps) {
   const [selectedLetter, setSelectedLetter] = useState<string | null>(null);
   const [feedback, setFeedback] = useState<string | null>(null);
+  const [answerState, setAnswerState] = useState<"idle" | "correct" | "wrong">(
+    "idle"
+  );
   const [showHint, setShowHint] = useState(false);
   const ttsSupportStatus = useTtsSupport();
   const showVoiceNote =
@@ -38,16 +41,27 @@ export function MissingLetterPracticeScreen({
   function handleSubmit() {
     if (!selectedLetter) {
       setFeedback("Pumili muna ng letra.");
+      setAnswerState("idle");
       return;
     }
 
     if (selectedLetter === lessonWord.missingLetterAnswer) {
-      setFeedback("Kaya mo ito, tuloy lang.");
-      setTimeout(onCorrect, 700);
+      setAnswerState("correct");
+      setFeedback("Tama!");
+      speakFilipino("Tama!", { rate: 0.8 });
+      setTimeout(onCorrect, 1300);
       return;
     }
 
+    setAnswerState("wrong");
     setFeedback("Malapit ka na! Subukan nating muli.");
+    speakFilipino("Subukan muli.", { rate: 0.8 });
+  }
+
+  function handleSelectLetter(letter: string) {
+    setSelectedLetter(letter);
+    setFeedback(null);
+    setAnswerState("idle");
   }
 
   return (
@@ -98,10 +112,7 @@ export function MissingLetterPracticeScreen({
             <Pressable
               accessibilityRole="button"
               key={letter}
-              onPress={() => {
-                setSelectedLetter(letter);
-                setFeedback(null);
-              }}
+              onPress={() => handleSelectLetter(letter)}
               style={[
                 styles.optionButton,
                 selectedLetter === letter && styles.optionButtonSelected,
@@ -119,7 +130,42 @@ export function MissingLetterPracticeScreen({
           ))}
         </View>
 
-        {feedback ? <Text style={styles.feedback}>{feedback}</Text> : null}
+        {answerState === "correct" || answerState === "wrong" ? (
+          <View
+            style={[
+              styles.answerCard,
+              answerState === "correct"
+                ? styles.correctCard
+                : styles.wrongCard,
+            ]}
+          >
+            <Text
+              accessibilityLabel={
+                answerState === "correct" ? "Tamang sagot" : "Subukan muli"
+              }
+              style={[
+                styles.answerIcon,
+                answerState === "correct"
+                  ? styles.correctIcon
+                  : styles.wrongIcon,
+              ]}
+            >
+              {answerState === "correct" ? "✓" : "↻"}
+            </Text>
+            <Text style={styles.answerTitle}>
+              {answerState === "correct" ? "Tama!" : "Subukan muli"}
+            </Text>
+            <Text style={styles.answerWord}>
+              {answerState === "correct"
+                ? lessonWord.word
+                : "Pakinggan ulit ang tunog."}
+            </Text>
+          </View>
+        ) : null}
+
+        {feedback && answerState === "idle" ? (
+          <Text style={styles.feedback}>{feedback}</Text>
+        ) : null}
       </View>
 
       {showVoiceNote ? (
@@ -147,23 +193,23 @@ const styles = StyleSheet.create({
   },
   prompt: {
     color: colors.forest,
-    fontSize: 30,
-    fontWeight: "900",
+    fontSize: 24,
+    fontWeight: "700",
     letterSpacing: 0,
   },
   helper: {
     color: colors.forestSoft,
-    fontSize: 18,
-    lineHeight: 25,
+    fontSize: 16,
+    lineHeight: 23,
   },
   practiceCard: {
     alignItems: "center",
     backgroundColor: colors.surface,
     borderColor: colors.border,
-    borderRadius: 26,
+    borderRadius: 22,
     borderWidth: 1,
     gap: spacing.md,
-    padding: spacing.lg,
+    padding: spacing.md,
   },
   kuyaButton: {
     alignItems: "center",
@@ -176,21 +222,21 @@ const styles = StyleSheet.create({
   },
   kuyaButtonText: {
     color: colors.surface,
-    fontSize: 17,
-    fontWeight: "900",
+    fontSize: 16,
+    fontWeight: "700",
   },
   imageTile: {
     alignItems: "center",
     backgroundColor: colors.surfaceStrong,
     borderRadius: 20,
     justifyContent: "center",
-    minHeight: 112,
+    minHeight: 84,
     width: "100%",
   },
   imageText: {
     color: colors.blue,
-    fontSize: 28,
-    fontWeight: "900",
+    fontSize: 21,
+    fontWeight: "700",
   },
   wordRow: {
     alignItems: "center",
@@ -200,8 +246,8 @@ const styles = StyleSheet.create({
   },
   missingWord: {
     color: colors.forest,
-    fontSize: 44,
-    fontWeight: "900",
+    fontSize: 34,
+    fontWeight: "700",
     letterSpacing: 0,
   },
   inputBox: {
@@ -210,14 +256,14 @@ const styles = StyleSheet.create({
     borderColor: colors.border,
     borderRadius: 16,
     borderWidth: 1,
-    height: 62,
+    height: 54,
     justifyContent: "center",
-    width: 76,
+    width: 68,
   },
   inputText: {
     color: colors.forest,
-    fontSize: 32,
-    fontWeight: "900",
+    fontSize: 26,
+    fontWeight: "700",
   },
   optionRow: {
     flexDirection: "row",
@@ -229,9 +275,9 @@ const styles = StyleSheet.create({
     borderColor: colors.border,
     borderRadius: 16,
     borderWidth: 1,
-    height: 58,
+    height: 52,
     justifyContent: "center",
-    width: 70,
+    width: 62,
   },
   optionButtonSelected: {
     backgroundColor: colors.forestAction,
@@ -239,17 +285,58 @@ const styles = StyleSheet.create({
   },
   optionText: {
     color: colors.forest,
-    fontSize: 28,
-    fontWeight: "900",
+    fontSize: 23,
+    fontWeight: "700",
   },
   optionTextSelected: {
     color: colors.surface,
   },
   feedback: {
     color: colors.forestSoft,
-    fontSize: 17,
-    fontWeight: "800",
+    fontSize: 16,
+    fontWeight: "600",
     textAlign: "center",
+  },
+  answerCard: {
+    alignItems: "center",
+    backgroundColor: colors.white,
+    borderRadius: 16,
+    borderWidth: 1.5,
+    gap: spacing.xs,
+    padding: spacing.md,
+    width: "100%",
+  },
+  correctCard: {
+    borderColor: colors.forestAction,
+  },
+  wrongCard: {
+    borderColor: colors.blue,
+  },
+  answerIcon: {
+    borderRadius: 999,
+    color: colors.surface,
+    fontSize: 21,
+    fontWeight: "700",
+    height: 40,
+    lineHeight: 40,
+    textAlign: "center",
+    width: 40,
+  },
+  correctIcon: {
+    backgroundColor: colors.forestAction,
+  },
+  wrongIcon: {
+    backgroundColor: colors.blue,
+  },
+  answerTitle: {
+    color: colors.forest,
+    fontSize: 24,
+    fontWeight: "700",
+  },
+  answerWord: {
+    color: colors.forestSoft,
+    fontSize: 17,
+    fontWeight: "600",
   },
   footer: {
     gap: spacing.md,
@@ -257,7 +344,7 @@ const styles = StyleSheet.create({
   voiceNote: {
     color: colors.muted,
     fontSize: 14,
-    fontWeight: "700",
+    fontWeight: "500",
     lineHeight: 20,
     textAlign: "center",
   },

@@ -31,18 +31,18 @@ export function AppButton({
 const styles = StyleSheet.create({
   button: {
     alignItems: "center",
-    borderRadius: 18,
+    borderRadius: 14,
     justifyContent: "center",
-    minHeight: 58,
-    paddingHorizontal: 22,
+    minHeight: 52,
+    paddingHorizontal: 20,
   },
   primary: {
     backgroundColor: colors.forestAction,
   },
   primaryText: {
     color: colors.surface,
-    fontSize: 19,
-    fontWeight: "800",
+    fontSize: 17,
+    fontWeight: "700",
   },
   secondary: {
     borderColor: colors.forestAction,
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
   },
   secondaryText: {
     color: colors.forestAction,
-    fontSize: 18,
-    fontWeight: "800",
+    fontSize: 16,
+    fontWeight: "700",
   },
 });
