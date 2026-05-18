@@ -3,6 +3,7 @@ import { Pressable, StyleSheet, Text, View } from "react-native";
 
 import type { LessonWord } from "./lesson-data";
 import { speakFilipino } from "../tts/speak";
+import { useTtsSupport } from "../tts/useTtsSupport";
 import { AppButton } from "../ui/AppButton";
 import { SoundButton } from "../ui/SoundButton";
 import { colors, spacing } from "../ui/theme";
@@ -20,6 +21,9 @@ export function MissingLetterPracticeScreen({
 }: MissingLetterPracticeScreenProps) {
   const [selectedLetter, setSelectedLetter] = useState<string | null>(null);
   const [feedback, setFeedback] = useState<string | null>(null);
+  const ttsSupportStatus = useTtsSupport();
+  const showVoiceNote =
+    ttsSupportStatus === "missing" || ttsSupportStatus === "unknown";
 
   function handleSubmit() {
     if (!selectedLetter) {
@@ -90,6 +94,12 @@ export function MissingLetterPracticeScreen({
 
         {feedback ? <Text style={styles.feedback}>{feedback}</Text> : null}
       </View>
+
+      {showVoiceNote ? (
+        <Text style={styles.voiceNote}>
+          Kung iba ang tunog, kailangan lang i-check ang boses ng phone.
+        </Text>
+      ) : null}
 
       <View style={styles.footer}>
         <AppButton label="Sagot" onPress={handleSubmit} />
@@ -211,6 +221,13 @@ const styles = StyleSheet.create({
   },
   footer: {
     gap: spacing.md,
+  },
+  voiceNote: {
+    color: colors.muted,
+    fontSize: 14,
+    fontWeight: "700",
+    lineHeight: 20,
+    textAlign: "center",
   },
   hintText: {
     color: colors.forestSoft,

@@ -2,6 +2,7 @@ import { Pressable, StyleSheet, Text, View } from "react-native";
 
 import type { LessonWord } from "./lesson-data";
 import { speakFilipino } from "../tts/speak";
+import { useTtsSupport } from "../tts/useTtsSupport";
 import { AppButton } from "../ui/AppButton";
 import { SoundButton } from "../ui/SoundButton";
 import { colors, spacing } from "../ui/theme";
@@ -19,6 +20,10 @@ export function WordPracticeScreen({
   onNext,
   onPractice,
 }: WordPracticeScreenProps) {
+  const ttsSupportStatus = useTtsSupport();
+  const showVoiceNote =
+    ttsSupportStatus === "missing" || ttsSupportStatus === "unknown";
+
   return (
     <View style={styles.content}>
       <View style={styles.header}>
@@ -50,6 +55,12 @@ export function WordPracticeScreen({
           />
         </View>
       </View>
+
+      {showVoiceNote ? (
+        <Text style={styles.voiceNote}>
+          Kung iba ang tunog, kailangan lang i-check ang boses ng phone.
+        </Text>
+      ) : null}
 
       <View style={styles.footer}>
         <AppButton label="Susunod" onPress={onNext} />
@@ -145,5 +156,12 @@ const styles = StyleSheet.create({
   },
   footer: {
     gap: spacing.md,
+  },
+  voiceNote: {
+    color: colors.muted,
+    fontSize: 14,
+    fontWeight: "700",
+    lineHeight: 20,
+    textAlign: "center",
   },
 });
