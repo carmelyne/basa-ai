@@ -7,13 +7,20 @@ import { MissingLetterPracticeScreen } from "./src/learning/MissingLetterPractic
 import { ScenarioPlaceholderScreen } from "./src/learning/ScenarioPlaceholderScreen";
 import { StartScreen } from "./src/learning/StartScreen";
 import { WordPracticeScreen } from "./src/learning/WordPracticeScreen";
+import { ProgressSummaryScreen } from "./src/progress/ProgressSummaryScreen";
 import { colors } from "./src/ui/theme";
 
-type AppRoute = "start" | "scenario" | "word" | "practice";
+type AppRoute = "start" | "scenario" | "word" | "practice" | "summary";
 
 export default function App() {
   const [routeStack, setRouteStack] = useState<AppRoute[]>(["start"]);
+  const [wordIndex, setWordIndex] = useState(0);
+  const [completedWordIds, setCompletedWordIds] = useState<string[]>([]);
+  const [correctAnswerIds, setCorrectAnswerIds] = useState<string[]>([]);
   const route = routeStack[routeStack.length - 1];
+  const lessonWords = sellingScenario.words;
+  const currentWord = lessonWords[wordIndex] ?? lessonWords[0];
+  const isLastWord = wordIndex === lessonWords.length - 1;
 
   function navigate(nextRoute: AppRoute) {
     setRouteStack((currentStack) => [...currentStack, nextRoute]);
@@ -29,13 +36,51 @@ export default function App() {
     setRouteStack([nextRoute]);
   }
 
+  function startLesson() {
+    setWordIndex(0);
+    navigate("scenario");
+  }
+
+  function markWordComplete(wasCorrect: boolean) {
+    setCompletedWordIds((currentIds) =>
+      currentIds.includes(currentWord.id)
+        ? currentIds
+        : [...currentIds, currentWord.id]
+    );
+
+    if (wasCorrect) {
+      setCorrectAnswerIds((currentIds) =>
+        currentIds.includes(currentWord.id)
+          ? currentIds
+          : [...currentIds, currentWord.id]
+      );
+    }
+
+    if (isLastWord) {
+      resetTo("summary");
+      return;
+    }
+
+    setWordIndex((currentIndex) =>
+      Math.min(currentIndex + 1, lessonWords.length - 1)
+    );
+    resetTo("word");
+  }
+
+  function restartLesson() {
+    setWordIndex(0);
+    setCompletedWordIds([]);
+    setCorrectAnswerIds([]);
+    resetTo("scenario");
+  }
+
   return (
     <SafeAreaView style={styles.screen}>
       <StatusBar style="dark" />
       {route === "start" ? (
         <StartScreen
-          onContinue={() => navigate("scenario")}
-          onStart={() => navigate("scenario")}
+          onContinue={startLesson}
+          onStart={startLesson}
         />
       ) : (
         <>
@@ -47,17 +92,29 @@ export default function App() {
           ) : null}
           {route === "word" ? (
             <WordPracticeScreen
-              lessonWord={sellingScenario.firstWord}
+              lessonWord={currentWord}
+              wordIndex={wordIndex}
+              totalWords={lessonWords.length}
               onBack={goBack}
-              onNext={() => resetTo("scenario")}
               onPractice={() => navigate("practice")}
             />
           ) : null}
           {route === "practice" ? (
             <MissingLetterPracticeScreen
-              lessonWord={sellingScenario.firstWord}
+              lessonWord={currentWord}
+              isLastWord={isLastWord}
               onBack={goBack}
-              onDone={() => resetTo("scenario")}
+              onCorrect={() => markWordComplete(true)}
+              onSkip={() => markWordComplete(false)}
+            />
+          ) : null}
+          {route === "summary" ? (
+            <ProgressSummaryScreen
+              completedWords={completedWordIds.length}
+              correctAnswers={correctAnswerIds.length}
+              totalWords={lessonWords.length}
+              onBackToLesson={() => resetTo("scenario")}
+              onRestart={restartLesson}
             />
           ) : null}
         </>

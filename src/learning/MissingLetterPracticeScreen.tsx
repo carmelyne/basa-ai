@@ -10,14 +10,18 @@ import { colors, spacing } from "../ui/theme";
 
 type MissingLetterPracticeScreenProps = {
   lessonWord: LessonWord;
+  isLastWord: boolean;
   onBack: () => void;
-  onDone: () => void;
+  onCorrect: () => void;
+  onSkip: () => void;
 };
 
 export function MissingLetterPracticeScreen({
   lessonWord,
+  isLastWord,
   onBack,
-  onDone,
+  onCorrect,
+  onSkip,
 }: MissingLetterPracticeScreenProps) {
   const [selectedLetter, setSelectedLetter] = useState<string | null>(null);
   const [feedback, setFeedback] = useState<string | null>(null);
@@ -33,6 +37,7 @@ export function MissingLetterPracticeScreen({
 
     if (selectedLetter === lessonWord.missingLetterAnswer) {
       setFeedback("Kaya mo ito, tuloy lang.");
+      setTimeout(onCorrect, 700);
       return;
     }
 
@@ -51,7 +56,7 @@ export function MissingLetterPracticeScreen({
 
       <View style={styles.practiceCard}>
         <View style={styles.imageTile}>
-          <Text style={styles.imageText}>Presyo</Text>
+          <Text style={styles.imageText}>{lessonWord.imageLabel}</Text>
         </View>
 
         <View style={styles.wordRow}>
@@ -103,7 +108,11 @@ export function MissingLetterPracticeScreen({
 
       <View style={styles.footer}>
         <AppButton label="Sagot" onPress={handleSubmit} />
-        <AppButton label="Laktawan muna" onPress={onDone} variant="secondary" />
+        <AppButton
+          label={isLastWord ? "Tapusin muna" : "Laktawan muna"}
+          onPress={onSkip}
+          variant="secondary"
+        />
         <Text style={styles.hintText}>Hint mula kay Kuya AI</Text>
       </View>
     </View>

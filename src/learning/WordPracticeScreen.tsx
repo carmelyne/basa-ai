@@ -9,15 +9,17 @@ import { colors, spacing } from "../ui/theme";
 
 type WordPracticeScreenProps = {
   lessonWord: LessonWord;
+  wordIndex: number;
+  totalWords: number;
   onBack: () => void;
-  onNext: () => void;
   onPractice: () => void;
 };
 
 export function WordPracticeScreen({
   lessonWord,
+  wordIndex,
+  totalWords,
   onBack,
-  onNext,
   onPractice,
 }: WordPracticeScreenProps) {
   const ttsSupportStatus = useTtsSupport();
@@ -30,12 +32,14 @@ export function WordPracticeScreen({
         <Pressable accessibilityRole="button" onPress={onBack}>
           <Text style={styles.backText}>Pagbebenta</Text>
         </Pressable>
-        <Text style={styles.contextText}>Salita 1 sa 3</Text>
+        <Text style={styles.contextText}>
+          Salita {wordIndex + 1} sa {totalWords}
+        </Text>
       </View>
 
       <View style={styles.imageCard}>
-        <Text style={styles.imageText}>Presyo</Text>
-        <Text style={styles.imageCaption}>Halaga ng bibilhin</Text>
+        <Text style={styles.imageText}>{lessonWord.imageLabel}</Text>
+        <Text style={styles.imageCaption}>{lessonWord.imageCaption}</Text>
       </View>
 
       <View style={styles.practiceCard}>
@@ -63,8 +67,7 @@ export function WordPracticeScreen({
       ) : null}
 
       <View style={styles.footer}>
-        <AppButton label="Susunod" onPress={onNext} />
-        <AppButton label="Subukan ko" onPress={onPractice} variant="secondary" />
+        <AppButton label="Subukan ko" onPress={onPractice} />
       </View>
     </View>
   );
