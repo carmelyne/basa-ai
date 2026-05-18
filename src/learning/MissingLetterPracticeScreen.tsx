@@ -57,6 +57,23 @@ export function MissingLetterPracticeScreen({
       </View>
 
       <View style={styles.practiceCard}>
+        <Pressable
+          accessibilityRole="button"
+          onPress={() => setShowHint((currentValue) => !currentValue)}
+          style={styles.kuyaButton}
+        >
+          <Text style={styles.kuyaButtonText}>
+            {showHint ? "Itago si Kuya AI" : "Tulungan ako, Kuya AI"}
+          </Text>
+        </Pressable>
+
+        {showHint ? (
+          <KuyaHintCard
+            hint={lessonWord.phoneticHint}
+            sound={lessonWord.phoneticSound}
+          />
+        ) : null}
+
         <View style={styles.imageTile}>
           <Text style={styles.imageText}>{lessonWord.imageLabel}</Text>
         </View>
@@ -100,12 +117,6 @@ export function MissingLetterPracticeScreen({
         </View>
 
         {feedback ? <Text style={styles.feedback}>{feedback}</Text> : null}
-        {showHint ? (
-          <KuyaHintCard
-            hint={lessonWord.phoneticHint}
-            sound={lessonWord.phoneticSound}
-          />
-        ) : null}
       </View>
 
       {showVoiceNote ? (
@@ -121,14 +132,6 @@ export function MissingLetterPracticeScreen({
           onPress={onSkip}
           variant="secondary"
         />
-        <Pressable
-          accessibilityRole="button"
-          onPress={() => setShowHint((currentValue) => !currentValue)}
-        >
-          <Text style={styles.hintText}>
-            {showHint ? "Itago ang hint" : "Hint mula kay Kuya AI"}
-          </Text>
-        </Pressable>
       </View>
     </View>
   );
@@ -170,6 +173,20 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     gap: spacing.md,
     padding: spacing.lg,
+  },
+  kuyaButton: {
+    alignItems: "center",
+    backgroundColor: colors.forest,
+    borderRadius: 16,
+    minHeight: 52,
+    justifyContent: "center",
+    paddingHorizontal: spacing.md,
+    width: "100%",
+  },
+  kuyaButtonText: {
+    color: colors.surface,
+    fontSize: 17,
+    fontWeight: "900",
   },
   imageTile: {
     alignItems: "center",
@@ -251,12 +268,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: "700",
     lineHeight: 20,
-    textAlign: "center",
-  },
-  hintText: {
-    color: colors.forestSoft,
-    fontSize: 16,
-    fontWeight: "800",
     textAlign: "center",
   },
 });
