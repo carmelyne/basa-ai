@@ -12,37 +12,52 @@ import { colors } from "./src/ui/theme";
 type AppRoute = "start" | "scenario" | "word" | "practice";
 
 export default function App() {
-  const [route, setRoute] = useState<AppRoute>("start");
+  const [routeStack, setRouteStack] = useState<AppRoute[]>(["start"]);
+  const route = routeStack[routeStack.length - 1];
+
+  function navigate(nextRoute: AppRoute) {
+    setRouteStack((currentStack) => [...currentStack, nextRoute]);
+  }
+
+  function goBack() {
+    setRouteStack((currentStack) =>
+      currentStack.length > 1 ? currentStack.slice(0, -1) : currentStack
+    );
+  }
+
+  function resetTo(nextRoute: AppRoute) {
+    setRouteStack([nextRoute]);
+  }
 
   return (
     <SafeAreaView style={styles.screen}>
       <StatusBar style="dark" />
       {route === "start" ? (
         <StartScreen
-          onContinue={() => setRoute("scenario")}
-          onStart={() => setRoute("scenario")}
+          onContinue={() => navigate("scenario")}
+          onStart={() => navigate("scenario")}
         />
       ) : (
         <>
           {route === "scenario" ? (
             <ScenarioPlaceholderScreen
-              onBack={() => setRoute("start")}
-              onStart={() => setRoute("word")}
+              onBack={goBack}
+              onStart={() => navigate("word")}
             />
           ) : null}
           {route === "word" ? (
             <WordPracticeScreen
               lessonWord={sellingScenario.firstWord}
-              onBack={() => setRoute("scenario")}
-              onNext={() => setRoute("scenario")}
-              onPractice={() => setRoute("practice")}
+              onBack={goBack}
+              onNext={() => resetTo("scenario")}
+              onPractice={() => navigate("practice")}
             />
           ) : null}
           {route === "practice" ? (
             <MissingLetterPracticeScreen
               lessonWord={sellingScenario.firstWord}
-              onBack={() => setRoute("word")}
-              onDone={() => setRoute("scenario")}
+              onBack={goBack}
+              onDone={() => resetTo("scenario")}
             />
           ) : null}
         </>
