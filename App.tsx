@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { SafeAreaView, StyleSheet } from "react-native";
 
 import { sellingScenario } from "./src/learning/lesson-data";
@@ -8,6 +8,12 @@ import { ScenarioPlaceholderScreen } from "./src/learning/ScenarioPlaceholderScr
 import { StartScreen } from "./src/learning/StartScreen";
 import { WordPracticeScreen } from "./src/learning/WordPracticeScreen";
 import { ProgressSummaryScreen } from "./src/progress/ProgressSummaryScreen";
+import {
+  clearLocalProgress,
+  emptyProgress,
+  loadLocalProgress,
+  saveLocalProgress,
+} from "./src/progress/progress-storage";
 import { colors } from "./src/ui/theme";
 
 type AppRoute = "start" | "scenario" | "word" | "practice" | "summary";
@@ -17,10 +23,52 @@ export default function App() {
   const [wordIndex, setWordIndex] = useState(0);
   const [completedWordIds, setCompletedWordIds] = useState<string[]>([]);
   const [correctAnswerIds, setCorrectAnswerIds] = useState<string[]>([]);
+  const [progressLoaded, setProgressLoaded] = useState(false);
   const route = routeStack[routeStack.length - 1];
   const lessonWords = sellingScenario.words;
   const currentWord = lessonWords[wordIndex] ?? lessonWords[0];
   const isLastWord = wordIndex === lessonWords.length - 1;
+
+  useEffect(() => {
+    let isMounted = true;
+
+    loadLocalProgress()
+      .then((savedProgress) => {
+        if (!isMounted) {
+          return;
+        }
+
+        setCompletedWordIds(savedProgress.completedWordIds);
+        setCorrectAnswerIds(savedProgress.correctAnswerIds);
+      })
+      .catch(() => {
+        if (isMounted) {
+          setCompletedWordIds(emptyProgress.completedWordIds);
+          setCorrectAnswerIds(emptyProgress.correctAnswerIds);
+        }
+      })
+      .finally(() => {
+        if (isMounted) {
+          setProgressLoaded(true);
+        }
+      });
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!progressLoaded) {
+      return;
+    }
+
+    saveLocalProgress({
+      completedWordIds,
+      correctAnswerIds,
+      updatedAt: Math.floor(Date.now() / 1000),
+    });
+  }, [completedWordIds, correctAnswerIds, progressLoaded]);
 
   function navigate(nextRoute: AppRoute) {
     setRouteStack((currentStack) => [...currentStack, nextRoute]);
@@ -36,25 +84,36 @@ export default function App() {
     setRouteStack([nextRoute]);
   }
 
+  function continueLesson() {
+    const nextWordIndex = lessonWords.findIndex(
+      (word) => !completedWordIds.includes(word.id)
+    );
+
+    if (nextWordIndex === -1) {
+      resetTo("summary");
+      return;
+    }
+
+    setWordIndex(nextWordIndex);
+    navigate("scenario");
+  }
+
   function startLesson() {
     setWordIndex(0);
     navigate("scenario");
   }
 
   function markWordComplete(wasCorrect: boolean) {
-    setCompletedWordIds((currentIds) =>
-      currentIds.includes(currentWord.id)
-        ? currentIds
-        : [...currentIds, currentWord.id]
-    );
+    const nextCompletedWordIds = completedWordIds.includes(currentWord.id)
+      ? completedWordIds
+      : [...completedWordIds, currentWord.id];
+    const nextCorrectAnswerIds =
+      wasCorrect && !correctAnswerIds.includes(currentWord.id)
+        ? [...correctAnswerIds, currentWord.id]
+        : correctAnswerIds;
 
-    if (wasCorrect) {
-      setCorrectAnswerIds((currentIds) =>
-        currentIds.includes(currentWord.id)
-          ? currentIds
-          : [...currentIds, currentWord.id]
-      );
-    }
+    setCompletedWordIds(nextCompletedWordIds);
+    setCorrectAnswerIds(nextCorrectAnswerIds);
 
     if (isLastWord) {
       resetTo("summary");
@@ -69,8 +128,9 @@ export default function App() {
 
   function restartLesson() {
     setWordIndex(0);
-    setCompletedWordIds([]);
-    setCorrectAnswerIds([]);
+    setCompletedWordIds(emptyProgress.completedWordIds);
+    setCorrectAnswerIds(emptyProgress.correctAnswerIds);
+    clearLocalProgress();
     resetTo("scenario");
   }
 
@@ -79,8 +139,10 @@ export default function App() {
       <StatusBar style="dark" />
       {route === "start" ? (
         <StartScreen
-          onContinue={startLesson}
+          completedWords={completedWordIds.length}
+          onContinue={continueLesson}
           onStart={startLesson}
+          totalWords={lessonWords.length}
         />
       ) : (
         <>

@@ -5,11 +5,20 @@ import { AppButton } from "../ui/AppButton";
 import { colors, spacing } from "../ui/theme";
 
 type StartScreenProps = {
+  completedWords: number;
   onContinue: () => void;
   onStart: () => void;
+  totalWords: number;
 };
 
-export function StartScreen({ onContinue, onStart }: StartScreenProps) {
+export function StartScreen({
+  completedWords,
+  onContinue,
+  onStart,
+  totalWords,
+}: StartScreenProps) {
+  const hasProgress = completedWords > 0;
+
   return (
     <View style={styles.content}>
       <View style={styles.brandBlock}>
@@ -20,7 +29,11 @@ export function StartScreen({ onContinue, onStart }: StartScreenProps) {
       <View style={styles.card}>
         <Text style={styles.cardLabel}>Susunod na aralin</Text>
         <Text style={styles.cardTitle}>Pagbebenta</Text>
-        <Text style={styles.cardText}>Magsanay sa presyo, sukli, at bayad.</Text>
+        <Text style={styles.cardText}>
+          {hasProgress
+            ? `${completedWords} sa ${totalWords} salita ang naka-save.`
+            : "Magsanay sa presyo, sukli, at bayad."}
+        </Text>
       </View>
 
       <View style={styles.actions}>
