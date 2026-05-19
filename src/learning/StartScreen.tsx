@@ -2,12 +2,14 @@ import { Pressable, StyleSheet, Text, View } from "react-native";
 import { BookOpen, Play, RotateCcw, ShieldCheck } from "lucide-react-native";
 
 import { APP_NAME } from "../config/app";
+import { AppButton } from "../ui/AppButton";
 import { colors, radii, shadows, spacing, typography } from "../ui/theme";
 
 type StartScreenProps = {
   completedWords: number;
   nextLessonTitle: string;
   onContinue: () => void;
+  onRestoreProgress: () => void;
   onStart: () => void;
   totalWords: number;
 };
@@ -16,6 +18,7 @@ export function StartScreen({
   completedWords,
   nextLessonTitle,
   onContinue,
+  onRestoreProgress,
   onStart,
   totalWords,
 }: StartScreenProps) {
@@ -24,13 +27,10 @@ export function StartScreen({
 
   return (
     <View style={styles.content}>
-      <View style={styles.bottomHillLeft} />
-      <View style={styles.bottomHillRight} />
-
       <View style={styles.brandBlock}>
-        <BookOpen color={colors.forest} size={28} strokeWidth={2.2} />
+        <BookOpen color={colors.forest} size={24} strokeWidth={2.2} />
         <Text style={styles.brand}>{APP_NAME}</Text>
-        <Text style={styles.tagline}>Matutong magbasa, tahimik at ligtas.</Text>
+        <Text style={styles.tagline}>Matutong magbasa.</Text>
         <View style={styles.privacyRow}>
           <ShieldCheck color={colors.forestSoft} size={18} strokeWidth={2.2} />
           <Text style={styles.privacyText}>Pribado ang iyong pag-aaral.</Text>
@@ -40,7 +40,7 @@ export function StartScreen({
       <View style={styles.continueCard}>
         <View style={styles.continueTopRow}>
           <View style={styles.lessonIcon}>
-            <BookOpen color={colors.forestAction} size={28} strokeWidth={2.1} />
+            <BookOpen color={colors.forestAction} size={20} strokeWidth={2.1} />
           </View>
           <View style={styles.cardCopy}>
             <Text style={styles.cardTitle}>Ipagpatuloy ang pag-aaral</Text>
@@ -57,32 +57,29 @@ export function StartScreen({
 
         <View style={styles.divider} />
 
-        <Pressable
-          accessibilityRole="button"
+        <AppButton
+          icon={<Play color={colors.surface} fill={colors.surface} size={16} />}
+          label="Magpatuloy"
           onPress={onContinue}
-          style={styles.primaryButton}
-        >
-          <View style={styles.playCircle}>
-            <Play color={colors.forestAction} fill={colors.forestAction} size={18} />
-          </View>
-          <Text style={styles.primaryButtonText}>Magpatuloy</Text>
-        </Pressable>
+        />
       </View>
 
       <View style={styles.actions}>
+        <AppButton
+          icon={<BookOpen color={colors.blue} size={18} strokeWidth={2.2} />}
+          label="New Lesson"
+          onPress={onStart}
+          variant="secondary"
+        />
+
         <Pressable
           accessibilityRole="button"
-          onPress={onStart}
-          style={styles.secondaryButton}
+          onPress={onRestoreProgress}
+          style={styles.restoreRow}
         >
-          <BookOpen color={colors.blue} size={20} strokeWidth={2.2} />
-          <Text style={styles.secondaryButtonText}>Magsimula</Text>
-        </Pressable>
-
-        <View style={styles.restoreRow}>
           <RotateCcw color={colors.blue} size={18} strokeWidth={2.1} />
           <Text style={styles.restoreText}>Ibalik ang progreso</Text>
-        </View>
+        </Pressable>
       </View>
     </View>
   );
@@ -93,24 +90,25 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.cream,
     justifyContent: "center",
-    paddingHorizontal: spacing.lg,
-    paddingVertical: spacing.lg,
+    paddingHorizontal: spacing.xxl,
+    paddingVertical: spacing.xxl,
   },
   brandBlock: {
     alignItems: "center",
     gap: spacing.sm,
-    marginBottom: spacing.lg,
+    marginBottom: spacing.xxl,
   },
   brand: {
     color: colors.forest,
-    fontSize: typography.screenTitle.fontSize,
-    fontWeight: "800",
-    letterSpacing: 0,
+    fontSize: typography.heroTitle.fontSize,
+    fontWeight: "700",
+    letterSpacing: 0.5,
+    marginBottom: 64,
   },
   tagline: {
     color: colors.forest,
     fontSize: typography.heroTitle.fontSize,
-    fontWeight: "800",
+    fontWeight: "700",
     lineHeight: typography.heroTitle.lineHeight,
     marginTop: spacing.md,
     maxWidth: 330,
@@ -123,14 +121,13 @@ const styles = StyleSheet.create({
     marginTop: spacing.sm,
   },
   continueCard: {
-    backgroundColor: colors.surface,
+    backgroundColor: colors.white,
     borderColor: colors.border,
-    borderRadius: radii.xl,
     borderWidth: 1,
+    borderRadius: radii.lg,
     gap: spacing.md,
-    marginBottom: spacing.lg,
-    padding: spacing.md,
-    ...shadows.card,
+    marginBottom: spacing.xxl,
+    padding: spacing.xl,
   },
   continueTopRow: {
     alignItems: "center",
@@ -140,10 +137,10 @@ const styles = StyleSheet.create({
   lessonIcon: {
     alignItems: "center",
     backgroundColor: colors.surfaceStrong,
-    borderRadius: 999,
-    height: 56,
+    borderRadius: radii.md,
+    height: 48,
     justifyContent: "center",
-    width: 56,
+    width: 48,
   },
   cardCopy: {
     flex: 1,
@@ -156,66 +153,27 @@ const styles = StyleSheet.create({
   },
   progressTrack: {
     backgroundColor: colors.border,
-    borderRadius: 999,
-    height: 9,
+    borderRadius: radii.sm,
+    height: 6,
     overflow: "hidden",
   },
   progressFill: {
     backgroundColor: colors.forestAction,
-    borderRadius: 999,
+    borderRadius: radii.sm,
     height: "100%",
   },
   cardText: {
     color: colors.forestSoft,
-    fontSize: typography.general.fontSize,
-    lineHeight: typography.general.lineHeight,
+    fontSize: typography.body.fontSize,
+    lineHeight: typography.body.lineHeight,
+    fontWeight: "500",
   },
   divider: {
     backgroundColor: colors.border,
     height: 1,
   },
-  primaryButton: {
-    alignItems: "center",
-    backgroundColor: colors.forestAction,
-    borderRadius: 12,
-    flexDirection: "row",
-    gap: spacing.sm,
-    justifyContent: "center",
-    minHeight: 48,
-    paddingHorizontal: spacing.md,
-  },
-  playCircle: {
-    alignItems: "center",
-    backgroundColor: colors.surface,
-    borderRadius: 999,
-    height: 30,
-    justifyContent: "center",
-    width: 30,
-  },
-  primaryButtonText: {
-    color: colors.surface,
-    fontSize: typography.buttonPrimary.fontSize,
-    fontWeight: "800",
-  },
   actions: {
     gap: spacing.md,
-  },
-  secondaryButton: {
-    alignItems: "center",
-    backgroundColor: colors.surface,
-    borderColor: colors.blue,
-    borderRadius: 13,
-    borderWidth: 2,
-    flexDirection: "row",
-    gap: spacing.sm,
-    justifyContent: "center",
-    minHeight: 48,
-    paddingHorizontal: spacing.md,
-  },
-  secondaryButtonText: {
-    color: colors.blue,
-    fontSize: typography.buttonSecondary.fontSize,
-    fontWeight: "800",
   },
   restoreRow: {
     alignItems: "center",
@@ -233,29 +191,9 @@ const styles = StyleSheet.create({
   },
   privacyText: {
     color: colors.forestSoft,
-    fontSize: typography.general.fontSize,
+    fontSize: typography.body.fontSize,
     fontWeight: "500",
-    lineHeight: typography.general.lineHeight,
+    lineHeight: typography.body.lineHeight,
     textAlign: "center",
-  },
-  bottomHillLeft: {
-    backgroundColor: "#dfe8cf",
-    borderTopRightRadius: 180,
-    bottom: -80,
-    height: 150,
-    left: -40,
-    opacity: 0.85,
-    position: "absolute",
-    width: "70%",
-  },
-  bottomHillRight: {
-    backgroundColor: "#c9d8e7",
-    borderTopLeftRadius: 220,
-    bottom: -72,
-    height: 140,
-    opacity: 0.85,
-    position: "absolute",
-    right: -55,
-    width: "75%",
   },
 });

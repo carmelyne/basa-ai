@@ -5,18 +5,14 @@ import { colors, radii } from "./theme";
 
 type ResponsiveLessonImageProps = {
   aspectRatio?: number;
-  maxHeight?: number;
-  minHeight?: number;
   resizeMode?: "contain" | "cover";
   source: ImageSourcePropType;
   variant?: "card" | "thumbnail";
 };
 
 export function ResponsiveLessonImage({
-  aspectRatio = 1,
-  maxHeight = 180,
-  minHeight = 120,
-  resizeMode = "contain",
+  aspectRatio = 1.33,
+  resizeMode = "cover",
   source,
   variant = "card",
 }: ResponsiveLessonImageProps) {
@@ -27,8 +23,6 @@ export function ResponsiveLessonImage({
         variant === "thumbnail" ? styles.thumbnailFrame : styles.cardFrame,
         variant !== "thumbnail" && {
           aspectRatio,
-          maxHeight,
-          minHeight,
         },
       ]}
     >
@@ -44,10 +38,7 @@ export function ResponsiveLessonImage({
 
 const styles = StyleSheet.create({
   frame: {
-    alignItems: "center",
     backgroundColor: colors.surfaceStrong,
-    borderRadius: radii.md,
-    justifyContent: "center",
     overflow: "hidden",
     width: "100%",
   },
@@ -55,8 +46,10 @@ const styles = StyleSheet.create({
     alignSelf: "stretch",
   },
   thumbnailFrame: {
-    height: 74,
-    width: 74,
+    height: "100%",
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
   },
   image: {
     height: "100%",

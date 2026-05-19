@@ -48,3 +48,21 @@ export async function saveLocalProgress(progress: LocalProgress) {
 export async function clearLocalProgress() {
   await AsyncStorage.removeItem(PROGRESS_STORAGE_KEY);
 }
+
+const BACKUP_ACCOUNTS_KEY_PREFIX = "basa-ai:cloud-backup:";
+
+export async function backupProgressToCloud(identifier: string, progress: LocalProgress) {
+  const cleanId = identifier.trim().toLowerCase();
+  await AsyncStorage.setItem(BACKUP_ACCOUNTS_KEY_PREFIX + cleanId, JSON.stringify(progress));
+}
+
+export async function restoreProgressFromCloud(identifier: string): Promise<LocalProgress | null> {
+  const cleanId = identifier.trim().toLowerCase();
+  const data = await AsyncStorage.getItem(BACKUP_ACCOUNTS_KEY_PREFIX + cleanId);
+  if (!data) return null;
+  try {
+    return JSON.parse(data) as LocalProgress;
+  } catch {
+    return null;
+  }
+}

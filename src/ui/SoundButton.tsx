@@ -1,7 +1,7 @@
 import { Volume2 } from "lucide-react-native";
 import { Pressable, StyleSheet } from "react-native";
 
-import { colors } from "./theme";
+import { colors, radii } from "./theme";
 
 type SoundButtonProps = {
   label: string;
@@ -16,7 +16,7 @@ export function SoundButton({ label, onPress }: SoundButtonProps) {
       onPress={onPress}
       style={styles.button}
     >
-      <Volume2 color={colors.surface} size={22} strokeWidth={2.4} />
+      <Volume2 color={colors.surface} size={16} strokeWidth={2.5} />
     </Pressable>
   );
 }
@@ -25,9 +25,9 @@ const styles = StyleSheet.create({
   button: {
     alignItems: "center",
     backgroundColor: colors.forestAction,
-    borderRadius: 999,
-    height: 44,
+    borderRadius: radii.full,
+    height: 32,
     justifyContent: "center",
-    width: 44,
+    width: 32,
   },
 });

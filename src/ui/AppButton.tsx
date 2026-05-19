@@ -1,13 +1,15 @@
 import type { ReactNode } from "react";
 import { Pressable, StyleSheet, Text } from "react-native";
 
-import { colors, radii, shadows, typography } from "./theme";
+import { colors, radii, shadows, typography, spacing } from "./theme";
 
 type AppButtonProps = {
   icon?: ReactNode;
   label: string;
   onPress: () => void;
   variant?: "primary" | "secondary";
+  disabled?: boolean;
+  style?: any;
 };
 
 export function AppButton({
@@ -15,14 +17,22 @@ export function AppButton({
   label,
   onPress,
   variant = "primary",
+  disabled = false,
+  style,
 }: AppButtonProps) {
   const isPrimary = variant === "primary";
 
   return (
     <Pressable
       accessibilityRole="button"
+      disabled={disabled}
       onPress={onPress}
-      style={[styles.button, isPrimary ? styles.primary : styles.secondary]}
+      style={[
+        styles.button,
+        isPrimary ? styles.primary : styles.secondary,
+        disabled && styles.disabled,
+        style,
+      ]}
     >
       {icon}
       <Text style={isPrimary ? styles.primaryText : styles.secondaryText}>
@@ -35,21 +45,20 @@ export function AppButton({
 const styles = StyleSheet.create({
   button: {
     alignItems: "center",
-    borderRadius: radii.md,
+    borderRadius: radii.lg,
     flexDirection: "row",
-    gap: 8,
+    gap: spacing.md,
     justifyContent: "center",
-    minHeight: 46,
-    paddingHorizontal: 16,
+    minHeight: 48,
+    paddingHorizontal: spacing.xl,
   },
   primary: {
     backgroundColor: colors.forestAction,
-    ...shadows.card,
   },
   primaryText: {
     color: colors.surface,
     fontSize: typography.buttonPrimary.fontSize,
-    fontWeight: "800",
+    fontWeight: "700",
   },
   secondary: {
     backgroundColor: colors.surface,
@@ -59,6 +68,9 @@ const styles = StyleSheet.create({
   secondaryText: {
     color: colors.blue,
     fontSize: typography.buttonSecondary.fontSize,
-    fontWeight: "800",
+    fontWeight: "700",
+  },
+  disabled: {
+    opacity: 0.5,
   },
 });

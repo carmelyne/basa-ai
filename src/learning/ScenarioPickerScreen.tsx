@@ -23,29 +23,33 @@ export function ScenarioPickerScreen({
   const lessonIcons = [Route, CircleDollarSign, Smartphone];
 
   return (
-    <ScreenScrollView>
-      <LessonNavBar label="Lessons" onBack={onBack} onHome={onHome} />
+    <View style={{ flex: 1, backgroundColor: colors.cream }}>
+      <ScreenScrollView>
+        <LessonNavBar label="Lessons" onBack={onBack} onHome={onHome} />
 
-      <View style={styles.header}>
-        <Text style={styles.kicker}>Pick a lesson</Text>
-        <Text style={styles.title}>Pili ka ng topic</Text>
-        <Text style={styles.subtitle}>
-          Pili muna ng sitwasyon. Pwede kang bumalik kahit kailan.
-        </Text>
-      </View>
+        <View style={styles.contentWrapper}>
+          <View style={styles.header}>
+            <Text style={styles.kicker}>Pick a lesson</Text>
+            <Text style={styles.title}>Pili ka ng topic</Text>
+            <Text style={styles.subtitle}>
+              Pili muna ng sitwasyon. Pwede kang bumalik kahit kailan.
+            </Text>
+          </View>
 
-      <View style={styles.cardGrid}>
-        {lessons.map((lesson) => (
-          <ScenarioCard
-            index={lessons.indexOf(lesson)}
-            key={lesson.id}
-            lesson={lesson}
-            Icon={lessonIcons[lessons.indexOf(lesson)] ?? MessageSquareText}
-            onPress={() => onSelect(lesson)}
-          />
-        ))}
-      </View>
-    </ScreenScrollView>
+          <View style={styles.cardGrid}>
+            {lessons.map((lesson) => (
+              <ScenarioCard
+                index={lessons.indexOf(lesson)}
+                key={lesson.id}
+                lesson={lesson}
+                Icon={lessonIcons[lessons.indexOf(lesson)] ?? MessageSquareText}
+                onPress={() => onSelect(lesson)}
+              />
+            ))}
+          </View>
+        </View>
+      </ScreenScrollView>
+    </View>
   );
 }
 
@@ -67,7 +71,7 @@ function ScenarioCard({ Icon, index, lesson, onPress }: ScenarioCardProps) {
             variant="thumbnail"
           />
         ) : (
-          <Icon color={colors.forestAction} size={42} strokeWidth={2.1} />
+          <Icon color={colors.forestAction} size={24} strokeWidth={2.1} />
         )}
       </View>
       <View style={styles.cardCopy}>
@@ -76,58 +80,62 @@ function ScenarioCard({ Icon, index, lesson, onPress }: ScenarioCardProps) {
         </Text>
         <Text style={styles.cardDescription}>{lesson.description}</Text>
       </View>
-      <ChevronRight color={colors.forestSoft} size={30} strokeWidth={2.4} />
+      <ChevronRight color={colors.forestSoft} size={20} strokeWidth={2.4} />
     </Pressable>
   );
 }
 
 const styles = StyleSheet.create({
+  contentWrapper: {
+    paddingHorizontal: 16,
+    gap: spacing.xl,
+  },
   header: {
-    alignItems: "center",
     gap: spacing.sm,
-    paddingTop: spacing.lg,
+    paddingTop: spacing.md,
+    alignItems: "flex-start",
   },
   kicker: {
     color: colors.muted,
-    fontSize: typography.general.fontSize,
-    fontWeight: "600",
-    lineHeight: typography.general.lineHeight,
+    fontSize: typography.tiny.fontSize,
+    fontWeight: "700",
+    textTransform: "uppercase",
+    letterSpacing: 0.5,
   },
   title: {
     color: colors.forest,
     fontSize: typography.screenTitle.fontSize,
-    fontWeight: "900",
-    lineHeight: typography.screenTitle.lineHeight,
-    textAlign: "center",
+    fontWeight: "700",
+    marginTop: spacing.xs,
   },
   subtitle: {
     color: colors.forestSoft,
-    fontSize: typography.general.fontSize,
-    lineHeight: typography.general.lineHeight,
+    fontSize: typography.body.fontSize,
+    lineHeight: typography.body.lineHeight,
   },
   cardGrid: {
     gap: spacing.md,
+    paddingBottom: spacing.xxl,
   },
   card: {
     alignItems: "center",
-    backgroundColor: colors.surface,
+    backgroundColor: colors.white,
     borderColor: colors.border,
     borderRadius: radii.lg,
     borderWidth: 1,
     flexDirection: "row",
-    gap: spacing.md,
-    minHeight: 104,
-    padding: spacing.md,
-    ...shadows.card,
+    gap: spacing.lg,
+    minHeight: 80,
+    padding: spacing.lg,
   },
   cardIcon: {
     alignItems: "center",
     backgroundColor: colors.surfaceStrong,
     borderRadius: radii.md,
-    height: 74,
+    height: 56,
     justifyContent: "center",
     overflow: "hidden",
-    width: 74,
+    width: 56,
   },
   cardCopy: {
     flex: 1,
@@ -136,12 +144,12 @@ const styles = StyleSheet.create({
   cardTitle: {
     color: colors.forest,
     fontSize: typography.cardTitle.fontSize,
-    fontWeight: "900",
+    fontWeight: "700",
   },
   cardDescription: {
     color: colors.forestSoft,
-    fontSize: typography.general.fontSize,
+    fontSize: typography.body.fontSize,
     fontWeight: "500",
-    lineHeight: typography.general.lineHeight,
+    lineHeight: typography.body.lineHeight,
   },
 });

@@ -12,81 +12,97 @@ export const colors = {
 } as const;
 
 export const spacing = {
-  xs: 4,
-  sm: 8,
-  md: 16,
-  lg: 24,
-  xl: 32,
-  xxl: 48,
+  xs: 2,
+  sm: 4,
+  md: 8,
+  lg: 12,
+  xl: 16,
+  xxl: 24,
 } as const;
 
 export const radii = {
-  md: 12,
+  sm: 6,
+  md: 10,
   lg: 16,
-  xl: 20,
+  xl: 24,
+  full: 9999,
 } as const;
 
 export const typography = {
   general: {
-    fontSize: 12,
-    lineHeight: 18,
+    fontSize: 11,
+    lineHeight: 16,
   },
   tiny: {
+    fontSize: 12,
+    lineHeight: 16,
+  },
+  nav: {
+    fontSize: 13,
+  },
+  body: {
     fontSize: 13,
     lineHeight: 18,
   },
-  nav: {
-    fontSize: 15,
-  },
-  body: {
+  bodyLarge: {
     fontSize: 14,
     lineHeight: 20,
   },
-  bodyLarge: {
-    fontSize: 16,
-    lineHeight: 23,
-  },
   buttonPrimary: {
-    fontSize: 15,
+    fontSize: 13,
   },
   buttonSecondary: {
-    fontSize: 15,
+    fontSize: 13,
   },
   cardTitle: {
-    fontSize: 17,
+    fontSize: 15,
   },
   screenTitle: {
-    fontSize: 22,
-    lineHeight: 29,
+    fontSize: 18,
+    lineHeight: 24,
   },
   heroTitle: {
-    fontSize: 24,
-    lineHeight: 31,
+    fontSize: 20,
+    lineHeight: 26,
   },
   scenarioTitle: {
-    fontSize: 24,
+    fontSize: 20,
   },
   lessonWord: {
-    fontSize: 24,
+    fontSize: 20,
   },
   quizWord: {
-    fontSize: 24,
+    fontSize: 20,
   },
   quizLetter: {
-    fontSize: 24,
+    fontSize: 20,
   },
   sentence: {
-    fontSize: 18,
-    lineHeight: 25,
+    fontSize: 16,
+    lineHeight: 22,
   },
 } as const;
 
 export const shadows = {
   card: {
-    shadowColor: "#123326",
-    shadowOffset: { width: 0, height: 5 },
+    shadowColor: colors.forest,
+    shadowOffset: { width: 0, height: 8 },
     shadowOpacity: 0.08,
-    shadowRadius: 8,
-    elevation: 2,
+    shadowRadius: 16,
+    elevation: 4,
   },
+  button: {
+    shadowColor: colors.forestAction,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.25,
+    shadowRadius: 8,
+    elevation: 3,
+  },
+  premium: {
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 12 },
+    shadowOpacity: 0.06,
+    shadowRadius: 24,
+    elevation: 6,
+  }
 } as const;

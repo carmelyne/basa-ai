@@ -14,15 +14,28 @@ import { ScenarioPlaceholderScreen } from "./src/learning/ScenarioPlaceholderScr
 import { StartScreen } from "./src/learning/StartScreen";
 import { WordPracticeScreen } from "./src/learning/WordPracticeScreen";
 import { ProgressSummaryScreen } from "./src/progress/ProgressSummaryScreen";
+import { BadgeIndexScreen } from "./src/progress/BadgeIndexScreen";
+import { TraceWritingScreen } from "./src/learning/TraceWritingScreen";
+import { AuthScreen } from "./src/auth/AuthScreen";
 import {
   clearLocalProgress,
   emptyProgress,
   loadLocalProgress,
   saveLocalProgress,
+  type LocalProgress,
 } from "./src/progress/progress-storage";
 import { colors } from "./src/ui/theme";
 
-type AppRoute = "start" | "picker" | "scenario" | "word" | "practice" | "summary";
+type AppRoute =
+  | "start"
+  | "picker"
+  | "scenario"
+  | "word"
+  | "practice"
+  | "writing"
+  | "summary"
+  | "badges"
+  | "auth";
 
 export default function App() {
   const [routeStack, setRouteStack] = useState<AppRoute[]>(["start"]);
@@ -32,6 +45,8 @@ export default function App() {
   const [completedWordIds, setCompletedWordIds] = useState<string[]>([]);
   const [correctAnswerIds, setCorrectAnswerIds] = useState<string[]>([]);
   const [progressLoaded, setProgressLoaded] = useState(false);
+  const [authMode, setAuthMode] = useState<"backup" | "restore">("backup");
+
   const route = routeStack[routeStack.length - 1];
   const lessonWords = selectedScenario.words;
   const currentWord = lessonWords[wordIndex] ?? lessonWords[0];
@@ -158,6 +173,19 @@ export default function App() {
     resetTo("scenario");
   }
 
+  function openAuth(mode: "backup" | "restore") {
+    setAuthMode(mode);
+    navigate("auth");
+  }
+
+  function handleAuthSuccess(restoredProgress?: LocalProgress) {
+    if (authMode === "restore" && restoredProgress) {
+      setCompletedWordIds(restoredProgress.completedWordIds);
+      setCorrectAnswerIds(restoredProgress.correctAnswerIds);
+    }
+    resetTo("start");
+  }
+
   return (
     <SafeAreaView style={styles.screen}>
       <StatusBar style="dark" />
@@ -166,6 +194,7 @@ export default function App() {
           completedWords={selectedScenarioCompletedIds.length}
           nextLessonTitle={selectedScenario.shortTitle}
           onContinue={continueLesson}
+          onRestoreProgress={() => openAuth("restore")}
           onStart={startLesson}
           totalWords={lessonWords.length}
         />
@@ -195,11 +224,22 @@ export default function App() {
               totalWords={lessonWords.length}
               onBack={goBack}
               onHome={goHome}
-              onPractice={() => navigate("practice")}
+              onPractice={() => navigate("writing")}
+            />
+          ) : null}
+          {route === "writing" ? (
+            <TraceWritingScreen
+              lessonWord={currentWord}
+              isLastWord={isLastWord}
+              onBack={goBack}
+              onDone={() => navigate("practice")}
+              onHome={goHome}
+              onSkip={() => navigate("practice")}
             />
           ) : null}
           {route === "practice" ? (
             <MissingLetterPracticeScreen
+              key={currentWord.id}
               lessonWord={currentWord}
               isLastWord={isLastWord}
               onBack={goBack}
@@ -210,13 +250,41 @@ export default function App() {
           ) : null}
           {route === "summary" ? (
             <ProgressSummaryScreen
+              scenarioId={selectedScenario.id}
               completedWords={selectedScenarioCompletedIds.length}
               correctAnswers={selectedScenarioCorrectIds.length}
               lessonTitle={selectedScenario.shortTitle}
               totalWords={lessonWords.length}
-              onBackToLesson={() => resetTo("scenario")}
+              onNewLesson={() => resetTo("picker")}
+              onBack={goBack}
               onHome={goHome}
-              onRestart={restartLesson}
+              onRestart={() => navigate("badges")}
+              onSaveProgress={() => openAuth("backup")}
+            />
+          ) : null}
+          {route === "badges" ? (
+            <BadgeIndexScreen
+              completedWordIds={completedWordIds}
+              onBack={goBack}
+              onSelectBadge={(scenarioId) => {
+                const targetScenario = scenarioLessons.find((s) => s.id === scenarioId);
+                if (targetScenario) {
+                  setSelectedScenario(targetScenario);
+                  navigate("summary");
+                }
+              }}
+            />
+          ) : null}
+          {route === "auth" ? (
+            <AuthScreen
+              mode={authMode}
+              currentProgress={{
+                completedWordIds,
+                correctAnswerIds,
+                updatedAt: Math.floor(Date.now() / 1000),
+              }}
+              onBack={goBack}
+              onSuccess={handleAuthSuccess}
             />
           ) : null}
         </>

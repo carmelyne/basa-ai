@@ -1,9 +1,10 @@
-import { useEffect } from "react";
+import { Bot } from "lucide-react-native";
 import { StyleSheet, Text, View } from "react-native";
 
 import { speakFilipino } from "../tts/speak";
-import { SoundButton } from "../ui/SoundButton";
-import { colors, spacing } from "../ui/theme";
+import { colors, radii, spacing } from "../ui/theme";
+
+import { useEffect } from "react";
 
 type KuyaHintCardProps = {
   hint: string;
@@ -12,26 +13,25 @@ type KuyaHintCardProps = {
 
 export function KuyaHintCard({ hint, sound }: KuyaHintCardProps) {
   useEffect(() => {
-    speakFilipino("Hey, nandito si Kuya AI.", { rate: 0.75 });
-  }, []);
+    speakFilipino(hint);
+  }, [hint]);
 
   return (
     <View style={styles.card}>
+      <View style={styles.avatarContainer}>
+        <Bot color={colors.blue} size={22} strokeWidth={2.2} />
+      </View>
       <View style={styles.copy}>
         <Text style={styles.label}>Kuya AI</Text>
         <Text style={styles.hint}>{hint}</Text>
       </View>
-      <SoundButton
-        label={`Pakinggan ang tunog na ${sound}`}
-        onPress={() => speakFilipino(sound, { rate: 0.62 })}
-      />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   card: {
-    alignItems: "center",
+    alignItems: "flex-start",
     backgroundColor: colors.white,
     borderColor: colors.border,
     borderRadius: 20,
@@ -40,6 +40,14 @@ const styles = StyleSheet.create({
     gap: spacing.md,
     padding: spacing.md,
     width: "100%",
+  },
+  avatarContainer: {
+    alignItems: "center",
+    backgroundColor: colors.surfaceStrong,
+    borderRadius: radii.full,
+    height: 40,
+    justifyContent: "center",
+    width: 40,
   },
   copy: {
     flex: 1,
