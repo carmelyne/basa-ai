@@ -1,13 +1,15 @@
 import { StyleSheet, Text, View } from "react-native";
+import { ArrowRight, Pencil, ShoppingBag } from "lucide-react-native";
 
 import type { LessonWord } from "./lesson-data";
 import { speakFilipino } from "../tts/speak";
 import { useTtsSupport } from "../tts/useTtsSupport";
 import { AppButton } from "../ui/AppButton";
 import { LessonNavBar } from "../ui/LessonNavBar";
+import { ResponsiveLessonImage } from "../ui/ResponsiveLessonImage";
 import { ScreenScrollView } from "../ui/ScreenScrollView";
 import { SoundButton } from "../ui/SoundButton";
-import { colors, spacing } from "../ui/theme";
+import { colors, radii, shadows, spacing, typography } from "../ui/theme";
 
 type WordPracticeScreenProps = {
   lessonWord: LessonWord;
@@ -44,9 +46,21 @@ export function WordPracticeScreen({
         <Text style={styles.contextText}>
           Salita {wordIndex + 1} sa {totalWords}
         </Text>
+        <View style={styles.progressTrack}>
+          <View style={[styles.progressFill, { width: `${((wordIndex + 1) / totalWords) * 100}%` }]} />
+        </View>
       </View>
 
       <View style={styles.imageCard}>
+        {lessonWord.image ? (
+          <ResponsiveLessonImage
+            maxHeight={190}
+            minHeight={150}
+            source={lessonWord.image}
+          />
+        ) : (
+          <ShoppingBag color={colors.forestAction} size={92} strokeWidth={1.8} />
+        )}
         <Text style={styles.imageText}>{lessonWord.imageLabel}</Text>
         <Text style={styles.imageCaption}>{lessonWord.imageCaption}</Text>
       </View>
@@ -76,7 +90,17 @@ export function WordPracticeScreen({
       ) : null}
 
       <View style={styles.footer}>
-        <AppButton label="Subukan ko" onPress={onPractice} />
+        <AppButton
+          icon={<ArrowRight color={colors.surface} size={27} strokeWidth={2.6} />}
+          label="Susunod"
+          onPress={onPractice}
+        />
+        <AppButton
+          icon={<Pencil color={colors.blue} size={25} strokeWidth={2.4} />}
+          label="Subukan"
+          onPress={onPractice}
+          variant="secondary"
+        />
       </View>
     </ScreenScrollView>
   );
@@ -89,42 +113,51 @@ const styles = StyleSheet.create({
   },
   contextText: {
     color: colors.muted,
-    fontSize: 15,
+    fontSize: typography.body.fontSize,
     fontWeight: "600",
+  },
+  progressTrack: {
+    backgroundColor: colors.border,
+    borderRadius: 999,
+    height: 8,
+    overflow: "hidden",
+  },
+  progressFill: {
+    backgroundColor: colors.forestAction,
+    borderRadius: 999,
+    height: "100%",
   },
   imageCard: {
     alignItems: "center",
     backgroundColor: colors.surface,
     borderColor: colors.border,
-    borderRadius: 22,
+    borderRadius: radii.xl,
     borderWidth: 1,
     gap: spacing.sm,
     justifyContent: "center",
-    minHeight: 132,
-    padding: spacing.md,
+    minHeight: 220,
+    padding: spacing.lg,
+    ...shadows.card,
   },
   imageText: {
-    backgroundColor: colors.surfaceStrong,
-    borderRadius: 16,
-    color: colors.blue,
-    fontSize: 25,
-    fontWeight: "700",
-    overflow: "hidden",
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.md,
+    color: colors.forest,
+    fontSize: typography.cardTitle.fontSize,
+    fontWeight: "900",
   },
   imageCaption: {
     color: colors.muted,
-    fontSize: 16,
+    fontSize: typography.general.fontSize,
     fontWeight: "500",
+    lineHeight: typography.general.lineHeight,
   },
   practiceCard: {
     backgroundColor: colors.surface,
     borderColor: colors.border,
-    borderRadius: 20,
+    borderRadius: radii.xl,
     borderWidth: 1,
     gap: spacing.md,
-    padding: spacing.md,
+    padding: spacing.lg,
+    ...shadows.card,
   },
   wordRow: {
     alignItems: "center",
@@ -134,8 +167,8 @@ const styles = StyleSheet.create({
   },
   word: {
     color: colors.forest,
-    fontSize: 34,
-    fontWeight: "700",
+    fontSize: typography.lessonWord.fontSize,
+    fontWeight: "900",
     letterSpacing: 0,
   },
   sentenceRow: {
@@ -150,18 +183,18 @@ const styles = StyleSheet.create({
   sentence: {
     color: colors.forest,
     flex: 1,
-    fontSize: 19,
-    fontWeight: "500",
-    lineHeight: 26,
+    fontSize: typography.sentence.fontSize,
+    fontWeight: "700",
+    lineHeight: typography.sentence.lineHeight,
   },
   footer: {
     gap: spacing.md,
   },
   voiceNote: {
     color: colors.muted,
-    fontSize: 14,
+    fontSize: typography.tiny.fontSize,
     fontWeight: "700",
-    lineHeight: 20,
+    lineHeight: typography.tiny.lineHeight,
     textAlign: "center",
   },
 });

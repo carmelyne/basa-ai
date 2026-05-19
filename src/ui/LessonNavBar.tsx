@@ -1,6 +1,7 @@
+import { ArrowLeft, House, Leaf } from "lucide-react-native";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 
-import { colors, spacing } from "./theme";
+import { colors, spacing, typography } from "./theme";
 
 type LessonNavBarProps = {
   label?: string;
@@ -12,20 +13,29 @@ export function LessonNavBar({ label, onBack, onHome }: LessonNavBarProps) {
   return (
     <View style={styles.row}>
       <Pressable
+        accessibilityLabel="Balik"
         accessibilityRole="button"
         disabled={!onBack}
         onPress={onBack}
         style={[styles.navButton, !onBack && styles.navButtonHidden]}
       >
-        <Text style={styles.navText}>Balik</Text>
+        <ArrowLeft color={colors.forestSoft} size={18} strokeWidth={2.2} />
       </Pressable>
 
-      <Text numberOfLines={1} style={styles.label}>
-        {label ?? "Aralin"}
-      </Text>
+      <View style={styles.brandRow}>
+        <Leaf color={colors.forestSoft} size={16} strokeWidth={2.3} />
+        <Text numberOfLines={1} style={styles.label}>
+          {label ?? "Lesson"}
+        </Text>
+      </View>
 
-      <Pressable accessibilityRole="button" onPress={onHome} style={styles.navButton}>
-        <Text style={styles.navText}>Home</Text>
+      <Pressable
+        accessibilityLabel="Home"
+        accessibilityRole="button"
+        onPress={onHome}
+        style={styles.navButton}
+      >
+        <House color={colors.forestSoft} size={18} strokeWidth={2.2} />
       </Pressable>
     </View>
   );
@@ -37,7 +47,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     gap: spacing.sm,
     justifyContent: "space-between",
-    minHeight: 44,
+    minHeight: 38,
   },
   navButton: {
     alignItems: "center",
@@ -45,22 +55,23 @@ const styles = StyleSheet.create({
     borderColor: colors.border,
     borderRadius: 999,
     borderWidth: 1,
-    minWidth: 72,
-    paddingHorizontal: spacing.md,
-    paddingVertical: 10,
+    height: 38,
+    justifyContent: "center",
+    width: 38,
   },
   navButtonHidden: {
     opacity: 0,
   },
-  navText: {
-    color: colors.forestSoft,
-    fontSize: 15,
-    fontWeight: "700",
+  brandRow: {
+    alignItems: "center",
+    flex: 1,
+    flexDirection: "row",
+    gap: spacing.xs,
+    justifyContent: "center",
   },
   label: {
-    color: colors.muted,
-    flex: 1,
-    fontSize: 14,
+    color: colors.forest,
+    fontSize: typography.nav.fontSize,
     fontWeight: "700",
     textAlign: "center",
   },

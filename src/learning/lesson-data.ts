@@ -1,6 +1,9 @@
+import type { ImageSourcePropType } from "react-native";
+
 export type LessonWord = {
   id: string;
   word: string;
+  image?: ImageSourcePropType;
   imageLabel: string;
   imageCaption: string;
   sentence: string;
@@ -16,6 +19,7 @@ export type ScenarioLesson = {
   title: string;
   shortTitle: string;
   description: string;
+  coverImage?: ImageSourcePropType;
   seedWords: string[];
   words: LessonWord[];
 };
@@ -25,11 +29,13 @@ const sellingScenario: ScenarioLesson = {
   title: "Pagbebenta ng produkto",
   shortTitle: "Pagbebenta",
   description: "Mga salitang gamit sa tindahan.",
+  coverImage: require("../../assets/lessons/pagbebenta/presyo.webp"),
   seedWords: ["presyo", "sukli", "bayad"],
   words: [
     {
       id: "presyo",
       word: "presyo",
+      image: require("../../assets/lessons/pagbebenta/presyo.webp"),
       imageLabel: "Presyo",
       imageCaption: "Halaga ng bibilhin",
       sentence: "Presyo ng bigas.",
@@ -42,6 +48,7 @@ const sellingScenario: ScenarioLesson = {
     {
       id: "sukli",
       word: "sukli",
+      image: require("../../assets/lessons/pagbebenta/sukli.webp"),
       imageLabel: "Sukli",
       imageCaption: "Baryang ibinabalik",
       sentence: "May sukli si ate.",
@@ -54,6 +61,7 @@ const sellingScenario: ScenarioLesson = {
     {
       id: "bayad",
       word: "bayad",
+      image: require("../../assets/lessons/pagbebenta/bayad.webp"),
       imageLabel: "Bayad",
       imageCaption: "Pera para sa binili",
       sentence: "Inabot ni kuya ang bayad.",
@@ -71,11 +79,13 @@ const drivingScenario: ScenarioLesson = {
   title: "Pagmamaneho",
   shortTitle: "Pagmamaneho",
   description: "Mga salitang nakikita sa daan at sasakyan.",
+  coverImage: require("../../assets/lessons/pagmamaneho/preno.webp"),
   seedWords: ["preno", "ilaw", "daan"],
   words: [
     {
       id: "preno",
       word: "preno",
+      image: require("../../assets/lessons/pagmamaneho/preno.webp"),
       imageLabel: "Preno",
       imageCaption: "Pampahinto ng sasakyan",
       sentence: "Dahan-dahan sa preno.",
@@ -88,6 +98,7 @@ const drivingScenario: ScenarioLesson = {
     {
       id: "ilaw",
       word: "ilaw",
+      image: require("../../assets/lessons/pagmamaneho/ilaw.webp"),
       imageLabel: "Ilaw",
       imageCaption: "Liwanag sa daan",
       sentence: "Bukas ang ilaw.",
@@ -100,6 +111,7 @@ const drivingScenario: ScenarioLesson = {
     {
       id: "daan",
       word: "daan",
+      image: require("../../assets/lessons/pagmamaneho/daan.webp"),
       imageLabel: "Daan",
       imageCaption: "Dinaraanan ng tao at sasakyan",
       sentence: "Malinis ang daan.",
@@ -117,11 +129,13 @@ const phoneButtonsScenario: ScenarioLesson = {
   title: "Phone Buttons",
   shortTitle: "Buttons",
   description: "Mga salitang madalas makita sa phone.",
+  coverImage: require("../../assets/lessons/phone-buttons/send.webp"),
   seedWords: ["send", "save", "back"],
   words: [
     {
       id: "send",
       word: "send",
+      image: require("../../assets/lessons/phone-buttons/send.webp"),
       imageLabel: "Send",
       imageCaption: "Ipadala ang mensahe",
       sentence: "Pindutin ang send.",
@@ -134,6 +148,7 @@ const phoneButtonsScenario: ScenarioLesson = {
     {
       id: "save",
       word: "save",
+      image: require("../../assets/lessons/phone-buttons/save.webp"),
       imageLabel: "Save",
       imageCaption: "Itabi para hindi mawala",
       sentence: "I-tap ang save.",
@@ -146,6 +161,7 @@ const phoneButtonsScenario: ScenarioLesson = {
     {
       id: "back",
       word: "back",
+      image: require("../../assets/lessons/phone-buttons/back.webp"),
       imageLabel: "Back",
       imageCaption: "Bumalik sa naunang screen",
       sentence: "Pindutin ang back.",

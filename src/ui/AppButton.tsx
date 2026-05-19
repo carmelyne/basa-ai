@@ -1,14 +1,17 @@
+import type { ReactNode } from "react";
 import { Pressable, StyleSheet, Text } from "react-native";
 
-import { colors } from "./theme";
+import { colors, radii, shadows, typography } from "./theme";
 
 type AppButtonProps = {
+  icon?: ReactNode;
   label: string;
   onPress: () => void;
   variant?: "primary" | "secondary";
 };
 
 export function AppButton({
+  icon,
   label,
   onPress,
   variant = "primary",
@@ -21,6 +24,7 @@ export function AppButton({
       onPress={onPress}
       style={[styles.button, isPrimary ? styles.primary : styles.secondary]}
     >
+      {icon}
       <Text style={isPrimary ? styles.primaryText : styles.secondaryText}>
         {label}
       </Text>
@@ -31,26 +35,30 @@ export function AppButton({
 const styles = StyleSheet.create({
   button: {
     alignItems: "center",
-    borderRadius: 14,
+    borderRadius: radii.md,
+    flexDirection: "row",
+    gap: 8,
     justifyContent: "center",
-    minHeight: 52,
-    paddingHorizontal: 20,
+    minHeight: 46,
+    paddingHorizontal: 16,
   },
   primary: {
     backgroundColor: colors.forestAction,
+    ...shadows.card,
   },
   primaryText: {
     color: colors.surface,
-    fontSize: 17,
-    fontWeight: "700",
+    fontSize: typography.buttonPrimary.fontSize,
+    fontWeight: "800",
   },
   secondary: {
-    borderColor: colors.forestAction,
+    backgroundColor: colors.surface,
+    borderColor: colors.blue,
     borderWidth: 1.5,
   },
   secondaryText: {
-    color: colors.forestAction,
-    fontSize: 16,
-    fontWeight: "700",
+    color: colors.blue,
+    fontSize: typography.buttonSecondary.fontSize,
+    fontWeight: "800",
   },
 });

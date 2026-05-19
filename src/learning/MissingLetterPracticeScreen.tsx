@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Check, HelpCircle, MessageCircle, RotateCcw } from "lucide-react-native";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 
 import type { LessonWord } from "./lesson-data";
@@ -7,9 +8,10 @@ import { speakFilipino } from "../tts/speak";
 import { useTtsSupport } from "../tts/useTtsSupport";
 import { AppButton } from "../ui/AppButton";
 import { LessonNavBar } from "../ui/LessonNavBar";
+import { ResponsiveLessonImage } from "../ui/ResponsiveLessonImage";
 import { ScreenScrollView } from "../ui/ScreenScrollView";
 import { SoundButton } from "../ui/SoundButton";
-import { colors, spacing } from "../ui/theme";
+import { colors, radii, shadows, spacing, typography } from "../ui/theme";
 
 type MissingLetterPracticeScreenProps = {
   lessonWord: LessonWord;
@@ -69,31 +71,27 @@ export function MissingLetterPracticeScreen({
       <LessonNavBar label="Subukan ko" onBack={onBack} onHome={onHome} />
 
       <View style={styles.header}>
-        <Text style={styles.prompt}>Anong nawawalang letra?</Text>
-        <Text style={styles.helper}>Pakinggan muna, tapos subukan.</Text>
+        <Text style={styles.contextText}>Subukan ko</Text>
+        <View style={styles.progressTrack}>
+          <View style={styles.progressFill} />
+        </View>
       </View>
 
       <View style={styles.practiceCard}>
-        <Pressable
-          accessibilityRole="button"
-          onPress={() => setShowHint((currentValue) => !currentValue)}
-          style={styles.kuyaButton}
-        >
-          <Text style={styles.kuyaButtonText}>
-            {showHint ? "Itago si Kuya AI" : "Tulungan ako, Kuya AI"}
-          </Text>
-        </Pressable>
-
-        {showHint ? (
-          <KuyaHintCard
-            hint={lessonWord.phoneticHint}
-            sound={lessonWord.phoneticSound}
-          />
-        ) : null}
-
         <View style={styles.imageTile}>
+          {lessonWord.image ? (
+            <ResponsiveLessonImage
+              maxHeight={150}
+              minHeight={130}
+              source={lessonWord.image}
+            />
+          ) : (
+            <HelpCircle color={colors.forestAction} size={56} strokeWidth={2.1} />
+          )}
           <Text style={styles.imageText}>{lessonWord.imageLabel}</Text>
         </View>
+
+        <Text style={styles.prompt}>Anong nawawalang letra?</Text>
 
         <View style={styles.wordRow}>
           <Text style={styles.missingWord}>{lessonWord.missingLetterPrompt}</Text>
@@ -139,7 +137,7 @@ export function MissingLetterPracticeScreen({
                 : styles.wrongCard,
             ]}
           >
-            <Text
+            <View
               accessibilityLabel={
                 answerState === "correct" ? "Tamang sagot" : "Subukan muli"
               }
@@ -150,8 +148,12 @@ export function MissingLetterPracticeScreen({
                   : styles.wrongIcon,
               ]}
             >
-              {answerState === "correct" ? "✓" : "↻"}
-            </Text>
+              {answerState === "correct" ? (
+                <Check color={colors.surface} size={23} strokeWidth={2.8} />
+              ) : (
+                <RotateCcw color={colors.surface} size={22} strokeWidth={2.6} />
+              )}
+            </View>
             <Text style={styles.answerTitle}>
               {answerState === "correct" ? "Tama!" : "Subukan muli"}
             </Text>
@@ -168,6 +170,24 @@ export function MissingLetterPracticeScreen({
         ) : null}
       </View>
 
+      <Pressable
+        accessibilityRole="button"
+        onPress={() => setShowHint((currentValue) => !currentValue)}
+        style={styles.kuyaButton}
+      >
+        <MessageCircle color={colors.blue} size={18} strokeWidth={2.3} />
+        <Text style={styles.kuyaButtonText}>
+          {showHint ? "Itago si Kuya AI" : "Tulungan ako, Kuya AI"}
+        </Text>
+      </Pressable>
+
+      {showHint ? (
+        <KuyaHintCard
+          hint={lessonWord.phoneticHint}
+          sound={lessonWord.phoneticSound}
+        />
+      ) : null}
+
       {showVoiceNote ? (
         <Text style={styles.voiceNote}>
           Kung iba ang tunog, kailangan lang i-check ang boses ng phone.
@@ -177,7 +197,7 @@ export function MissingLetterPracticeScreen({
       <View style={styles.footer}>
         <AppButton label="Sagot" onPress={handleSubmit} />
         <AppButton
-          label={isLastWord ? "Tapusin muna" : "Laktawan muna"}
+          label={isLastWord ? "Tapos" : "Laktawan"}
           onPress={onSkip}
           variant="secondary"
         />
@@ -189,53 +209,69 @@ export function MissingLetterPracticeScreen({
 const styles = StyleSheet.create({
   header: {
     gap: spacing.sm,
-    paddingTop: spacing.md,
   },
-  prompt: {
-    color: colors.forest,
-    fontSize: 24,
-    fontWeight: "700",
-    letterSpacing: 0,
+  contextText: {
+    color: colors.muted,
+    fontSize: typography.body.fontSize,
+    fontWeight: "600",
   },
-  helper: {
-    color: colors.forestSoft,
-    fontSize: 16,
-    lineHeight: 23,
+  progressTrack: {
+    backgroundColor: colors.border,
+    borderRadius: 999,
+    height: 8,
+    overflow: "hidden",
+  },
+  progressFill: {
+    backgroundColor: colors.forestAction,
+    borderRadius: 999,
+    height: "100%",
+    width: "33%",
   },
   practiceCard: {
     alignItems: "center",
     backgroundColor: colors.surface,
     borderColor: colors.border,
-    borderRadius: 22,
+    borderRadius: radii.xl,
     borderWidth: 1,
     gap: spacing.md,
-    padding: spacing.md,
+    padding: spacing.lg,
+    ...shadows.card,
+  },
+  prompt: {
+    color: colors.forest,
+    fontSize: typography.body.fontSize,
+    fontWeight: "600",
+    alignSelf: "flex-start",
   },
   kuyaButton: {
     alignItems: "center",
-    backgroundColor: colors.forest,
-    borderRadius: 16,
-    minHeight: 52,
+    backgroundColor: colors.surface,
+    borderColor: colors.blue,
+    borderRadius: radii.lg,
+    borderWidth: 1.5,
+    flexDirection: "row",
+    gap: spacing.sm,
+    minHeight: 48,
     justifyContent: "center",
     paddingHorizontal: spacing.md,
     width: "100%",
   },
   kuyaButtonText: {
-    color: colors.surface,
-    fontSize: 16,
+    color: colors.blue,
+    fontSize: typography.body.fontSize,
     fontWeight: "700",
   },
   imageTile: {
     alignItems: "center",
-    backgroundColor: colors.surfaceStrong,
-    borderRadius: 20,
+    backgroundColor: colors.surface,
+    borderRadius: radii.md,
+    gap: spacing.sm,
     justifyContent: "center",
-    minHeight: 84,
     width: "100%",
   },
   imageText: {
-    color: colors.blue,
-    fontSize: 21,
+    color: colors.forest,
+    fontSize: typography.cardTitle.fontSize,
     fontWeight: "700",
   },
   wordRow: {
@@ -246,23 +282,23 @@ const styles = StyleSheet.create({
   },
   missingWord: {
     color: colors.forest,
-    fontSize: 34,
+    fontSize: typography.quizWord.fontSize,
     fontWeight: "700",
     letterSpacing: 0,
   },
   inputBox: {
     alignItems: "center",
     backgroundColor: colors.white,
-    borderColor: colors.border,
-    borderRadius: 16,
-    borderWidth: 1,
-    height: 54,
+    borderColor: colors.forestAction,
+    borderRadius: radii.md,
+    borderWidth: 1.5,
+    height: 60,
     justifyContent: "center",
     width: 68,
   },
   inputText: {
     color: colors.forest,
-    fontSize: 26,
+    fontSize: typography.quizLetter.fontSize,
     fontWeight: "700",
   },
   optionRow: {
@@ -273,7 +309,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: colors.white,
     borderColor: colors.border,
-    borderRadius: 16,
+    borderRadius: radii.md,
     borderWidth: 1,
     height: 52,
     justifyContent: "center",
@@ -285,7 +321,7 @@ const styles = StyleSheet.create({
   },
   optionText: {
     color: colors.forest,
-    fontSize: 23,
+    fontSize: typography.quizLetter.fontSize,
     fontWeight: "700",
   },
   optionTextSelected: {
@@ -293,14 +329,14 @@ const styles = StyleSheet.create({
   },
   feedback: {
     color: colors.forestSoft,
-    fontSize: 16,
+    fontSize: typography.body.fontSize,
     fontWeight: "600",
     textAlign: "center",
   },
   answerCard: {
     alignItems: "center",
     backgroundColor: colors.white,
-    borderRadius: 16,
+    borderRadius: radii.lg,
     borderWidth: 1.5,
     gap: spacing.xs,
     padding: spacing.md,
@@ -313,13 +349,10 @@ const styles = StyleSheet.create({
     borderColor: colors.blue,
   },
   answerIcon: {
+    alignItems: "center",
     borderRadius: 999,
-    color: colors.surface,
-    fontSize: 21,
-    fontWeight: "700",
     height: 40,
-    lineHeight: 40,
-    textAlign: "center",
+    justifyContent: "center",
     width: 40,
   },
   correctIcon: {
@@ -330,12 +363,12 @@ const styles = StyleSheet.create({
   },
   answerTitle: {
     color: colors.forest,
-    fontSize: 24,
+    fontSize: typography.cardTitle.fontSize,
     fontWeight: "700",
   },
   answerWord: {
     color: colors.forestSoft,
-    fontSize: 17,
+    fontSize: typography.bodyLarge.fontSize,
     fontWeight: "600",
   },
   footer: {
@@ -343,9 +376,9 @@ const styles = StyleSheet.create({
   },
   voiceNote: {
     color: colors.muted,
-    fontSize: 14,
+    fontSize: typography.tiny.fontSize,
     fontWeight: "500",
-    lineHeight: 20,
+    lineHeight: typography.tiny.lineHeight,
     textAlign: "center",
   },
 });
