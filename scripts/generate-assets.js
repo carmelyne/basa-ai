@@ -13,8 +13,8 @@ function ensureDir(dirPath) {
   }
 }
 
-async function generateImageLocally(prompt, outputPath) {
-  console.log(`[Asset Pipeline] 💻 Attempting local image generation via Ollama (Flux)...`);
+async function generateImageLocally(prompt, outputPath, width, height) {
+  console.log(`[Asset Pipeline] 💻 Attempting local image generation via Ollama (Flux) at ${width}x${height}...`);
   const kleinImagesDir = '/Users/carmelyne/dev/klein-images';
   
   if (!fs.existsSync(kleinImagesDir)) {
@@ -39,9 +39,9 @@ async function generateImageLocally(prompt, outputPath) {
   const expectScript = `
 spawn ollama run x/flux2-klein:4b-fp4
 expect ">>>"
-send "/set width 1448\\r"
+send "/set width ${width}\\r"
 expect ">>>"
-send "/set height 1086\\r"
+send "/set height ${height}\\r"
 expect ">>>"
 send "${final_prompt.replace(/"/g, '\\"')}\\r"
 set timeout 600
@@ -93,10 +93,10 @@ expect eof
   }
 }
 
-async function generateImage(prompt, outputPath) {
+async function generateImage(prompt, outputPath, width, height, aspectRatio) {
   const apiKey = process.env.GEMINI_API_KEY;
   if (apiKey) {
-    console.log(`[Asset Pipeline] 🎨 Generating image via Gemini API...`);
+    console.log(`[Asset Pipeline] 🎨 Generating image via Gemini API at ${width}x${height} (${aspectRatio})...`);
     const url = `https://generativelanguage.googleapis.com/v1beta/models/imagen-3.0-generate-002:generateImages?key=${apiKey}`;
     
     try {
@@ -110,7 +110,7 @@ async function generateImage(prompt, outputPath) {
           config: {
             numberOfImages: 1,
             outputMimeType: 'image/webp',
-            aspectRatio: '4:3'
+            aspectRatio: aspectRatio
           }
         })
       });
@@ -133,10 +133,10 @@ async function generateImage(prompt, outputPath) {
       }
     } catch (error) {
       console.error(`[Asset Pipeline] ❌ Gemini API generation failed: ${error.message}. Falling back to local Flux.`);
-      return await generateImageLocally(prompt, outputPath);
+      return await generateImageLocally(prompt, outputPath, width, height);
     }
   } else {
-    return await generateImageLocally(prompt, outputPath);
+    return await generateImageLocally(prompt, outputPath, width, height);
   }
 }
 
@@ -149,30 +149,42 @@ async function main() {
   const rawData = fs.readFileSync(LESSONS_JSON_PATH, 'utf8');
   const lessons = JSON.parse(rawData);
 
-  // Collect all unique keys and their prompts
-  const imageMap = {}; // imageKey -> prompt
+  // Collect all unique keys and their metadata (prompt, width, height, aspectRatio)
+  const imageMap = {};
 
   for (const lesson of lessons) {
     if (lesson.coverImageKey) {
-      imageMap[lesson.coverImageKey] = `A high-quality, professional, realistic studio photograph representing the scenario '${lesson.title}' (${lesson.description}). Warm ambient lighting, editorial product photography style, high resolution, clean background.`;
+      // Scenario assets are 1:1 (square): 1254 x 1254
+      imageMap[lesson.coverImageKey] = {
+        prompt: `A high-quality, professional, realistic studio photograph representing the scenario '${lesson.title}' (${lesson.description}). Warm ambient lighting, editorial product photography style, high resolution, clean background.`,
+        width: 1254,
+        height: 1254,
+        aspectRatio: '1:1'
+      };
     }
 
     if (lesson.words) {
       for (const word of lesson.words) {
         if (word.imageKey) {
           const defaultPrompt = `A clean, high-quality, realistic photograph of '${word.word}' (${word.imageCaption}) in the context of '${lesson.title}'. Highly recognizable object, simple composition, professional studio lighting, clear details, solid neutral background.`;
-          imageMap[word.imageKey] = word.imagePrompt || defaultPrompt;
+          // Word assets are 4:3 (landscape): 1448 x 1086
+          imageMap[word.imageKey] = {
+            prompt: word.imagePrompt || defaultPrompt,
+            width: 1448,
+            height: 1086,
+            aspectRatio: '4:3'
+          };
         }
       }
     }
   }
 
   // Iterate over each image key and check/generate
-  for (const [imageKey, prompt] of Object.entries(imageMap)) {
+  for (const [imageKey, info] of Object.entries(imageMap)) {
     const fullPath = path.join(ASSETS_DIR, imageKey);
     if (!fs.existsSync(fullPath)) {
       console.log(`[Asset Pipeline] 🔍 Missing asset: ${imageKey}`);
-      await generateImage(prompt, fullPath);
+      await generateImage(info.prompt, fullPath, info.width, info.height, info.aspectRatio);
     }
   }
 
