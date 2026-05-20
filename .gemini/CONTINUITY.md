@@ -1,7 +1,7 @@
 # CONTINUITY
 Goal: Redesign React Native screens and add index badge and tracing pages.
 State: Done
-Now: Enforced mutual exclusivity between Kuya AI hint card and answer feedback card.
+Now: Increased Kuya AI floating buttons to 48x48 on intro and practice screens.
 Next: Ready for review and further UX refinements from Pong.
 Blockers: None
 Decisions:
@@ -38,6 +38,7 @@ Decisions:
 - Added "Simulan natin." to the end of the ScenarioPlaceholderScreen TTS script and implemented a pulsating 60fps Native scale-and-opacity ripple glow behind the "Simulan" button upon speech completion.
 - Replaced the duplicate RotateCcw icon on the "Burahin lahat" button with a dedicated Eraser icon in TraceWritingScreen.tsx.
 - Made Kuya AI hint card and answer feedback card mutually exclusive in MissingLetterPracticeScreen.tsx (showing one automatically hides the other).
+- Increased Kuya AI Bot floating buttons on both ScenarioPlaceholderScreen.tsx and MissingLetterPracticeScreen.tsx to 48x48 while keeping icon size at 20.
 Files:
 - App.tsx
 - src/learning/lessons.json

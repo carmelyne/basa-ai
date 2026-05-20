@@ -110,7 +110,19 @@ export default function App() {
   }
 
   function resetTo(nextRoute: AppRoute) {
-    setRouteStack([nextRoute]);
+    if (nextRoute === "start") {
+      setRouteStack(["start"]);
+    } else if (nextRoute === "picker") {
+      setRouteStack(["start", "picker"]);
+    } else if (nextRoute === "scenario") {
+      setRouteStack(["start", "picker", "scenario"]);
+    } else if (nextRoute === "word") {
+      setRouteStack(["start", "picker", "scenario", "word"]);
+    } else if (nextRoute === "summary") {
+      setRouteStack(["start", "picker", "summary"]);
+    } else {
+      setRouteStack([nextRoute]);
+    }
   }
 
   function goHome() {

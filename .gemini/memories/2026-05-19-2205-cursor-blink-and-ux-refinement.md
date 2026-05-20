@@ -1,7 +1,7 @@
 # 2026-05-19 — 22:05 — cursor-blink-and-ux-refinement
 
 ## Session Summary
-- What we worked on: Refined fill-in-the-blank layout alignment, blinking cursor animation, text translations, and intro page explanation buttons with button highlighting, eraser icons, and mutually exclusive card states.
+- What we worked on: Refined fill-in-the-blank layout alignment, blinking cursor animation, text translations, and intro page explanation buttons with button highlighting, eraser icons, mutually exclusive card states, and larger floating action targets.
 - What got done:
   - Injected CSS blinking animations for web and fixed text jumping by locking missing letter width.
   - Re-architected correct/wrong feedback cards to align horizontally.
@@ -10,7 +10,8 @@
   - Created a floating Bot explanation button on ScenarioPlaceholderScreen.
   - Added "Simulan natin." to the end of the TTS script and implemented a pulsating 60fps Native scale-and-opacity ripple glow behind the "Simulan" button upon speech completion.
   - Replaced the duplicate `RotateCcw` icon on the "Burahin lahat" button with a dedicated `Eraser` icon in `TraceWritingScreen.tsx`.
-  - Configured `KuyaHintCard` and the correct/wrong feedback containers to be mutually exclusive on `MissingLetterPracticeScreen.tsx` so they never display at the same time.
+  - Configured `KuyaHintCard` and the correct/wrong feedback containers to be mutually exclusive on `MissingLetterPracticeScreen.tsx`.
+  - Enlarged all Kuya AI `Bot` floating buttons to 48x48 (keeping the internal icon at size 20) across both the intro and practice screens.
 - Where we stopped: All layouts are stable and UX improvements are implemented successfully.
 
 ## Next Session Needs
@@ -26,6 +27,7 @@
   - Button highlighting triggers on TTS `onDone` callback, resetting immediately upon user click or new speech.
   - Dedicated `Eraser` icon replaces duplicate reset icons to clarify "Burahin lahat" behavior.
   - Toggling Kuya AI hint card automatically resets the answer state, and submitting an answer automatically dismisses the hint.
+  - Floating circle tap targets are standardized to 48x48 to optimize thumb comfort for older learners.
 - Files touched:
   - `src/learning/MissingLetterPracticeScreen.tsx`
   - `src/learning/StartScreen.tsx`
