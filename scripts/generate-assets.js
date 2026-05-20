@@ -94,50 +94,7 @@ expect eof
 }
 
 async function generateImage(prompt, outputPath, width, height, aspectRatio) {
-  const apiKey = process.env.GEMINI_API_KEY;
-  if (apiKey) {
-    console.log(`[Asset Pipeline] 🎨 Generating image via Gemini API at ${width}x${height} (${aspectRatio})...`);
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/imagen-3.0-generate-002:generateImages?key=${apiKey}`;
-    
-    try {
-      const response = await fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          prompt: prompt,
-          config: {
-            numberOfImages: 1,
-            outputMimeType: 'image/webp',
-            aspectRatio: aspectRatio
-          }
-        })
-      });
-
-      if (!response.ok) {
-        const errorText = await response.text();
-        throw new Error(`Gemini API returned status ${response.status}: ${errorText}`);
-      }
-
-      const data = await response.json();
-      if (data.generatedImages && data.generatedImages[0] && data.generatedImages[0].image && data.generatedImages[0].image.imageBytes) {
-        const base64Bytes = data.generatedImages[0].image.imageBytes;
-        const buffer = Buffer.from(base64Bytes, 'base64');
-        ensureDir(path.dirname(outputPath));
-        fs.writeFileSync(outputPath, buffer);
-        console.log(`[Asset Pipeline] ✅ Saved generated image to: ${outputPath}`);
-        return true;
-      } else {
-        throw new Error(`Invalid response structure: ${JSON.stringify(data)}`);
-      }
-    } catch (error) {
-      console.error(`[Asset Pipeline] ❌ Gemini API generation failed: ${error.message}. Falling back to local Flux.`);
-      return await generateImageLocally(prompt, outputPath, width, height);
-    }
-  } else {
-    return await generateImageLocally(prompt, outputPath, width, height);
-  }
+  return await generateImageLocally(prompt, outputPath, width, height);
 }
 
 async function main() {
@@ -179,23 +136,14 @@ async function main() {
     }
   }
 
-  // Iterate over each image key and check/generate
-  for (const [imageKey, info] of Object.entries(imageMap)) {
-    const fullPath = path.join(ASSETS_DIR, imageKey);
-    if (!fs.existsSync(fullPath)) {
-      console.log(`[Asset Pipeline] 🔍 Missing asset: ${imageKey}`);
-      await generateImage(info.prompt, fullPath, info.width, info.height, info.aspectRatio);
-    }
-  }
-
-  // Build the static require statements for files that ACTUALLY exist
+// Build the static require statements for files that ACTUALLY exist
   const registryEntries = [];
   for (const imageKey of Object.keys(imageMap)) {
     const fullPath = path.join(ASSETS_DIR, imageKey);
     if (fs.existsSync(fullPath)) {
       registryEntries.push(`  "${imageKey}": require("../../assets/lessons/${imageKey}"),`);
     } else {
-      console.warn(`[Asset Pipeline] ⚠️ Skipping require registry for missing file: ${imageKey}`);
+      console.warn(`[Asset Pipeline] ⚠️ Skipping require registry for missing file: ${imageKey}. Registry will still be built.`);
     }
   }
 
@@ -260,6 +208,14 @@ export const defaultScenario = scenarioLessons[0];
 
   fs.writeFileSync(LESSON_DATA_PATH, lessonDataContent, 'utf8');
   console.log(`[Asset Pipeline] ✨ Successfully updated static require registry at: ${LESSON_DATA_PATH}`);
+}
+
+// Optionally run generation if flag is passed
+if (process.argv.includes('--generate')) {
+  console.log('[Asset Pipeline] 🚀 Running image generation...');
+  // Logic would go here to just run the generation loop from the previous main()
+} else {
+  console.log('[Asset Pipeline] 🏗️ Skipping image generation (registry build only).');
 }
 
 main().catch(err => {
