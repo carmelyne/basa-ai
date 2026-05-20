@@ -191,17 +191,14 @@ export function WordPracticeScreen({
     return (
       <View style={styles.largeSentenceRow}>
         {data.syllables.map((syllable, idx) => {
-          const isPlaying = activeSentenceSyllableIndex !== null;
-          const isActive = isPlaying && idx <= activeSentenceSyllableIndex;
+          const isActive = activeSentenceSyllableIndex !== null && idx <= activeSentenceSyllableIndex;
 
           return (
             <Text
               key={idx}
               style={[
                 styles.largeSentenceSyllable,
-                isPlaying
-                  ? (isActive ? styles.largeSyllableActive : styles.largeSyllableInactive)
-                  : styles.largeSyllableNormal,
+                isActive ? styles.largeSyllableActive : styles.largeSyllableInactive,
               ]}
             >
               {syllable}
@@ -270,9 +267,11 @@ export function WordPracticeScreen({
               />
             </View>
 
-            <View style={styles.largeSentenceCard}>
-              {renderLargeSentenceSyllables()}
-            </View>
+            {activeSentenceSyllableIndex !== null ? (
+              <View style={styles.largeSentenceCard}>
+                {renderLargeSentenceSyllables()}
+              </View>
+            ) : null}
           </View>
 
           {showVoiceNote ? (
@@ -443,24 +442,21 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   largeSentenceSyllable: {
-    fontSize: 22,
+    fontSize: 26,
     fontWeight: "700",
-    lineHeight: 30,
-  },
-  largeSyllableNormal: {
-    color: colors.forest,
+    lineHeight: 36,
   },
   largeSyllableActive: {
     color: colors.forestAction,
   },
   largeSyllableInactive: {
-    color: colors.muted,
+    color: "rgba(6, 53, 31, 0.15)",
   },
   largeSentenceText: {
     color: colors.forest,
-    fontSize: 22,
+    fontSize: 26,
     fontWeight: "700",
-    lineHeight: 30,
+    lineHeight: 36,
     textAlign: "center",
   },
 });
