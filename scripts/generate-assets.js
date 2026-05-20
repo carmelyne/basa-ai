@@ -76,14 +76,14 @@ async function main() {
   for (const lesson of lessons) {
     if (lesson.coverImageKey) {
       // If cover image doesn't have a prompt, default to scenario description
-      imageMap[lesson.coverImageKey] = `An expressive cover illustration for a lesson on '${lesson.title}' - ${lesson.description}. Clean vector, friendly tone, warm colors, cream background.`;
+      imageMap[lesson.coverImageKey] = `A high-quality, professional, realistic studio photograph representing the scenario '${lesson.title}' (${lesson.description}). Warm ambient lighting, editorial product photography style, high resolution, clean background.`;
     }
 
     if (lesson.words) {
       for (const word of lesson.words) {
         if (word.imageKey) {
           // Use prompt from word, or fallback
-          const defaultPrompt = `A simple, clear, high-contrast illustration of a '${word.word}' (${word.imageCaption}) in the context of '${lesson.title}'. Friendly educational design for adults, cream background, warm soft lighting.`;
+          const defaultPrompt = `A clean, high-quality, realistic photograph of '${word.word}' (${word.imageCaption}) in the context of '${lesson.title}'. Highly recognizable object, simple composition, professional studio lighting, clear details, solid neutral background.`;
           imageMap[word.imageKey] = word.imagePrompt || defaultPrompt;
         }
       }
