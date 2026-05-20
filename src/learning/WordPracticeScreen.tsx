@@ -34,6 +34,45 @@ const WORD_SYLLABLES: Record<string, { syllables: string[]; timings: number[] }>
   back: { syllables: ["back"], timings: [0] },
 };
 
+const SENTENCE_SYLLABLES: Record<string, { syllables: string[]; timings: number[] }> = {
+  presyo: {
+    syllables: ["Pre", "syo", " ng ", "bi", "gas."],
+    timings: [0, 400, 750, 950, 1250],
+  },
+  sukli: {
+    syllables: ["May ", "suk", "li ", "si ", "a", "te."],
+    timings: [0, 350, 650, 950, 1150, 1350],
+  },
+  bayad: {
+    syllables: ["I", "na", "bot ", "ni ", "ku", "ya ", "ang ", "ba", "yad."],
+    timings: [0, 200, 450, 750, 950, 1200, 1450, 1700, 1950],
+  },
+  preno: {
+    syllables: ["Da", "han-", "da", "han ", "sa ", "pre", "no."],
+    timings: [0, 250, 500, 750, 1050, 1250, 1550],
+  },
+  ilaw: {
+    syllables: ["Bu", "kas ", "ang ", "i", "law."],
+    timings: [0, 300, 550, 800, 1050],
+  },
+  daan: {
+    syllables: ["Ma", "li", "nis ", "ang ", "da", "an."],
+    timings: [0, 250, 500, 800, 1000, 1250],
+  },
+  send: {
+    syllables: ["Pin", "du", "tin ", "ang ", "send."],
+    timings: [0, 250, 500, 750, 950],
+  },
+  save: {
+    syllables: ["I-", "tap ", "ang ", "save."],
+    timings: [0, 300, 600, 800],
+  },
+  back: {
+    syllables: ["Pin", "du", "tin ", "ang ", "back."],
+    timings: [0, 250, 500, 750, 950],
+  },
+};
+
 export function WordPracticeScreen({
   lessonWord,
   scenarioTitle,
@@ -48,11 +87,16 @@ export function WordPracticeScreen({
     ttsSupportStatus === "missing" || ttsSupportStatus === "unknown";
 
   const [activeSyllableIndex, setActiveSyllableIndex] = useState<number | null>(null);
+  const [activeSentenceSyllableIndex, setActiveSentenceSyllableIndex] = useState<number | null>(null);
+  
   const activeTimersRef = useRef<any[]>([]);
+  const sentenceTimersRef = useRef<any[]>([]);
 
   const clearKaraokeTimers = () => {
     activeTimersRef.current.forEach((t) => clearTimeout(t));
     activeTimersRef.current = [];
+    sentenceTimersRef.current.forEach((t) => clearTimeout(t));
+    sentenceTimersRef.current = [];
   };
 
   useEffect(() => {
@@ -88,6 +132,32 @@ export function WordPracticeScreen({
     activeTimersRef.current = [...timers.filter(Boolean), endTimer] as any[];
   };
 
+  const playSentenceKaraoke = () => {
+    const data = SENTENCE_SYLLABLES[lessonWord.id];
+    if (!data) {
+      speakFilipino(lessonWord.sentence, { rate: 0.75 });
+      return;
+    }
+
+    speakFilipino(lessonWord.sentence, { rate: 0.75 });
+    clearKaraokeTimers();
+
+    setActiveSentenceSyllableIndex(0);
+
+    const timers = data.timings.map((time, idx) => {
+      if (idx === 0) return null;
+      return setTimeout(() => {
+        setActiveSentenceSyllableIndex(idx);
+      }, time);
+    });
+
+    const endTimer = setTimeout(() => {
+      setActiveSentenceSyllableIndex(null);
+    }, data.timings[data.timings.length - 1] + 1000);
+
+    sentenceTimersRef.current = [...timers.filter(Boolean), endTimer] as any[];
+  };
+
   const renderKaraokeText = () => {
     const data = WORD_SYLLABLES[lessonWord.id];
     if (!data) return <Text style={styles.karaokeText}>{lessonWord.word}</Text>;
@@ -102,6 +172,32 @@ export function WordPracticeScreen({
               style={[
                 styles.karaokeSyllable,
                 isActive ? styles.syllableActive : styles.syllableInactive,
+              ]}
+            >
+              {syllable}
+            </Text>
+          );
+        })}
+      </View>
+    );
+  };
+
+  const renderSentenceText = () => {
+    const data = SENTENCE_SYLLABLES[lessonWord.id];
+    if (!data) return <Text style={styles.sentence}>{lessonWord.sentence}</Text>;
+
+    return (
+      <View style={styles.sentenceTextRow}>
+        {data.syllables.map((syllable, idx) => {
+          const isActive =
+            activeSentenceSyllableIndex !== null &&
+            activeSentenceSyllableIndex >= idx;
+          return (
+            <Text
+              key={idx}
+              style={[
+                styles.sentenceSyllable,
+                isActive ? styles.sentenceActive : styles.sentenceInactive,
               ]}
             >
               {syllable}
@@ -163,10 +259,10 @@ export function WordPracticeScreen({
             </View>
 
             <View style={styles.sentenceRow}>
-              <Text style={styles.sentence}>{lessonWord.sentence}</Text>
+              {renderSentenceText()}
               <SoundButton
                 label={`Pakinggan ang pangungusap: ${lessonWord.sentence}`}
-                onPress={() => speakFilipino(lessonWord.sentence)}
+                onPress={playSentenceKaraoke}
               />
             </View>
           </View>
@@ -319,5 +415,22 @@ const styles = StyleSheet.create({
     fontSize: 32,
     fontWeight: "700",
     letterSpacing: 2,
+  },
+  sentenceTextRow: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    alignItems: "center",
+    flex: 1,
+  },
+  sentenceSyllable: {
+    fontSize: typography.sentence.fontSize,
+    fontWeight: "700",
+    lineHeight: typography.sentence.lineHeight,
+  },
+  sentenceActive: {
+    color: colors.forestAction,
+  },
+  sentenceInactive: {
+    color: colors.forest,
   },
 });

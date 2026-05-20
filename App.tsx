@@ -230,6 +230,7 @@ export default function App() {
           ) : null}
           {route === "word" ? (
             <WordPracticeScreen
+              key={currentWord.id}
               lessonWord={currentWord}
               scenarioTitle={selectedScenario.shortTitle}
               wordIndex={wordIndex}
