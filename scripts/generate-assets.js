@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { execSync } = require('child_process');
 
 const LESSONS_JSON_PATH = path.join(__dirname, '../src/learning/lessons.json');
 const LESSON_DATA_PATH = path.join(__dirname, '../src/learning/lesson-data.ts');
@@ -12,52 +13,130 @@ function ensureDir(dirPath) {
   }
 }
 
-async function generateImage(prompt, outputPath) {
-  const apiKey = process.env.GEMINI_API_KEY;
-  if (!apiKey) {
-    console.warn(`[Asset Pipeline] ⚠️ GEMINI_API_KEY is not set. Cannot generate image for prompt: "${prompt}"`);
+async function generateImageLocally(prompt, outputPath) {
+  console.log(`[Asset Pipeline] 💻 Attempting local image generation via Ollama (Flux)...`);
+  const kleinImagesDir = '/Users/carmelyne/dev/klein-images';
+  
+  if (!fs.existsSync(kleinImagesDir)) {
+    console.error(`[Asset Pipeline] ❌ Local klein-images directory not found at ${kleinImagesDir}`);
     return false;
   }
 
-  console.log(`[Asset Pipeline] 🎨 Generating image for prompt: "${prompt}"...`);
-  
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/imagen-3.0-generate-002:generateImages?key=${apiKey}`;
-  
+  // Get list of existing PNG files before generation
+  const getPngFiles = () => {
+    return fs.readdirSync(kleinImagesDir)
+      .filter(file => file.endsWith('.png'))
+      .map(file => path.join(kleinImagesDir, file));
+  };
+
+  const beforeFiles = new Set(getPngFiles());
+
+  // Replicate user's fluxphoto alias styling logic
+  const bg_color = "neutral studio grey";
+  const style_prompt = "ultra-realistic photograph, highly detailed, 8k resolution, raw photo, natural cinematic lighting, sharp focus, professional photographic lens, shallow depth of field";
+  const final_prompt = `style: ${style_prompt}, scene: ${prompt}, color constraints: feature ${bg_color} prominently as the backdrop or dominant environmental lighting, scene constraints: No Texts`;
+
+  const expectScript = `
+spawn ollama run x/flux2-klein:4b-fp4
+expect ">>>"
+send "/set width 1448\\r"
+expect ">>>"
+send "/set height 1086\\r"
+expect ">>>"
+send "${final_prompt.replace(/"/g, '\\"')}\\r"
+set timeout 600
+expect ">>>"
+send "/bye\\r"
+expect eof
+`;
+
   try {
-    const response = await fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        prompt: prompt,
-        config: {
-          numberOfImages: 1,
-          outputMimeType: 'image/webp',
-          aspectRatio: '4:3'
-        }
-      })
-    });
-
-    if (!response.ok) {
-      const errorText = await response.text();
-      throw new Error(`Gemini API returned status ${response.status}: ${errorText}`);
+    console.log(`[Asset Pipeline] 📸 Spawning Ollama with Flux model... This might take a minute.`);
+    execSync('/usr/bin/expect', { input: expectScript, cwd: kleinImagesDir, stdio: 'pipe' });
+    
+    // Find the new file
+    const afterFiles = getPngFiles();
+    const newFiles = afterFiles.filter(file => !beforeFiles.has(file));
+    
+    if (newFiles.length === 0) {
+      throw new Error("No new PNG files detected in klein-images directory after generation.");
     }
+    
+    // Sort by modification time to find the latest
+    newFiles.sort((a, b) => fs.statSync(b).mtimeMs - fs.statSync(a).mtimeMs);
+    const generatedPngPath = newFiles[0];
+    console.log(`[Asset Pipeline] 🔍 Detected generated local file: ${generatedPngPath}`);
 
-    const data = await response.json();
-    if (data.generatedImages && data.generatedImages[0] && data.generatedImages[0].image && data.generatedImages[0].image.imageBytes) {
-      const base64Bytes = data.generatedImages[0].image.imageBytes;
-      const buffer = Buffer.from(base64Bytes, 'base64');
-      ensureDir(path.dirname(outputPath));
-      fs.writeFileSync(outputPath, buffer);
-      console.log(`[Asset Pipeline] ✅ Saved generated image to: ${outputPath}`);
-      return true;
+    // Create target directory if needed
+    ensureDir(path.dirname(outputPath));
+
+    // Convert to webp if target is webp, else just copy
+    if (outputPath.endsWith('.webp')) {
+      const cwebpPath = '/usr/local/bin/cwebp';
+      if (fs.existsSync(cwebpPath)) {
+        console.log(`[Asset Pipeline] ⚡ Converting PNG to WebP via cwebp...`);
+        execSync(`"${cwebpPath}" -q 85 "${generatedPngPath}" -o "${outputPath}"`);
+        console.log(`[Asset Pipeline] ✅ Successfully converted and saved WebP: ${outputPath}`);
+      } else {
+        console.warn(`[Asset Pipeline] ⚠️ cwebp not found. Copying PNG file but named as webp.`);
+        fs.copyFileSync(generatedPngPath, outputPath);
+      }
     } else {
-      throw new Error(`Invalid response structure: ${JSON.stringify(data)}`);
+      fs.copyFileSync(generatedPngPath, outputPath);
+      console.log(`[Asset Pipeline] ✅ Saved image to: ${outputPath}`);
     }
+    
+    return true;
   } catch (error) {
-    console.error(`[Asset Pipeline] ❌ Image generation failed:`, error.message);
+    console.error(`[Asset Pipeline] ❌ Local image generation failed:`, error.message);
     return false;
+  }
+}
+
+async function generateImage(prompt, outputPath) {
+  const apiKey = process.env.GEMINI_API_KEY;
+  if (apiKey) {
+    console.log(`[Asset Pipeline] 🎨 Generating image via Gemini API...`);
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/imagen-3.0-generate-002:generateImages?key=${apiKey}`;
+    
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          prompt: prompt,
+          config: {
+            numberOfImages: 1,
+            outputMimeType: 'image/webp',
+            aspectRatio: '4:3'
+          }
+        })
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`Gemini API returned status ${response.status}: ${errorText}`);
+      }
+
+      const data = await response.json();
+      if (data.generatedImages && data.generatedImages[0] && data.generatedImages[0].image && data.generatedImages[0].image.imageBytes) {
+        const base64Bytes = data.generatedImages[0].image.imageBytes;
+        const buffer = Buffer.from(base64Bytes, 'base64');
+        ensureDir(path.dirname(outputPath));
+        fs.writeFileSync(outputPath, buffer);
+        console.log(`[Asset Pipeline] ✅ Saved generated image to: ${outputPath}`);
+        return true;
+      } else {
+        throw new Error(`Invalid response structure: ${JSON.stringify(data)}`);
+      }
+    } catch (error) {
+      console.error(`[Asset Pipeline] ❌ Gemini API generation failed: ${error.message}. Falling back to local Flux.`);
+      return await generateImageLocally(prompt, outputPath);
+    }
+  } else {
+    return await generateImageLocally(prompt, outputPath);
   }
 }
 
@@ -75,14 +154,12 @@ async function main() {
 
   for (const lesson of lessons) {
     if (lesson.coverImageKey) {
-      // If cover image doesn't have a prompt, default to scenario description
       imageMap[lesson.coverImageKey] = `A high-quality, professional, realistic studio photograph representing the scenario '${lesson.title}' (${lesson.description}). Warm ambient lighting, editorial product photography style, high resolution, clean background.`;
     }
 
     if (lesson.words) {
       for (const word of lesson.words) {
         if (word.imageKey) {
-          // Use prompt from word, or fallback
           const defaultPrompt = `A clean, high-quality, realistic photograph of '${word.word}' (${word.imageCaption}) in the context of '${lesson.title}'. Highly recognizable object, simple composition, professional studio lighting, clear details, solid neutral background.`;
           imageMap[word.imageKey] = word.imagePrompt || defaultPrompt;
         }
