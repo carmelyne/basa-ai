@@ -1,0 +1,179 @@
+const fs = require('fs');
+const path = require('path');
+
+const LESSONS_JSON_PATH = path.join(__dirname, '../src/learning/lessons.json');
+const LESSON_DATA_PATH = path.join(__dirname, '../src/learning/lesson-data.ts');
+const ASSETS_DIR = path.join(__dirname, '../assets/lessons');
+
+// Helper to make directory recursively if not exists
+function ensureDir(dirPath) {
+  if (!fs.existsSync(dirPath)) {
+    fs.mkdirSync(dirPath, { recursive: true });
+  }
+}
+
+async function generateImage(prompt, outputPath) {
+  const apiKey = process.env.GEMINI_API_KEY;
+  if (!apiKey) {
+    console.warn(`[Asset Pipeline] ⚠️ GEMINI_API_KEY is not set. Cannot generate image for prompt: "${prompt}"`);
+    return false;
+  }
+
+  console.log(`[Asset Pipeline] 🎨 Generating image for prompt: "${prompt}"...`);
+  
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/imagen-3.0-generate-002:generateImages?key=${apiKey}`;
+  
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        prompt: prompt,
+        config: {
+          numberOfImages: 1,
+          outputMimeType: 'image/webp',
+          aspectRatio: '4:3'
+        }
+      })
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`Gemini API returned status ${response.status}: ${errorText}`);
+    }
+
+    const data = await response.json();
+    if (data.generatedImages && data.generatedImages[0] && data.generatedImages[0].image && data.generatedImages[0].image.imageBytes) {
+      const base64Bytes = data.generatedImages[0].image.imageBytes;
+      const buffer = Buffer.from(base64Bytes, 'base64');
+      ensureDir(path.dirname(outputPath));
+      fs.writeFileSync(outputPath, buffer);
+      console.log(`[Asset Pipeline] ✅ Saved generated image to: ${outputPath}`);
+      return true;
+    } else {
+      throw new Error(`Invalid response structure: ${JSON.stringify(data)}`);
+    }
+  } catch (error) {
+    console.error(`[Asset Pipeline] ❌ Image generation failed:`, error.message);
+    return false;
+  }
+}
+
+async function main() {
+  if (!fs.existsSync(LESSONS_JSON_PATH)) {
+    console.error(`[Asset Pipeline] ❌ lessons.json not found at ${LESSONS_JSON_PATH}`);
+    process.exit(1);
+  }
+
+  const rawData = fs.readFileSync(LESSONS_JSON_PATH, 'utf8');
+  const lessons = JSON.parse(rawData);
+
+  // Collect all unique keys and their prompts
+  const imageMap = {}; // imageKey -> prompt
+
+  for (const lesson of lessons) {
+    if (lesson.coverImageKey) {
+      // If cover image doesn't have a prompt, default to scenario description
+      imageMap[lesson.coverImageKey] = `An expressive cover illustration for a lesson on '${lesson.title}' - ${lesson.description}. Clean vector, friendly tone, warm colors, cream background.`;
+    }
+
+    if (lesson.words) {
+      for (const word of lesson.words) {
+        if (word.imageKey) {
+          // Use prompt from word, or fallback
+          const defaultPrompt = `A simple, clear, high-contrast illustration of a '${word.word}' (${word.imageCaption}) in the context of '${lesson.title}'. Friendly educational design for adults, cream background, warm soft lighting.`;
+          imageMap[word.imageKey] = word.imagePrompt || defaultPrompt;
+        }
+      }
+    }
+  }
+
+  // Iterate over each image key and check/generate
+  for (const [imageKey, prompt] of Object.entries(imageMap)) {
+    const fullPath = path.join(ASSETS_DIR, imageKey);
+    if (!fs.existsSync(fullPath)) {
+      console.log(`[Asset Pipeline] 🔍 Missing asset: ${imageKey}`);
+      await generateImage(prompt, fullPath);
+    }
+  }
+
+  // Build the static require statements for files that ACTUALLY exist
+  const registryEntries = [];
+  for (const imageKey of Object.keys(imageMap)) {
+    const fullPath = path.join(ASSETS_DIR, imageKey);
+    if (fs.existsSync(fullPath)) {
+      registryEntries.push(`  "${imageKey}": require("../../assets/lessons/${imageKey}"),`);
+    } else {
+      console.warn(`[Asset Pipeline] ⚠️ Skipping require registry for missing file: ${imageKey}`);
+    }
+  }
+
+  // Generate the new lesson-data.ts content
+  const lessonDataContent = `import type { ImageSourcePropType } from "react-native";
+import rawLessons from "./lessons.json";
+
+export type LessonWord = {
+  id: string;
+  word: string;
+  image?: ImageSourcePropType;
+  imageLabel: string;
+  imageCaption: string;
+  sentence: string;
+  phoneticHint: string;
+  phoneticSound: string;
+  missingLetterPrompt: string;
+  missingLetterAnswer: string;
+  missingLetterOptions: string[];
+};
+
+export type ScenarioLesson = {
+  id: string;
+  title: string;
+  shortTitle: string;
+  description: string;
+  coverImage?: ImageSourcePropType;
+  seedWords: string[];
+  words: LessonWord[];
+};
+
+// Static image registry required by React Native / Metro Bundler
+// Automatically generated by scripts/generate-assets.js
+export const LESSON_IMAGES: Record<string, ImageSourcePropType> = {
+${registryEntries.join('\n')}
+};
+
+export const scenarioLessons: ScenarioLesson[] = (rawLessons as any[]).map((lesson) => ({
+  id: lesson.id,
+  title: lesson.title,
+  shortTitle: lesson.shortTitle,
+  description: lesson.description,
+  coverImage: LESSON_IMAGES[lesson.coverImageKey],
+  seedWords: lesson.seedWords,
+  words: lesson.words.map((word: any) => ({
+    id: word.id,
+    word: word.word,
+    image: LESSON_IMAGES[word.imageKey],
+    imageLabel: word.imageLabel,
+    imageCaption: word.imageCaption,
+    sentence: word.sentence,
+    phoneticHint: word.phoneticHint,
+    phoneticSound: word.phoneticSound,
+    missingLetterPrompt: word.missingLetterPrompt,
+    missingLetterAnswer: word.missingLetterAnswer,
+    missingLetterOptions: word.missingLetterOptions,
+  })),
+}));
+
+export const defaultScenario = scenarioLessons[0];
+`;
+
+  fs.writeFileSync(LESSON_DATA_PATH, lessonDataContent, 'utf8');
+  console.log(`[Asset Pipeline] ✨ Successfully updated static require registry at: ${LESSON_DATA_PATH}`);
+}
+
+main().catch(err => {
+  console.error('[Asset Pipeline] ❌ Script crashed:', err);
+  process.exit(1);
+});
