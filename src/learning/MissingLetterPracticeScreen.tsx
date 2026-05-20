@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Bot, Check, HelpCircle, RotateCcw } from "lucide-react-native";
-import { Platform, Pressable, StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 
 import type { LessonWord } from "./lesson-data";
 import { KuyaHintCard } from "../kuya-ai/KuyaHintCard";
@@ -254,35 +254,17 @@ export function MissingLetterPracticeScreen({
                       {selectedLetter}
                     </Text>
                   ) : (
-                    <>
-                      {Platform.OS === 'web' && (
-                        <style dangerouslySetInnerHTML={{
-                          __html: `
-                        @keyframes blink {
-                          from, to { color: transparent; }
-                          50% { color: #2E3D48; }
-                        }
-                        .blinking-cursor {
-                          font-weight: 100 !important;
-                          font-size: 30px !important;
-                          color: #2E3D48 !important;
-                          animation: 1s blink step-end infinite !important;
-                        }
-                      `}} />
-                      )}
-                      <Text
-                        {...{ className: "blinking-cursor" }}
-                        style={{
-                          fontWeight: "100",
-                          fontSize: 30,
-                          color: showUnderscore ? "#2E3D48" : "transparent",
-                          width: 24,
-                          textAlign: "center",
-                        }}
-                      >
-                        _
-                      </Text>
-                    </>
+                    <Text
+                      style={{
+                        fontWeight: "100",
+                        fontSize: 30,
+                        color: showUnderscore ? "#2E3D48" : "transparent",
+                        width: 24,
+                        textAlign: "center",
+                      }}
+                    >
+                      _
+                    </Text>
                   )}
                   {after ? (
                     <Text style={[styles.missingWord, { fontSize: 30 }]}>{after}</Text>
