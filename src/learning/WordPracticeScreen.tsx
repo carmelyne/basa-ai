@@ -182,22 +182,26 @@ export function WordPracticeScreen({
     );
   };
 
-  const renderSentenceText = () => {
+  const renderLargeSentenceSyllables = () => {
     const data = SENTENCE_SYLLABLES[lessonWord.id];
-    if (!data) return <Text style={styles.sentence}>{lessonWord.sentence}</Text>;
+    if (!data) {
+      return <Text style={styles.largeSentenceText}>{lessonWord.sentence}</Text>;
+    }
 
     return (
-      <View style={styles.sentenceTextRow}>
+      <View style={styles.largeSentenceRow}>
         {data.syllables.map((syllable, idx) => {
-          const isActive =
-            activeSentenceSyllableIndex !== null &&
-            activeSentenceSyllableIndex >= idx;
+          const isPlaying = activeSentenceSyllableIndex !== null;
+          const isActive = isPlaying && idx <= activeSentenceSyllableIndex;
+
           return (
             <Text
               key={idx}
               style={[
-                styles.sentenceSyllable,
-                isActive ? styles.sentenceActive : styles.sentenceInactive,
+                styles.largeSentenceSyllable,
+                isPlaying
+                  ? (isActive ? styles.largeSyllableActive : styles.largeSyllableInactive)
+                  : styles.largeSyllableNormal,
               ]}
             >
               {syllable}
@@ -259,11 +263,15 @@ export function WordPracticeScreen({
             </View>
 
             <View style={styles.sentenceRow}>
-              {renderSentenceText()}
+              <Text style={styles.sentence}>{lessonWord.sentence}</Text>
               <SoundButton
                 label={`Pakinggan ang pangungusap: ${lessonWord.sentence}`}
                 onPress={playSentenceKaraoke}
               />
+            </View>
+
+            <View style={styles.largeSentenceCard}>
+              {renderLargeSentenceSyllables()}
             </View>
           </View>
 
@@ -416,21 +424,43 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     letterSpacing: 2,
   },
-  sentenceTextRow: {
+  largeSentenceCard: {
+    backgroundColor: colors.surface,
+    borderRadius: radii.lg,
+    paddingVertical: spacing.xxl,
+    paddingHorizontal: spacing.xl,
+    marginTop: spacing.sm,
+    alignItems: "center",
+    justifyContent: "center",
+    borderWidth: 1,
+    borderColor: colors.border,
+    ...shadows.card,
+  },
+  largeSentenceRow: {
     flexDirection: "row",
     flexWrap: "wrap",
+    justifyContent: "center",
     alignItems: "center",
-    flex: 1,
   },
-  sentenceSyllable: {
-    fontSize: typography.sentence.fontSize,
+  largeSentenceSyllable: {
+    fontSize: 22,
     fontWeight: "700",
-    lineHeight: typography.sentence.lineHeight,
+    lineHeight: 30,
   },
-  sentenceActive: {
+  largeSyllableNormal: {
+    color: colors.forest,
+  },
+  largeSyllableActive: {
     color: colors.forestAction,
   },
-  sentenceInactive: {
+  largeSyllableInactive: {
+    color: colors.muted,
+  },
+  largeSentenceText: {
     color: colors.forest,
+    fontSize: 22,
+    fontWeight: "700",
+    lineHeight: 30,
+    textAlign: "center",
   },
 });
