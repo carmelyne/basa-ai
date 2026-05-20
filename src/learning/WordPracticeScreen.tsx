@@ -44,10 +44,9 @@ const SENTENCE_SYLLABLES: Record<string, { syllables: string[]; timings: number[
     timings: [0, 350, 650, 950, 1150, 1350],
   },
   bayad: {
-    syllables: ["I", "na", "bot ", "ni ", "ku", "ya ", "ang ", "ba", "yad."],
-    timings: [0, 200, 450, 750, 950, 1200, 1450, 1700, 1950],
-  },
-  preno: {
+    syllables: ["Bi", "ni", "gay ", "ni ", "ku", "ya ", "ang ", "ba", "yad."],
+    timings: [0, 250, 500, 850, 1100, 1350, 1600, 1850, 2100],
+  },  preno: {
     syllables: ["Da", "han-", "da", "han ", "sa ", "pre", "no."],
     timings: [0, 250, 500, 750, 1050, 1250, 1550],
   },

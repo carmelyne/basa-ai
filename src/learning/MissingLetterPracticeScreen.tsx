@@ -488,7 +488,7 @@ const styles = StyleSheet.create({
     color: colors.forestSoft,
     fontSize: typography.body.fontSize,
     fontWeight: "600",
-    textAlign: "center",
+    textAlign: "left",
   },
   answerCard: {
     flexDirection: "row",

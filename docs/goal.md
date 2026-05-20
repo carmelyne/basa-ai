@@ -248,7 +248,7 @@ Sentence: Sarado ang bangko.
 
 ```text
 Word: barya
-Sentence: Inabot ni kuya ang barya.
+Sentence: Binigay ni kuya ang barya.
 ```
 
 Sentence rules:

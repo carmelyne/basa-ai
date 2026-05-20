@@ -5,7 +5,11 @@
     "shortTitle": "Pagbebenta",
     "description": "Mga salitang gamit sa tindahan.",
     "coverImageKey": "pagbebenta/presyo.webp",
-    "seedWords": ["presyo", "sukli", "bayad"],
+    "seedWords": [
+      "presyo",
+      "sukli",
+      "bayad"
+    ],
     "words": [
       {
         "id": "presyo",
@@ -18,7 +22,11 @@
         "phoneticSound": "eh",
         "missingLetterPrompt": "pr_syo",
         "missingLetterAnswer": "e",
-        "missingLetterOptions": ["e", "a", "i"]
+        "missingLetterOptions": [
+          "e",
+          "a",
+          "i"
+        ]
       },
       {
         "id": "sukli",
@@ -31,7 +39,11 @@
         "phoneticSound": "u",
         "missingLetterPrompt": "s_kli",
         "missingLetterAnswer": "u",
-        "missingLetterOptions": ["o", "u", "a"]
+        "missingLetterOptions": [
+          "o",
+          "u",
+          "a"
+        ]
       },
       {
         "id": "bayad",
@@ -39,12 +51,16 @@
         "imageKey": "pagbebenta/bayad.webp",
         "imageLabel": "Bayad",
         "imageCaption": "Pera para sa binili",
-        "sentence": "Inabot ni kuya ang bayad.",
+        "sentence": "Binigay ni kuya ang bayad.",
         "phoneticHint": "Hanapin ang tunog na /yuh/ sa bayad.",
         "phoneticSound": "yuh",
         "missingLetterPrompt": "ba_ad",
         "missingLetterAnswer": "y",
-        "missingLetterOptions": ["y", "w", "r"]
+        "missingLetterOptions": [
+          "y",
+          "w",
+          "r"
+        ]
       }
     ]
   },
@@ -54,7 +70,11 @@
     "shortTitle": "Pagmamaneho",
     "description": "Mga salitang nakikita sa daan at sasakyan.",
     "coverImageKey": "pagmamaneho/preno.webp",
-    "seedWords": ["preno", "ilaw", "daan"],
+    "seedWords": [
+      "preno",
+      "ilaw",
+      "daan"
+    ],
     "words": [
       {
         "id": "preno",
@@ -67,7 +87,11 @@
         "phoneticSound": "eh",
         "missingLetterPrompt": "pr_no",
         "missingLetterAnswer": "e",
-        "missingLetterOptions": ["a", "e", "i"]
+        "missingLetterOptions": [
+          "a",
+          "e",
+          "i"
+        ]
       },
       {
         "id": "ilaw",
@@ -80,7 +104,11 @@
         "phoneticSound": "ee",
         "missingLetterPrompt": "_law",
         "missingLetterAnswer": "i",
-        "missingLetterOptions": ["i", "e", "a"]
+        "missingLetterOptions": [
+          "i",
+          "e",
+          "a"
+        ]
       },
       {
         "id": "daan",
@@ -93,7 +121,11 @@
         "phoneticSound": "ah",
         "missingLetterPrompt": "d_an",
         "missingLetterAnswer": "a",
-        "missingLetterOptions": ["o", "a", "u"]
+        "missingLetterOptions": [
+          "o",
+          "a",
+          "u"
+        ]
       }
     ]
   },
@@ -103,7 +135,11 @@
     "shortTitle": "Buttons",
     "description": "Mga salitang madalas makita sa phone.",
     "coverImageKey": "phone-buttons/send.webp",
-    "seedWords": ["send", "save", "back"],
+    "seedWords": [
+      "send",
+      "save",
+      "back"
+    ],
     "words": [
       {
         "id": "send",
@@ -116,7 +152,11 @@
         "phoneticSound": "eh",
         "missingLetterPrompt": "s_nd",
         "missingLetterAnswer": "e",
-        "missingLetterOptions": ["e", "a", "o"]
+        "missingLetterOptions": [
+          "e",
+          "a",
+          "o"
+        ]
       },
       {
         "id": "save",
@@ -129,7 +169,11 @@
         "phoneticSound": "ey",
         "missingLetterPrompt": "s_ve",
         "missingLetterAnswer": "a",
-        "missingLetterOptions": ["a", "i", "u"]
+        "missingLetterOptions": [
+          "a",
+          "i",
+          "u"
+        ]
       },
       {
         "id": "back",
@@ -142,7 +186,11 @@
         "phoneticSound": "ah",
         "missingLetterPrompt": "b_ck",
         "missingLetterAnswer": "a",
-        "missingLetterOptions": ["o", "a", "e"]
+        "missingLetterOptions": [
+          "o",
+          "a",
+          "e"
+        ]
       }
     ]
   }

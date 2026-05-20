@@ -114,7 +114,7 @@ export function ScenarioPlaceholderScreen({
             <Text style={styles.subtitle}>{lesson.description}</Text>
           </View>
 
-          <View style={styles.imageWrapper}>
+            <View style={styles.imageWrapper}>
             {lesson.coverImage ? (
               <ResponsiveLessonImage
                 aspectRatio={1.5}
@@ -123,6 +123,7 @@ export function ScenarioPlaceholderScreen({
             ) : (
               <ShoppingBasket color={colors.forestAction} size={72} strokeWidth={1.5} />
             )}
+            
             <Pressable
               accessibilityLabel="Ipaliwanag ang aralin, Kuya AI"
               accessibilityRole="button"
