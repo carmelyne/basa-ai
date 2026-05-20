@@ -1,9 +1,9 @@
-import { useState } from "react";
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { useEffect, useRef, useState } from "react";
+import { Animated, Pressable, StyleSheet, Text, View } from "react-native";
 import { Bot, ChevronDown, ChevronUp, Play, ShoppingBasket, Tag } from "lucide-react-native";
 
 import type { ScenarioLesson } from "./lesson-data";
-import { speakFilipino } from "../tts/speak";
+import { speakFilipino, stopSpeech } from "../tts/speak";
 import { AppButton } from "../ui/AppButton";
 import { LessonNavBar } from "../ui/LessonNavBar";
 import { ResponsiveLessonImage } from "../ui/ResponsiveLessonImage";
@@ -25,11 +25,79 @@ export function ScenarioPlaceholderScreen({
 }: ScenarioPlaceholderScreenProps) {
   const firstWord = lesson.words[0];
   const [expanded, setExpanded] = useState(false);
+  const [isHighlighted, setIsHighlighted] = useState(false);
+  const glowAnim = useRef(new Animated.Value(0)).current;
+  const glowLoopRef = useRef<any>(null);
+
+  function startGlow() {
+    stopGlow();
+    glowLoopRef.current = Animated.loop(
+      Animated.sequence([
+        Animated.timing(glowAnim, {
+          toValue: 1,
+          duration: 1200,
+          useNativeDriver: true,
+        }),
+        Animated.timing(glowAnim, {
+          toValue: 0,
+          duration: 0,
+          useNativeDriver: true,
+        }),
+      ])
+    );
+    glowLoopRef.current.start();
+  }
+
+  function stopGlow() {
+    if (glowLoopRef.current) {
+      glowLoopRef.current.stop();
+      glowLoopRef.current = null;
+    }
+    glowAnim.setValue(0);
+  }
+
+  useEffect(() => {
+    return () => {
+      stopSpeech();
+      stopGlow();
+    };
+  }, []);
 
   function handleExplainLesson() {
-    const textToSpeak = `Our lesson, ${lesson.title}. ${lesson.description}`;
-    speakFilipino(textToSpeak, { rate: 0.8 });
+    setIsHighlighted(false);
+    stopGlow();
+
+    const textToSpeak = `Our lesson, ${lesson.title}. ${lesson.description}. Simulan natin.`;
+    speakFilipino(textToSpeak, {
+      rate: 0.8,
+      onStart: () => {
+        setIsHighlighted(false);
+        stopGlow();
+      },
+      onDone: () => {
+        setIsHighlighted(true);
+        startGlow();
+      },
+      onStopped: () => {
+        setIsHighlighted(false);
+        stopGlow();
+      },
+      onError: () => {
+        setIsHighlighted(false);
+        stopGlow();
+      },
+    });
   }
+
+  const glowScale = glowAnim.interpolate({
+    inputRange: [0, 1],
+    outputRange: [1, 1.08],
+  });
+
+  const glowOpacity = glowAnim.interpolate({
+    inputRange: [0, 0.8, 1],
+    outputRange: [0.55, 0.35, 0],
+  });
 
   return (
     <View style={{ flex: 1, backgroundColor: colors.cream }}>
@@ -128,11 +196,31 @@ export function ScenarioPlaceholderScreen({
       </ScreenScrollView>
 
       <View style={styles.footer}>
-        <AppButton
-          icon={<Play color={colors.surface} fill={colors.surface} size={20} />}
-          label="Simulan"
-          onPress={onStart}
-        />
+        <View style={{ position: "relative" }}>
+          {isHighlighted && (
+            <Animated.View
+              style={[
+                StyleSheet.absoluteFillObject,
+                {
+                  backgroundColor: colors.forestAction,
+                  borderRadius: radii.lg,
+                  transform: [{ scale: glowScale }],
+                  opacity: glowOpacity,
+                },
+              ]}
+            />
+          )}
+          <AppButton
+            icon={<Play color={colors.surface} fill={colors.surface} size={20} />}
+            label="Simulan"
+            onPress={() => {
+              stopSpeech();
+              stopGlow();
+              setIsHighlighted(false);
+              onStart();
+            }}
+          />
+        </View>
       </View>
     </View>
   );

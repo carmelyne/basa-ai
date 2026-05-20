@@ -26,8 +26,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: colors.forestAction,
     borderRadius: radii.full,
-    height: 32,
+    height: 48,
     justifyContent: "center",
-    width: 32,
+    width: 48,
   },
 });

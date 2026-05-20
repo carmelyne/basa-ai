@@ -136,6 +136,9 @@ export function MissingLetterPracticeScreen({
       return;
     }
 
+    // Hide Kuya AI hint card when showing feedback card
+    setShowHint(false);
+
     if (selectedLetter === lessonWord.missingLetterAnswer) {
       setAnswerState("correct");
       setFeedback("Correct!");
@@ -156,7 +159,15 @@ export function MissingLetterPracticeScreen({
   }
 
   function handleKuyaPress() {
-    setShowHint((currentValue) => !currentValue);
+    setShowHint((currentValue) => {
+      const nextValue = !currentValue;
+      if (nextValue) {
+        // If opening Kuya AI hint, turn off correct/wrong feedback card
+        setAnswerState("idle");
+        setFeedback(null);
+      }
+      return nextValue;
+    });
   }
 
   return (
@@ -351,7 +362,7 @@ export function MissingLetterPracticeScreen({
             <Text style={styles.feedback}>{feedback}</Text>
           ) : null}
 
-          {showHint ? (
+          {showHint && answerState === "idle" ? (
             <KuyaHintCard
               hint={lessonWord.phoneticHint}
               sound={lessonWord.phoneticSound}

@@ -1,7 +1,7 @@
 # CONTINUITY
 Goal: Redesign React Native screens and add index badge and tracing pages.
 State: Done
-Now: Added lesson explanation Bot button on ScenarioPlaceholderScreen.
+Now: Enforced mutual exclusivity between Kuya AI hint card and answer feedback card.
 Next: Ready for review and further UX refinements from Pong.
 Blockers: None
 Decisions:
@@ -35,6 +35,9 @@ Decisions:
 - Updated primary TraceWritingScreen button label from "Natapos" to "Next".
 - Updated primary MissingLetterPracticeScreen button label from "Sagot" to "isagot".
 - Rendered floating Bot explanation button inside cover image container on ScenarioPlaceholderScreen to read out the lesson title and description via text-to-speech.
+- Added "Simulan natin." to the end of the ScenarioPlaceholderScreen TTS script and implemented a pulsating 60fps Native scale-and-opacity ripple glow behind the "Simulan" button upon speech completion.
+- Replaced the duplicate RotateCcw icon on the "Burahin lahat" button with a dedicated Eraser icon in TraceWritingScreen.tsx.
+- Made Kuya AI hint card and answer feedback card mutually exclusive in MissingLetterPracticeScreen.tsx (showing one automatically hides the other).
 Files:
 - App.tsx
 - src/learning/lessons.json
@@ -43,3 +46,4 @@ Files:
 - src/learning/MissingLetterPracticeScreen.tsx
 - src/learning/StartScreen.tsx
 - src/learning/TraceWritingScreen.tsx
+- src/tts/speak.ts

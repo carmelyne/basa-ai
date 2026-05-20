@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { PanResponder, Pressable, StyleSheet, Text, View } from "react-native";
 import Svg, { Path } from "react-native-svg";
-import { ArrowRight, RotateCcw, Volume2 } from "lucide-react-native";
+import { ArrowRight, Eraser, RotateCcw, Volume2 } from "lucide-react-native";
 import * as Speech from "expo-speech";
 
 import type { LessonWord } from "./lesson-data";
@@ -121,7 +121,7 @@ export function TraceWritingScreen({
               onPress={handleClear}
               style={styles.controlButton}
             >
-              <RotateCcw color={colors.blue} size={18} strokeWidth={2} />
+              <Eraser color={colors.blue} size={18} strokeWidth={2} />
               <Text style={styles.clearText}>Burahin lahat</Text>
             </Pressable>
 
