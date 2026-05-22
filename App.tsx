@@ -16,6 +16,7 @@ import { WordPracticeScreen } from "./src/learning/WordPracticeScreen";
 import { ProgressSummaryScreen } from "./src/progress/ProgressSummaryScreen";
 import { BadgeIndexScreen } from "./src/progress/BadgeIndexScreen";
 import { TraceWritingScreen } from "./src/learning/TraceWritingScreen";
+import { AnimatedSplash } from "./src/ui/AnimatedSplash";
 import { AuthScreen } from "./src/auth/AuthScreen";
 import {
   clearLocalProgress,
@@ -38,12 +39,14 @@ type AppRoute =
   | "auth";
 
 export default function App() {
+  const [showSplash, setShowSplash] = useState(true);
   const [routeStack, setRouteStack] = useState<AppRoute[]>(["start"]);
   const [selectedScenario, setSelectedScenario] =
     useState<ScenarioLesson>(defaultScenario);
   const [wordIndex, setWordIndex] = useState(0);
   const [completedWordIds, setCompletedWordIds] = useState<string[]>([]);
   const [correctAnswerIds, setCorrectAnswerIds] = useState<string[]>([]);
+  const [lessonRepeatCounts, setLessonRepeatCounts] = useState<Record<string, number>>({});
   const [progressLoaded, setProgressLoaded] = useState(false);
   const [authMode, setAuthMode] = useState<"backup" | "restore">("backup");
 
@@ -69,11 +72,13 @@ export default function App() {
 
         setCompletedWordIds(savedProgress.completedWordIds);
         setCorrectAnswerIds(savedProgress.correctAnswerIds);
+        setLessonRepeatCounts(savedProgress.lessonRepeatCounts);
       })
       .catch(() => {
         if (isMounted) {
           setCompletedWordIds(emptyProgress.completedWordIds);
           setCorrectAnswerIds(emptyProgress.correctAnswerIds);
+          setLessonRepeatCounts(emptyProgress.lessonRepeatCounts);
         }
       })
       .finally(() => {
@@ -95,6 +100,7 @@ export default function App() {
     saveLocalProgress({
       completedWordIds,
       correctAnswerIds,
+      lessonRepeatCounts,
       updatedAt: Math.floor(Date.now() / 1000),
     });
   }, [completedWordIds, correctAnswerIds, progressLoaded]);
@@ -135,12 +141,12 @@ export default function App() {
     );
 
     if (nextWordIndex === -1) {
-      resetTo("summary");
+      restartLesson();
       return;
     }
 
     setWordIndex(nextWordIndex);
-    navigate("picker");
+    navigate("word");
   }
 
   function startLesson() {
@@ -149,6 +155,7 @@ export default function App() {
   }
 
   function openScenario(lesson: ScenarioLesson) {
+    console.log("Setting scenario:", lesson.id);
     setSelectedScenario(lesson);
     setWordIndex(0);
     navigate("scenario");
@@ -178,10 +185,28 @@ export default function App() {
   }
 
   function restartLesson() {
+    // Increment repeat count for the current scenario
+    setLessonRepeatCounts((prev) => ({
+      ...prev,
+      [selectedScenario.id]: (prev[selectedScenario.id] || 0) + 1,
+    }));
+    
+    // Reset word progress, but keep the repeat counts
     setWordIndex(0);
-    setCompletedWordIds(emptyProgress.completedWordIds);
-    setCorrectAnswerIds(emptyProgress.correctAnswerIds);
-    clearLocalProgress();
+    setCompletedWordIds([]);
+    setCorrectAnswerIds([]);
+    
+    // Save state
+    saveLocalProgress({
+      completedWordIds: [],
+      correctAnswerIds: [],
+      lessonRepeatCounts: {
+        ...lessonRepeatCounts,
+        [selectedScenario.id]: (lessonRepeatCounts[selectedScenario.id] || 0) + 1,
+      },
+      updatedAt: Math.floor(Date.now() / 1000),
+    });
+
     resetTo("scenario");
   }
 
@@ -201,9 +226,12 @@ export default function App() {
   return (
     <SafeAreaView style={styles.screen}>
       <StatusBar style="dark" />
-      {route === "start" ? (
+      {showSplash ? (
+        <AnimatedSplash onAnimationComplete={() => setShowSplash(false)} />
+      ) : route === "start" ? (
         <StartScreen
           completedWords={selectedScenarioCompletedIds.length}
+          lessonId={selectedScenario.id}
           nextLessonTitle={selectedScenario.shortTitle}
           onContinue={continueLesson}
           onRestoreProgress={() => openAuth("restore")}
@@ -232,6 +260,7 @@ export default function App() {
             <WordPracticeScreen
               key={currentWord.id}
               lessonWord={currentWord}
+              scenarioId={selectedScenario.id}
               scenarioTitle={selectedScenario.shortTitle}
               wordIndex={wordIndex}
               totalWords={lessonWords.length}

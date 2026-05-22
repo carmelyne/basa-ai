@@ -14,6 +14,7 @@ import { colors, radii, shadows, spacing, typography } from "../ui/theme";
 
 type WordPracticeScreenProps = {
   lessonWord: LessonWord;
+  scenarioId: string;
   scenarioTitle: string;
   wordIndex: number;
   totalWords: number;
@@ -29,51 +30,23 @@ const WORD_SYLLABLES: Record<string, { syllables: string[]; timings: number[] }>
   preno: { syllables: ["pre", "no"], timings: [0, 450] },
   ilaw: { syllables: ["i", "law"], timings: [0, 400] },
   daan: { syllables: ["da", "an"], timings: [0, 400] },
+  tinda: { syllables: ["tin", "da"], timings: [0, 400] },
   send: { syllables: ["send"], timings: [0] },
   save: { syllables: ["save"], timings: [0] },
   back: { syllables: ["back"], timings: [0] },
 };
 
-const SENTENCE_SYLLABLES: Record<string, { syllables: string[]; timings: number[] }> = {
-  presyo: {
-    syllables: ["Pre", "syo", " ng ", "bi", "gas."],
-    timings: [0, 400, 750, 950, 1250],
-  },
-  sukli: {
-    syllables: ["May ", "suk", "li ", "si ", "a", "te."],
-    timings: [0, 350, 650, 950, 1150, 1350],
-  },
-  bayad: {
-    syllables: ["Bi", "ni", "gay ", "ni ", "ku", "ya ", "ang ", "ba", "yad."],
-    timings: [0, 250, 500, 850, 1100, 1350, 1600, 1850, 2100],
-  },  preno: {
-    syllables: ["Da", "han-", "da", "han ", "sa ", "pre", "no."],
-    timings: [0, 250, 500, 750, 1050, 1250, 1550],
-  },
-  ilaw: {
-    syllables: ["Bu", "kas ", "ang ", "i", "law."],
-    timings: [0, 300, 550, 800, 1050],
-  },
-  daan: {
-    syllables: ["Ma", "li", "nis ", "ang ", "da", "an."],
-    timings: [0, 250, 500, 800, 1000, 1250],
-  },
-  send: {
-    syllables: ["Pin", "du", "tin ", "ang ", "send."],
-    timings: [0, 250, 500, 750, 950],
-  },
-  save: {
-    syllables: ["I-", "tap ", "ang ", "save."],
-    timings: [0, 300, 600, 800],
-  },
-  back: {
-    syllables: ["Pin", "du", "tin ", "ang ", "back."],
-    timings: [0, 250, 500, 750, 950],
-  },
+const splitIntoSyllables = (text: string) => {
+  // Regex for Tagalog syllable structure: (Consonant+)(Vowel+)(Consonant?)
+  // This is a simplified heuristic:
+  // 1. Match C+V+ pattern
+  // 2. Capture final consonant if exists
+  return text.match(/[^aeiou]*[aeiou]+[^aeiou]*/gi) || [text];
 };
 
 export function WordPracticeScreen({
   lessonWord,
+  scenarioId,
   scenarioTitle,
   wordIndex,
   totalWords,
@@ -132,27 +105,26 @@ export function WordPracticeScreen({
   };
 
   const playSentenceKaraoke = () => {
-    const data = SENTENCE_SYLLABLES[lessonWord.id];
-    if (!data) {
-      speakFilipino(lessonWord.sentence, { rate: 0.75 });
-      return;
-    }
+    const syllables = splitIntoSyllables(lessonWord.sentence);
+    const estimatedDuration = lessonWord.sentence.split(" ").length * 500; // Rough estimate per word
 
     speakFilipino(lessonWord.sentence, { rate: 0.75 });
     clearKaraokeTimers();
 
     setActiveSentenceSyllableIndex(0);
 
-    const timers = data.timings.map((time, idx) => {
+    const stepDuration = estimatedDuration / syllables.length;
+
+    const timers = syllables.map((_, idx) => {
       if (idx === 0) return null;
       return setTimeout(() => {
         setActiveSentenceSyllableIndex(idx);
-      }, time);
+      }, idx * stepDuration);
     });
 
     const endTimer = setTimeout(() => {
       setActiveSentenceSyllableIndex(null);
-    }, data.timings[data.timings.length - 1] + 1000);
+    }, estimatedDuration + 500);
 
     sentenceTimersRef.current = [...timers.filter(Boolean), endTimer] as any[];
   };
@@ -182,14 +154,11 @@ export function WordPracticeScreen({
   };
 
   const renderLargeSentenceSyllables = () => {
-    const data = SENTENCE_SYLLABLES[lessonWord.id];
-    if (!data) {
-      return <Text style={styles.largeSentenceText}>{lessonWord.sentence}</Text>;
-    }
+    const syllables = splitIntoSyllables(lessonWord.sentence);
 
     return (
-      <View style={styles.largeSentenceRow}>
-        {data.syllables.map((syllable, idx) => {
+      <Text style={styles.largeSentenceRow}>
+        {syllables.map((syllable, idx) => {
           const isActive = activeSentenceSyllableIndex !== null && idx <= activeSentenceSyllableIndex;
 
           return (
@@ -204,7 +173,7 @@ export function WordPracticeScreen({
             </Text>
           );
         })}
-      </View>
+      </Text>
     );
   };
 
@@ -213,6 +182,7 @@ export function WordPracticeScreen({
       <ScreenScrollView>
         <LessonNavBar
           label={scenarioTitle}
+          lessonId={scenarioId}
           onBack={onBack}
           onHome={onHome}
         />

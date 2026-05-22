@@ -1,15 +1,29 @@
-import { ArrowLeft, House, Leaf } from "lucide-react-native";
+import { ArrowLeft, House, Leaf, SendHorizontal, ShoppingBasket, Van } from "lucide-react-native";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 
 import { colors, spacing, typography } from "./theme";
 
 type LessonNavBarProps = {
   label?: string;
+  lessonId?: string;
   onBack?: () => void;
   onHome: () => void;
 };
 
-export function LessonNavBar({ label, onBack, onHome }: LessonNavBarProps) {
+export function LessonNavBar({ label, lessonId, onBack, onHome }: LessonNavBarProps) {
+  const getIcon = () => {
+    switch (lessonId) {
+      case "pagbebenta":
+        return <ShoppingBasket color={colors.forestSoft} size={16} strokeWidth={2.3} />;
+      case "pagmamaneho":
+        return <Van color={colors.forestSoft} size={16} strokeWidth={2.3} />;
+      case "phone-buttons":
+        return <SendHorizontal color={colors.forestSoft} size={16} strokeWidth={2.3} />;
+      default:
+        return <Leaf color={colors.forestSoft} size={16} strokeWidth={2.3} />;
+    }
+  };
+
   return (
     <View style={styles.row}>
       <Pressable
@@ -23,7 +37,7 @@ export function LessonNavBar({ label, onBack, onHome }: LessonNavBarProps) {
       </Pressable>
 
       <View style={styles.brandRow}>
-        <Leaf color={colors.forestSoft} size={16} strokeWidth={2.3} />
+        {getIcon()}
         <Text numberOfLines={1} style={styles.label}>
           {label ?? "Lesson"}
         </Text>
@@ -48,6 +62,7 @@ const styles = StyleSheet.create({
     gap: spacing.sm,
     justifyContent: "space-between",
     minHeight: 38,
+    paddingHorizontal: spacing.md,
   },
   navButton: {
     alignItems: "center",

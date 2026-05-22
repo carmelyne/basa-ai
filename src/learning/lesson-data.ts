@@ -32,7 +32,7 @@ export const LESSON_IMAGES: Record<string, ImageSourcePropType> = {
   "pagbebenta/sukli.webp": require("../../assets/lessons/pagbebenta/sukli.webp"),
   "pagbebenta/bayad.webp": require("../../assets/lessons/pagbebenta/bayad.webp"),
   "pagbebenta/tinda.webp": require("../../assets/lessons/pagbebenta/tinda.webp"),
-  "pagmamaneho/preno.webp": require("../../assets/lessons/preno.webp"),
+  "pagmamaneho/preno.webp": require("../../assets/lessons/pagmamaneho/preno.webp"),
   "pagmamaneho/ilaw.webp": require("../../assets/lessons/pagmamaneho/ilaw.webp"),
   "pagmamaneho/daan.webp": require("../../assets/lessons/pagmamaneho/daan.webp"),
   "phone-buttons/send.webp": require("../../assets/lessons/phone-buttons/send.webp"),

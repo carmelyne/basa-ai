@@ -1,8 +1,8 @@
-# AGENTS.md — APP_NAME / Basa.ai
+# AGENTS.md — BasaKonek / Basa.ai
 
 ## Project Identity
 
-APP_NAME is an Android-first, phone-native literacy app for Filipino adults who want to learn to read privately and without shame. `Basa.ai` is the current project/repo identity, not necessarily the final public app name.
+BasaKonek is an Android-first, phone-native literacy app for Filipino adults who want to learn to read privately and without shame. `Basa.ai` is the current project/repo identity, not necessarily the final public app name.
 
 The product must feel adult, practical, gentle, and safe. Avoid school-like pressure, childish visuals, public failure states, leaderboards, rankings, or certificate/accreditation language.
 
@@ -64,7 +64,7 @@ Rules:
 
 ## Product Conventions
 
-- The public app name is not locked. Use `APP_NAME` or a shared app-name constant until naming is decided.
+- The public app name is locked. Use `BasaKonek` or a shared app-name constant.
 - `Readtected` is a mock placeholder only, not a committed final name.
 - The AI tutor persona is named `Kuya AI`.
 - Lesson paths should be scenario-based, not only abstract reading levels.

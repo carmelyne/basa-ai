@@ -5,12 +5,14 @@ const PROGRESS_STORAGE_KEY = "basa-ai:local-progress:v1";
 export type LocalProgress = {
   completedWordIds: string[];
   correctAnswerIds: string[];
+  lessonRepeatCounts: Record<string, number>;
   updatedAt: number | null;
 };
 
 export const emptyProgress: LocalProgress = {
   completedWordIds: [],
   correctAnswerIds: [],
+  lessonRepeatCounts: {},
   updatedAt: null,
 };
 
@@ -31,6 +33,9 @@ export async function loadLocalProgress(): Promise<LocalProgress> {
       correctAnswerIds: Array.isArray(parsedProgress.correctAnswerIds)
         ? parsedProgress.correctAnswerIds
         : [],
+      lessonRepeatCounts: typeof parsedProgress.lessonRepeatCounts === "object" && parsedProgress.lessonRepeatCounts !== null
+        ? parsedProgress.lessonRepeatCounts
+        : {},
       updatedAt:
         typeof parsedProgress.updatedAt === "number"
           ? parsedProgress.updatedAt

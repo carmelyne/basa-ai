@@ -114,8 +114,8 @@ async function main() {
       // Scenario assets are 1:1 (square): 1254 x 1254
       imageMap[lesson.coverImageKey] = {
         prompt: `A high-quality, professional, realistic studio photograph representing the scenario '${lesson.title}' (${lesson.description}). Warm ambient lighting, editorial product photography style, high resolution, clean background.`,
-        width: 1254,
-        height: 1254,
+        width: 627,
+        height: 627,
         aspectRatio: '1:1'
       };
     }
@@ -127,8 +127,8 @@ async function main() {
           // Word assets are 4:3 (landscape): 1448 x 1086
           imageMap[word.imageKey] = {
             prompt: word.imagePrompt || defaultPrompt,
-            width: 1448,
-            height: 1086,
+            width: 724,
+            height: 543,
             aspectRatio: '4:3'
           };
         }
@@ -210,15 +210,80 @@ export const defaultScenario = scenarioLessons[0];
   console.log(`[Asset Pipeline] ✨ Successfully updated static require registry at: ${LESSON_DATA_PATH}`);
 }
 
-// Optionally run generation if flag is passed
-if (process.argv.includes('--generate')) {
-  console.log('[Asset Pipeline] 🚀 Running image generation...');
-  // Logic would go here to just run the generation loop from the previous main()
-} else {
-  console.log('[Asset Pipeline] 🏗️ Skipping image generation (registry build only).');
+const BATCH_SIZE = 5;
+const BATCH_REST_MS = 10 * 60 * 1000; // 10 minutes
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-main().catch(err => {
-  console.error('[Asset Pipeline] ❌ Script crashed:', err);
-  process.exit(1);
-});
+async function generateMissing() {
+  const rawData = fs.readFileSync(LESSONS_JSON_PATH, 'utf8');
+  const lessons = JSON.parse(rawData);
+
+  const queue = [];
+
+  for (const lesson of lessons) {
+    if (lesson.coverImageKey) {
+      const fullPath = path.join(ASSETS_DIR, lesson.coverImageKey);
+      if (!fs.existsSync(fullPath)) {
+        queue.push({
+          prompt: `A high-quality, professional, realistic studio photograph representing the scenario '${lesson.title}' (${lesson.description}). Warm ambient lighting, editorial product photography style, high resolution, clean background.`,
+          outputPath: fullPath,
+          width: 627, height: 627,
+        });
+      }
+    }
+    if (lesson.words) {
+      for (const word of lesson.words) {
+        if (word.imageKey) {
+          const fullPath = path.join(ASSETS_DIR, word.imageKey);
+          if (!fs.existsSync(fullPath)) {
+            const defaultPrompt = `A clean, high-quality, realistic photograph of '${word.word}' (${word.imageCaption}) in the context of '${lesson.title}'. Highly recognizable object, simple composition, professional studio lighting, clear details, solid neutral background.`;
+            queue.push({
+              prompt: word.imagePrompt || defaultPrompt,
+              outputPath: fullPath,
+              width: 724, height: 543,
+            });
+          }
+        }
+      }
+    }
+  }
+
+  if (queue.length === 0) {
+    console.log('[Asset Pipeline] ✅ All images already exist. Nothing to generate.');
+    return;
+  }
+
+  console.log(`[Asset Pipeline] 🚀 ${queue.length} images to generate in batches of ${BATCH_SIZE}.`);
+
+  for (let i = 0; i < queue.length; i += BATCH_SIZE) {
+    const batch = queue.slice(i, i + BATCH_SIZE);
+    const batchNum = Math.floor(i / BATCH_SIZE) + 1;
+    const totalBatches = Math.ceil(queue.length / BATCH_SIZE);
+
+    console.log(`\n[Asset Pipeline] 📦 Batch ${batchNum}/${totalBatches} (${batch.length} images)`);
+
+    for (const item of batch) {
+      await generateImage(item.prompt, item.outputPath, item.width, item.height);
+    }
+
+    if (i + BATCH_SIZE < queue.length) {
+      console.log(`\n[Asset Pipeline] 😴 Resting for 10 minutes before next batch...`);
+      await sleep(BATCH_REST_MS);
+    }
+  }
+
+  console.log('\n[Asset Pipeline] 🎉 All images generated!');
+}
+
+if (process.argv.includes('--generate')) {
+  console.log('[Asset Pipeline] 🚀 Running image generation (5 at a time, 10min rest between batches)...');
+  generateMissing()
+    .then(() => main())
+    .catch(err => { console.error('[Asset Pipeline] ❌ Script crashed:', err); process.exit(1); });
+} else {
+  console.log('[Asset Pipeline] 🏗️ Skipping image generation (registry build only). Use --generate to generate missing images.');
+  main().catch(err => { console.error('[Asset Pipeline] ❌ Script crashed:', err); process.exit(1); });
+}

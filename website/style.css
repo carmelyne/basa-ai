@@ -68,8 +68,8 @@ nav {
 }
 
 .nav-logo .mark {
-  height: 28px;
-  width: 28px;
+  height: 40px;
+  width: 40px;
   object-fit: contain;
   display: block;
 }
@@ -311,7 +311,7 @@ nav ul a.active {
 }
 
 .phone-frame {
-  width: 280px;
+  width: 320px;
   flex-shrink: 0;
   background: #0a1a0f;
   border-radius: 44px;
@@ -812,7 +812,7 @@ footer {
 
 .footer-logo img {
   height: 28px;
-  filter: brightness(0) invert(1);
+  filter: brightness(0) saturate(100%) invert(82%) sepia(12%) saturate(500%) hue-rotate(90deg) opacity(55%);
   opacity: 0.25;
 }
 

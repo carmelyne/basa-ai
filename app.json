@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "APP_NAME",
+    "name": "BasaKonek",
     "slug": "basa-ai",
     "version": "1.0.0",
     "platforms": [
@@ -12,9 +12,9 @@
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/splash-icon.png",
+      "image": "./assets/logo-basakonek-mark@2x.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#fbf6ea"
     },
     "ios": {
       "supportsTablet": true

@@ -20,6 +20,7 @@ const WORD_SYLLABLES: Record<string, { syllables: string[]; timings: number[] }>
   preno: { syllables: ["pre", "no"], timings: [0, 450] },
   ilaw: { syllables: ["i", "law"], timings: [0, 400] },
   daan: { syllables: ["da", "an"], timings: [0, 400] },
+  tinda: { syllables: ["tin", "da"], timings: [0, 400] },
   send: { syllables: ["send"], timings: [0] },
   save: { syllables: ["save"], timings: [0] },
   back: { syllables: ["back"], timings: [0] },
@@ -129,17 +130,13 @@ export function MissingLetterPracticeScreen({
     );
   };
 
-  function handleSubmit() {
-    if (!selectedLetter) {
-      setFeedback("Pumili muna ng letra.");
-      setAnswerState("idle");
-      return;
-    }
-
+  function handleSelectLetter(letter: string) {
+    setSelectedLetter(letter);
+    
     // Hide Kuya AI hint card when showing feedback card
     setShowHint(false);
 
-    if (selectedLetter === lessonWord.missingLetterAnswer) {
+    if (letter === lessonWord.missingLetterAnswer) {
       setAnswerState("correct");
       setFeedback("Correct!");
       speakFilipino("Correct!", { rate: 0.8 });
@@ -150,12 +147,6 @@ export function MissingLetterPracticeScreen({
     setAnswerState("wrong");
     setFeedback("Malapit ka na! Subukan nating muli.");
     speakFilipino("Subukan muli.", { rate: 0.8 });
-  }
-
-  function handleSelectLetter(letter: string) {
-    setSelectedLetter(letter);
-    setFeedback(null);
-    setAnswerState("idle");
   }
 
   function handleKuyaPress() {
@@ -360,7 +351,6 @@ export function MissingLetterPracticeScreen({
       </ScreenScrollView>
 
       <View style={styles.footer}>
-        <AppButton label="Isagot" onPress={handleSubmit} />
         <AppButton
           label={isLastWord ? "Tapos" : "Laktawan"}
           onPress={onSkip}

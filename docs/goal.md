@@ -1,8 +1,8 @@
-# /goal — APP_NAME Shared Spec
+# /goal — BasaKonek Shared Spec
 
 ## North Star
 
-APP_NAME helps Filipino adults learn to read privately on their phones, without embarrassment, pressure, or childish treatment.
+BasaKonek helps Filipino adults learn to read privately on their phones, without embarrassment, pressure, or childish treatment.
 
 The app should feel like a patient kasama beside the learner: clear, warm, practical, and always safe to try again.
 
@@ -10,7 +10,7 @@ The app should feel like a patient kasama beside the learner: clear, warm, pract
 
 The public app name is not locked yet.
 
-- Use `APP_NAME` in specs and implementation constants until the brand is chosen.
+- Use `BasaKonek` in specs and implementation constants.
 - Treat `Readtected` as a Phase 1 mock placeholder, not the final name.
 - Do not hardcode the app name across UI copy.
 - Keep the app name configurable from one shared constant when implementation begins.
@@ -39,7 +39,7 @@ Learn to read Filipino one small step at a time, with a private AI tutor that ne
 
 ## Learning Loop
 
-1. Learner opens APP_NAME on their phone.
+1. Learner opens BasaKonek on their phone.
 2. Learner chooses a real-life scenario or continues the next small lesson.
 3. App shows one word from that scenario with an image and sound button.
 4. Learner taps the sound button beside the word to hear it.

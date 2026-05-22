@@ -1,13 +1,19 @@
 import React from "react";
 import { AbsoluteFill, Img, interpolate, staticFile, useCurrentFrame } from "remotion";
 
-const LOOP = 90; // frames per loop cycle
+const DURATION = 150; // total frames (5s at 30fps)
+const LOOP = 90;      // beam animation loop
+const SWITCH_FRAME = 60; // when base → traced crossfade starts
 
 export const TraceWritingScene: React.FC = () => {
   const frame = useCurrentFrame();
 
   // Loop progress 0→1, repeating every LOOP frames
   const progress = (frame % LOOP) / LOOP;
+
+  // Crossfade: base (empty) → traced
+  const baseOpacity = interpolate(frame, [SWITCH_FRAME, SWITCH_FRAME + 25], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const tracedOpacity = interpolate(frame, [SWITCH_FRAME, SWITCH_FRAME + 25], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
 
   // Circle travels from title (right side) to screenshot (left side)
   // Text starts ~420px, phone right edge ~290px
@@ -36,6 +42,7 @@ export const TraceWritingScene: React.FC = () => {
         style={{ position: "absolute", inset: 0, width: "100%", height: "100%", zIndex: 10, pointerEvents: "none" }}
         viewBox="0 0 1024 500"
       >
+
         {/* Static beam line */}
         <line
           x1={BEAM_X1} y1={BEAM_Y}
@@ -70,7 +77,7 @@ export const TraceWritingScene: React.FC = () => {
         alignItems: "center", justifyContent: "center",
         gap: 60, padding: "0 80px",
       }}>
-        {/* Phone screenshot */}
+        {/* Phone screenshot — crossfades base → traced */}
         <div style={{
           height: "88%",
           aspectRatio: "0.448",
@@ -78,10 +85,15 @@ export const TraceWritingScene: React.FC = () => {
           overflow: "hidden",
           boxShadow: "0 24px 80px rgba(0,0,0,0.5)",
           flexShrink: 0,
+          position: "relative",
         }}>
           <Img
-            src={staticFile("assets/writing-practice.png")}
-            style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }}
+            src={staticFile("assets/writing-base.jpg")}
+            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "top", opacity: baseOpacity }}
+          />
+          <Img
+            src={staticFile("assets/writing-hand.png")}
+            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "top", opacity: tracedOpacity }}
           />
         </div>
 

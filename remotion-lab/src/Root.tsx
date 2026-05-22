@@ -5,6 +5,7 @@ import { PlayStoreFeatureGraphic } from "./compositions/PlayStoreFeatureGraphic"
 import { WordCardScene, getWordCardDuration } from "./compositions/WordCardScene";
 import { MissingLetterScene } from "./compositions/MissingLetterScene";
 import { TraceWritingScene } from "./compositions/TraceWritingScene";
+import { BadgeCelebrationScene } from "./compositions/BadgeCelebrationScene";
 
 export const Root: React.FC = () => {
   return (
@@ -57,7 +58,16 @@ export const Root: React.FC = () => {
       <Composition
         id="TraceWritingFeature"
         component={TraceWritingScene}
-        durationInFrames={90}
+        durationInFrames={150}
+        fps={30}
+        width={1024}
+        height={500}
+      />
+      {/* Phase 2 — Badge Celebration Scene (landscape feature card) */}
+      <Composition
+        id="BadgeCelebrationFeature"
+        component={BadgeCelebrationScene}
+        durationInFrames={150}
         fps={30}
         width={1024}
         height={500}

@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p /Users/carmelyne/dev/basa-ai/remotion-lab/src/compositions)",
+      "Bash(mkdir -p /Users/carmelyne/dev/basa-ai/remotion-lab/public)",
+      "Bash(npx tsc *)",
+      "Bash(ln -s ../../assets/lessons lessons)",
+      "Bash(ln -s ../../assets/scenarios scenarios)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(python3 -c ' *)"
+    ]
+  }
+}
