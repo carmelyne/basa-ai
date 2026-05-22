@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fil">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>I-download — BasaKonek</title>
+  <meta name="description" content="I-download ang BasaKonek sa Google Play Store. Libre, walang ads, offline." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html"><img class="mark" src="assets/logo-basakonek-mark.svg" alt="" /><img class="wordmark" src="assets/logo-basakonek-text.svg" alt="BasaKonek" /></a>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="features.html">Features</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+  </ul>
+  <a class="nav-cta" href="download.html"><i data-lucide="download"></i> I-download</a>
+</nav>
+
+<div class="download-hero">
+  <p class="overline reveal" style="justify-content:center;">Available na</p>
+  <h2 class="display reveal reveal-delay-1" style="font-size: clamp(2.8rem,5vw,5rem);">
+    I-download ang<br/><em>BasaKonek</em>
+  </h2>
+  <p class="reveal reveal-delay-2" style="color:var(--muted); max-width:420px; text-align:center; font-size:17px; margin-top:16px;">
+    Libre. Walang ads. Gumagana kahit offline. Magsimula kaagad — walang kailangan na account.
+  </p>
+
+  <a class="playstore-btn reveal reveal-delay-3" href="https://play.google.com/store/apps/details?id=com.basakonek" target="_blank" rel="noopener">
+    <i data-lucide="play-circle"></i>
+    <div class="playstore-btn-text">
+      <small>Get it on</small>
+      <strong>Google Play</strong>
+    </div>
+  </a>
+
+  <div class="app-badges reveal reveal-delay-4">
+    <div class="app-badge"><i data-lucide="gift"></i> 100% Libre</div>
+    <div class="app-badge"><i data-lucide="ban"></i> Walang ads</div>
+    <div class="app-badge"><i data-lucide="wifi-off"></i> Offline</div>
+    <div class="app-badge"><i data-lucide="refresh-cw"></i> Bagong lessons palagi</div>
+  </div>
+</div>
+
+<!-- Vertical Timeline -->
+<div class="cream-section">
+  <div style="text-align:center; margin-bottom: 16px;">
+    <div class="overline reveal" style="justify-content:center;">Paano magsimula</div>
+    <h2 class="display reveal reveal-delay-1" style="color:var(--ink);">Tatlong hakbang <em style="color:var(--green);">lang.</em></h2>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot"><i data-lucide="download"></i></div>
+      <p class="timeline-num">Hakbang 01</p>
+      <h3 style="color:var(--ink);">I-install ang app</h3>
+      <p style="color:#666;">I-download mula sa Google Play Store. Libre at walang karagdagang bayad kahit kailan.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"><i data-lucide="map"></i></div>
+      <p class="timeline-num">Hakbang 02</p>
+      <h3 style="color:var(--ink);">Pumili ng aralin</h3>
+      <p style="color:#666;">Piliin ang sitwasyong may kabuluhan sa iyong buhay — tindahan, daan, o telepono. 30 salita bawat aralin.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot"><i data-lucide="zap"></i></div>
+      <p class="timeline-num">Hakbang 03</p>
+      <h3 style="color:var(--ink);">Magsimulang matuto</h3>
+      <p style="color:#666;">Pakinggan ang mga salita, isulat gamit ang daliri, at humingi ng tulong kay Kuya AI kahit kailan.</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo"><img src="assets/logo-basakonek-mark.svg" alt="BasaKonek" /></div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="features.html">Features</a>
+    <a href="faq.html">FAQ</a>
+    <a href="mailto:hello@basakonek.app">hello@basakonek.app</a>
+  </div>
+  <span class="footer-copy">&copy; 2026 BasaKonek</span>
+</footer>
+
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+  lucide.createIcons();
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal, .timeline-item').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
