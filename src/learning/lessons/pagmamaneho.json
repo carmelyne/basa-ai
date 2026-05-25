@@ -1,0 +1,272 @@
+[
+  {
+    "id": "preno",
+    "word": "preno",
+    "imageKey": "pagmamaneho/preno.webp",
+    "imageLabel": "Preno",
+    "imageCaption": "Gamit sa pagpapahinto ng sasakyan",
+    "imagePrompt": "A close-up, high-quality, realistic photograph of a driver's foot pressing a car brake pedal inside a clean vehicle. Clear details, natural lighting, shallow depth of field, safe driving context.",
+    "sentence": "Pindutin ang preno."
+  },
+  {
+    "id": "ilaw",
+    "word": "ilaw",
+    "imageKey": "pagmamaneho/ilaw.webp",
+    "imageLabel": "Ilaw",
+    "imageCaption": "Liwanag ng sasakyan sa daan",
+    "imagePrompt": "A realistic photograph of a car headlight turned on during early evening on a quiet road. Bright but soft light, clear details, safe driving atmosphere.",
+    "sentence": "Bukas ang ilaw."
+  },
+  {
+    "id": "daan",
+    "word": "daan",
+    "imageKey": "pagmamaneho/daan.webp",
+    "imageLabel": "Daan",
+    "imageCaption": "Lugar na dinaraanan ng sasakyan",
+    "imagePrompt": "A realistic photograph of a clean road in the Philippines with lane markings, trees on the side, and light traffic in the distance. Bright daylight, clear safe road scene.",
+    "sentence": "Malinis ang daan."
+  },
+  {
+    "id": "manibela",
+    "word": "manibela",
+    "imageKey": "pagmamaneho/manibela.webp",
+    "imageLabel": "Manibela",
+    "imageCaption": "Gamit sa pagpihit ng direksyon",
+    "imagePrompt": "A realistic close-up photograph of hands holding a car steering wheel properly while driving. Clean car interior, daylight, clear details, safe driving mood.",
+    "sentence": "Hawakan ang manibela."
+  },
+  {
+    "id": "gulong",
+    "word": "gulong",
+    "imageKey": "pagmamaneho/gulong.webp",
+    "imageLabel": "Gulong",
+    "imageCaption": "Bahagi ng sasakyan na umiikot sa daan",
+    "imagePrompt": "A close-up realistic photograph of a clean car tire on a paved road. Clear tread details, natural lighting, professional automotive photography style.",
+    "sentence": "Umiikot ang gulong."
+  },
+  {
+    "id": "busina",
+    "word": "busina",
+    "imageKey": "pagmamaneho/busina.webp",
+    "imageLabel": "Busina",
+    "imageCaption": "Tunog na babala ng sasakyan",
+    "imagePrompt": "A realistic close-up photograph of a driver's hand gently pressing the horn area on a steering wheel. Clean car interior, clear details, safe and calm driving context.",
+    "sentence": "Narinig ko ang busina."
+  },
+  {
+    "id": "kalsada",
+    "word": "kalsada",
+    "imageKey": "pagmamaneho/kalsada.webp",
+    "imageLabel": "Kalsada",
+    "imageCaption": "Malawak na daan para sa sasakyan",
+    "imagePrompt": "A realistic photograph of a Philippine city street with clear road markings, light traffic, sidewalks, and buildings. Daylight, clean composition, safe driving environment.",
+    "sentence": "Maluwag ang kalsada."
+  },
+  {
+    "id": "driver",
+    "word": "driver",
+    "imageKey": "pagmamaneho/driver.webp",
+    "imageLabel": "Driver",
+    "imageCaption": "Taong nagmamaneho ng sasakyan",
+    "imagePrompt": "A realistic photograph of a Filipino driver seated properly inside a vehicle, hands on the steering wheel, looking at the road ahead. Bright daylight, safe and calm scene.",
+    "sentence": "Maingat ang driver."
+  },
+  {
+    "id": "kotse",
+    "word": "kotse",
+    "imageKey": "pagmamaneho/kotse.webp",
+    "imageLabel": "Kotse",
+    "imageCaption": "Sasakyang may apat na gulong",
+    "imagePrompt": "A realistic photograph of a clean small car parked safely on the side of a quiet street in the Philippines. Bright daylight, clear details, simple background.",
+    "sentence": "May kotse kami."
+  },
+  {
+    "id": "traysikel",
+    "word": "traysikel",
+    "imageKey": "pagmamaneho/traysikel.webp",
+    "imageLabel": "Traysikel",
+    "imageCaption": "Karaniwang sasakyan sa barangay",
+    "imagePrompt": "A realistic photograph of a Filipino tricycle parked near a barangay road, clean and colorful, with a friendly neighborhood background. Bright daylight, clear details.",
+    "sentence": "Sumakay ako sa traysikel."
+  },
+  {
+    "id": "dyip",
+    "word": "dyip",
+    "imageKey": "pagmamaneho/dyip.webp",
+    "imageLabel": "Dyip",
+    "imageCaption": "Sasakyang pampasahero",
+    "imagePrompt": "A realistic photograph of a colorful Philippine jeepney on a city road, with clear details and bright daylight. Safe traffic scene, culturally familiar setting.",
+    "sentence": "Dumaan ang dyip."
+  },
+  {
+    "id": "sakay",
+    "word": "sakay",
+    "imageKey": "pagmamaneho/sakay.webp",
+    "imageLabel": "Sakay",
+    "imageCaption": "Pagpasok sa sasakyan",
+    "imagePrompt": "A realistic photograph of a Filipino passenger safely getting into a vehicle by the roadside. Bright daylight, clear details, calm everyday travel scene.",
+    "sentence": "Sakay na tayo."
+  },
+  {
+    "id": "baba",
+    "word": "baba",
+    "imageKey": "pagmamaneho/baba.webp",
+    "imageLabel": "Baba",
+    "imageCaption": "Paglabas mula sa sasakyan",
+    "imagePrompt": "A realistic photograph of a passenger safely stepping out of a parked vehicle on the roadside. Clear daylight, calm scene, safe travel context.",
+    "sentence": "Dito ako baba."
+  },
+  {
+    "id": "andar",
+    "word": "andar",
+    "imageKey": "pagmamaneho/andar.webp",
+    "imageLabel": "Andar",
+    "imageCaption": "Paggalaw ng sasakyan",
+    "imagePrompt": "A realistic photograph of a car slowly moving forward on a clean road, with slight motion blur on the wheels. Safe driving scene, daylight, clear details.",
+    "sentence": "Maayos ang andar."
+  },
+  {
+    "id": "hinto",
+    "word": "hinto",
+    "imageKey": "pagmamaneho/hinto.webp",
+    "imageLabel": "Hinto",
+    "imageCaption": "Paghinto ng sasakyan",
+    "imagePrompt": "A realistic photograph of a car stopped safely at a pedestrian crossing or stop line. Bright daylight, clear road markings, safe driving context.",
+    "sentence": "Dapat tayong huminto."
+  },
+  {
+    "id": "liko",
+    "word": "liko",
+    "imageKey": "pagmamaneho/liko.webp",
+    "imageLabel": "Liko",
+    "imageCaption": "Pagpihit sa kaliwa o kanan",
+    "imagePrompt": "A realistic photograph of a vehicle carefully turning at a street corner, with road signs and clear lane markings. Daylight, safe driving scene.",
+    "sentence": "Dahan-dahan sa liko."
+  },
+  {
+    "id": "kanan",
+    "word": "kanan",
+    "imageKey": "pagmamaneho/kanan.webp",
+    "imageLabel": "Kanan",
+    "imageCaption": "Direksyon sa kanang bahagi",
+    "imagePrompt": "A realistic photograph of a road sign with a right turn arrow on a clean street. Bright daylight, clear details, simple background.",
+    "sentence": "Lumiko sa kanan."
+  },
+  {
+    "id": "kaliwa",
+    "word": "kaliwa",
+    "imageKey": "pagmamaneho/kaliwa.webp",
+    "imageLabel": "Kaliwa",
+    "imageCaption": "Direksyon sa kaliwang bahagi",
+    "imagePrompt": "A realistic photograph of a road sign with a left turn arrow on a quiet street. Bright daylight, clear details, safe driving context.",
+    "sentence": "Lumiko sa kaliwa."
+  },
+  {
+    "id": "tawid",
+    "word": "tawid",
+    "imageKey": "pagmamaneho/tawid.webp",
+    "imageLabel": "Tawid",
+    "imageCaption": "Pagdaan mula isang tabi papunta sa kabila",
+    "imagePrompt": "A realistic photograph of a pedestrian crossing on a clean road with a person crossing safely. Bright daylight, clear road markings, calm traffic scene.",
+    "sentence": "May tawid sa unahan."
+  },
+  {
+    "id": "tulay",
+    "word": "tulay",
+    "imageKey": "pagmamaneho/tulay.webp",
+    "imageLabel": "Tulay",
+    "imageCaption": "Daan na nasa ibabaw ng ilog o kalsada",
+    "imagePrompt": "A realistic photograph of a vehicle crossing a small bridge in the Philippines. Bright daylight, clean road, safe travel scene, clear details.",
+    "sentence": "Dumaan kami sa tulay."
+  },
+  {
+    "id": "gasolina",
+    "word": "gasolina",
+    "imageKey": "pagmamaneho/gasolina.webp",
+    "imageLabel": "Gasolina",
+    "imageCaption": "Panggatong ng sasakyan",
+    "imagePrompt": "A realistic photograph of a fuel pump nozzle filling a vehicle at a gas station in the Philippines. Clear details, daylight, clean and safe setting.",
+    "sentence": "Kailangan ng gasolina."
+  },
+  {
+    "id": "susian",
+    "word": "susian",
+    "imageKey": "pagmamaneho/susian.webp",
+    "imageLabel": "Susian",
+    "imageCaption": "Lugar na pinapasukan ng susi",
+    "imagePrompt": "A realistic close-up photograph of a car key inserted in the ignition or a start button area inside a vehicle. Clean interior, clear details, natural light.",
+    "sentence": "Nasa susian ang susi."
+  },
+  {
+    "id": "susi",
+    "word": "susi",
+    "imageKey": "pagmamaneho/susi.webp",
+    "imageLabel": "Susi",
+    "imageCaption": "Gamit sa pagbukas ng sasakyan",
+    "imagePrompt": "A realistic close-up photograph of a car key held in a hand near a vehicle door. Bright daylight, clear details, simple safe background.",
+    "sentence": "Hawak ko ang susi."
+  },
+  {
+    "id": "salamin",
+    "word": "salamin",
+    "imageKey": "pagmamaneho/salamin.webp",
+    "imageLabel": "Salamin",
+    "imageCaption": "Gamit sa pagtingin sa paligid",
+    "imagePrompt": "A realistic close-up photograph of a car side mirror reflecting a quiet road behind. Clear details, daylight, safe driving context.",
+    "sentence": "Tumingin sa salamin."
+  },
+  {
+    "id": "sinturon",
+    "word": "sinturon",
+    "imageKey": "pagmamaneho/sinturon.webp",
+    "imageLabel": "Sinturon",
+    "imageCaption": "Pangkaligtasang suot sa sasakyan",
+    "imagePrompt": "A realistic close-up photograph of a person fastening a seat belt inside a clean car. Bright natural light, clear details, strong safety theme.",
+    "sentence": "Isuot ang sinturon."
+  },
+  {
+    "id": "plaka",
+    "word": "plaka",
+    "imageKey": "pagmamaneho/plaka.webp",
+    "imageLabel": "Plaka",
+    "imageCaption": "Numero ng sasakyan",
+    "imagePrompt": "A realistic close-up photograph of a vehicle license plate, with the numbers blurred or fictional for privacy. Clean car surface, daylight, clear details.",
+    "sentence": "May plaka ang kotse."
+  },
+  {
+    "id": "senyas",
+    "word": "senyas",
+    "imageKey": "pagmamaneho/senyas.webp",
+    "imageLabel": "Senyas",
+    "imageCaption": "Palatandaan bago lumiko o huminto",
+    "imagePrompt": "A realistic photograph of a car turn signal light blinking on a clean road. Bright daylight, clear details, safe driving context.",
+    "sentence": "Gumamit ng senyas."
+  },
+  {
+    "id": "bilis",
+    "word": "bilis",
+    "imageKey": "pagmamaneho/bilis.webp",
+    "imageLabel": "Bilis",
+    "imageCaption": "Tulin ng takbo ng sasakyan",
+    "imagePrompt": "A realistic close-up photograph of a car speedometer showing a safe low speed. Clear dashboard details, natural lighting, calm driving context.",
+    "sentence": "Bantayan ang bilis."
+  },
+  {
+    "id": "trapiko",
+    "word": "trapiko",
+    "imageKey": "pagmamaneho/trapiko.webp",
+    "imageLabel": "Trapiko",
+    "imageCaption": "Maraming sasakyan sa daan",
+    "imagePrompt": "A realistic photograph of moderate traffic on a Philippine road with cars, jeepneys, and tricycles moving slowly. Daylight, clear details, safe urban scene.",
+    "sentence": "Mabagal ang trapiko."
+  },
+  {
+    "id": "lisensya",
+    "word": "lisensya",
+    "imageKey": "pagmamaneho/lisensya.webp",
+    "imageLabel": "Lisensya",
+    "imageCaption": "Katibayan na puwedeng magmaneho",
+    "imagePrompt": "A realistic photograph of a driver's license card held in a hand, with private information blurred or fictional. Clean car interior background, clear details, daylight.",
+    "sentence": "May lisensya ang driver."
+  }
+]

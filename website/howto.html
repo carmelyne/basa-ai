@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="fil">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paano Gamitin — BasaKonek</title>
+  <meta name="description" content="Paano gamitin ang BasaKonek app. Hakbang-hakbang na gabay para matuto nang magbasa sa iyong phone." />
+  <link rel="icon" type="image/svg+xml" href="assets/logo-basakonek-mark.svg" />
+  <link rel="stylesheet" href="style.css" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HZSYE7JJJ1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "G-HZSYE7JJJ1");
+  </script>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">
+    <img class="mark" src="assets/logo-basakonek-mark.svg" alt="" />
+    <img class="wordmark" src="assets/logo-basakonek-text.svg" alt="BasaKonek" />
+  </a>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="features.html">Features</a></li>
+    <li><a href="howto.html" class="active">Paano</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+  </ul>
+  <a class="nav-cta" href="download.html">
+    <i data-lucide="download"></i> I-download
+  </a>
+  <button class="nav-hamburger" aria-label="Buksan ang menu" onclick="openMenu()">
+    <i data-lucide="menu"></i>
+  </button>
+</nav>
+
+<!-- Mobile full-screen menu -->
+<div class="nav-mobile-menu" id="mobileMenu">
+  <button class="nav-mobile-close" aria-label="Isara ang menu" onclick="closeMenu()">
+    <i data-lucide="x"></i>
+  </button>
+  <ul class="nav-mobile-links">
+    <li><a href="index.html" onclick="closeMenu()">Home</a></li>
+    <li><a href="features.html" onclick="closeMenu()">Features</a></li>
+    <li><a href="howto.html" class="active" onclick="closeMenu()">Paano</a></li>
+    <li><a href="faq.html" onclick="closeMenu()">FAQ</a></li>
+  </ul>
+  <a class="nav-mobile-cta" href="download.html">
+    <i data-lucide="download"></i> I-download — Libre
+  </a>
+</div>
+
+<!-- HERO -->
+<div class="howto-hero">
+  <p class="overline">Gabay sa paggamit</p>
+  <h1 class="display" style="font-family: var(--display); font-size: clamp(2.2rem, 6vw, 4rem); font-weight: 900; color: var(--white); line-height: 1.1; margin-bottom: 20px;">
+    Paano gamitin ang<br/><em style="color: var(--sage); font-style: italic;">BasaKonek</em>
+  </h1>
+  <p style="font-size: clamp(16px, 4vw, 18px); color: rgba(245,240,232,0.6); max-width: 480px; margin: 0 auto; line-height: 1.75;">
+    Limang hakbang lang. Sarili mong oras, sarili mong bilis. Walang hiya, walang presyur.
+  </p>
+</div>
+
+<!-- STEPS -->
+<div class="howto-steps">
+
+  <!-- Step 1 -->
+  <div class="howto-step reveal">
+    <div class="howto-step-inner">
+      <div class="howto-step-visual">
+        <div class="howto-phone-wrap">
+          <!-- Swap src for rendered video when ready: data-video-scene="BasaKonekIntro" -->
+          <img src="assets/app-screenshot.jpg" alt="Home screen ng BasaKonek" loading="lazy" />
+        </div>
+      </div>
+      <div class="howto-step-body">
+        <div class="howto-step-num">01</div>
+        <p class="howto-step-label">Hakbang Isa</p>
+        <h2 class="howto-step-title">I-download ang app<br/>sa iyong phone</h2>
+        <p class="howto-step-desc">
+          Libre ang BasaKonek sa Google Play Store. Hindi kailangan ng account para magsimula — buksan mo lang at handa na.
+        </p>
+        <div class="howto-step-tip">
+          <i data-lucide="wifi-off"></i>
+          Gumagana kahit mabagal ang koneksyon. Offline ang mga aralin kapag na-download na.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 2 -->
+  <div class="howto-step reveal">
+    <div class="howto-step-inner">
+      <div class="howto-step-visual">
+        <div class="howto-phone-wrap">
+          <!-- data-video-scene="WordCardScene" -->
+          <img src="assets/screen-word.jpg" alt="Pagpili ng paksa" loading="lazy" />
+        </div>
+      </div>
+      <div class="howto-step-body">
+        <div class="howto-step-num">02</div>
+        <p class="howto-step-label">Hakbang Dalawa</p>
+        <h2 class="howto-step-title">Pumili ng paksa<br/>na para sa iyo</h2>
+        <p class="howto-step-desc">
+          Mayroon kaming mga aralin tungkol sa tindahan, pagmamaneho, mensahe, at iba pa. Piliin ang paksa na gamit mo araw-araw.
+        </p>
+        <div class="howto-step-tip">
+          <i data-lucide="heart"></i>
+          Walang mali o tama. Lahat ng paksa ay para sa ordinary na buhay ng mga Pilipino.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 3 -->
+  <div class="howto-step reveal">
+    <div class="howto-step-inner">
+      <div class="howto-step-visual">
+        <div class="howto-phone-wrap">
+          <!-- data-video-scene="TraceWritingScene" -->
+          <img src="assets/screen-word.jpg" alt="Pakikinig at pagbabasa ng salita" loading="lazy" />
+        </div>
+      </div>
+      <div class="howto-step-body">
+        <div class="howto-step-num">03</div>
+        <p class="howto-step-label">Hakbang Tatlo</p>
+        <h2 class="howto-step-title">Pakinggan at<br/>basahin ang salita</h2>
+        <p class="howto-step-desc">
+          Makikita mo ang salita kasama ang larawan. I-tap ang sound button para marinig kung paano binibigkas. Ulitin hanggang comfortable ka na.
+        </p>
+        <div class="howto-step-tip">
+          <i data-lucide="volume-2"></i>
+          Pwedeng ulitin nang paulit-ulit ang audio. Walang limitasyon, walang judgment.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 4 -->
+  <div class="howto-step reveal">
+    <div class="howto-step-inner">
+      <div class="howto-step-visual">
+        <div class="howto-phone-wrap">
+          <!-- data-video-scene="MissingLetterScene" -->
+          <img src="assets/screen-missing.jpg" alt="Missing letter practice" loading="lazy" />
+        </div>
+      </div>
+      <div class="howto-step-body">
+        <div class="howto-step-num">04</div>
+        <p class="howto-step-label">Hakbang Apat</p>
+        <h2 class="howto-step-title">Subukan ang<br/>iyong kasanayan</h2>
+        <p class="howto-step-desc">
+          Pagkatapos marinig ang salita, may maikling pagsasanay — halimbawa, anong letra ang nawawala? Hindi ito pagsusulit. Laro lang para matandaan mo.
+        </p>
+        <div class="howto-step-tip">
+          <i data-lucide="refresh-cw"></i>
+          Hindi ka mabibigo dito. Kung hindi tama, sasabihin ng app: <em style="color: var(--cream);">"Malapit ka na! Subukan nating muli."</em>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 5 -->
+  <div class="howto-step reveal">
+    <div class="howto-step-inner">
+      <div class="howto-step-visual">
+        <div class="howto-phone-wrap">
+          <!-- data-video-scene="BadgeCelebrationScene" -->
+          <img src="assets/screen-badges.jpg" alt="Badge celebration" loading="lazy" />
+        </div>
+      </div>
+      <div class="howto-step-body">
+        <div class="howto-step-num">05</div>
+        <p class="howto-step-label">Hakbang Lima</p>
+        <h2 class="howto-step-title">Kolektahin ang badges<br/>at magpatuloy</h2>
+        <p class="howto-step-desc">
+          Matapos ang bawat paksa, makakakuha ka ng personal na badge — para sa iyo lang. Hindi ito diploma o sertipiko. Paalala lang na kaya mo ito.
+        </p>
+        <div class="howto-step-tip">
+          <i data-lucide="lock"></i>
+          Pribado ang lahat ng progreso mo. Ikaw lang ang makakakita. Hindi kailangan ng account.
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- CTA -->
+<div class="howto-cta">
+  <h2>Handa ka na ba?</h2>
+  <p>I-download ang BasaKonek ngayon. Libre, walang ads, at hindi mo kailangan ng mabilis na internet.</p>
+  <a class="btn-primary" href="download.html">
+    <i data-lucide="smartphone"></i> I-download — Libre
+  </a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <img src="assets/logo-basakonek.svg" alt="BasaKonek" />
+  </div>
+  <nav class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="features.html">Features</a>
+    <a href="howto.html">Paano</a>
+    <a href="faq.html">FAQ</a>
+    <a href="download.html">I-download</a>
+  </nav>
+  <p class="footer-copy">© 2025 BasaKonek. Para sa mga Pilipino.</p>
+</footer>
+
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script>
+  lucide.createIcons();
+
+  function openMenu() {
+    document.getElementById('mobileMenu').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // Close on escape key
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeMenu();
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

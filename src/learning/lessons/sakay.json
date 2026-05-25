@@ -1,0 +1,272 @@
+[
+  {
+    "id": "sakay",
+    "word": "sakay",
+    "imageKey": "sakay/sakay.webp",
+    "imageLabel": "Sakay",
+    "imageCaption": "Pagpasok sa sasakyan",
+    "imagePrompt": "A realistic photograph of a Filipino passenger safely getting into a jeepney or public vehicle by the roadside. Bright daylight, clear details, everyday commute scene.",
+    "sentence": "Sakay na tayo."
+  },
+  {
+    "id": "baba",
+    "word": "baba",
+    "imageKey": "sakay/baba.webp",
+    "imageLabel": "Baba",
+    "imageCaption": "Paglabas mula sa sasakyan",
+    "imagePrompt": "A realistic photograph of a passenger safely stepping down from a jeepney or tricycle at the roadside. Bright daylight, clear details, calm commute scene.",
+    "sentence": "Dito ako baba."
+  },
+  {
+    "id": "pamasahe",
+    "word": "pamasahe",
+    "imageKey": "sakay/pamasahe.webp",
+    "imageLabel": "Pamasahe",
+    "imageCaption": "Bayad sa pagsakay",
+    "imagePrompt": "A realistic close-up photograph of Philippine peso coins and bills being handed to a jeepney driver or conductor as fare. Clear details, warm daylight, everyday Filipino commute setting.",
+    "sentence": "Narito ang pamasahe."
+  },
+  {
+    "id": "sukli",
+    "word": "sukli",
+    "imageKey": "sakay/sukli.webp",
+    "imageLabel": "Sukli",
+    "imageCaption": "Perang ibinabalik matapos magbayad",
+    "imagePrompt": "A realistic close-up photograph of a Filipino commuter receiving coins as change after paying fare. Clear details, public transportation setting, warm daylight.",
+    "sentence": "Kunin ang sukli."
+  },
+  {
+    "id": "bayad",
+    "word": "bayad",
+    "imageKey": "sakay/bayad.webp",
+    "imageLabel": "Bayad",
+    "imageCaption": "Perang ibinibigay kapalit ng sakay",
+    "imagePrompt": "A realistic photograph of a commuter handing fare payment inside a jeepney or bus. Clear focus on the payment, everyday Filipino commute scene.",
+    "sentence": "Iabot ang bayad."
+  },
+  {
+    "id": "terminal",
+    "word": "terminal",
+    "imageKey": "sakay/terminal.webp",
+    "imageLabel": "Terminal",
+    "imageCaption": "Lugar kung saan naghihintay ang mga sasakyan",
+    "imagePrompt": "A realistic photograph of a clean Filipino public transport terminal with jeepneys, vans, or buses lined up and commuters waiting. Bright daylight, clear details.",
+    "sentence": "Nasa terminal kami."
+  },
+  {
+    "id": "hintuan",
+    "word": "hintuan",
+    "imageKey": "sakay/hintuan.webp",
+    "imageLabel": "Hintuan",
+    "imageCaption": "Lugar kung saan sumasakay o bumababa",
+    "imagePrompt": "A realistic photograph of a public transport stop in the Philippines with a simple sign, waiting passengers, and light traffic. Bright daylight, clear details.",
+    "sentence": "Dito ang hintuan."
+  },
+  {
+    "id": "pila",
+    "word": "pila",
+    "imageKey": "sakay/pila.webp",
+    "imageLabel": "Pila",
+    "imageCaption": "Hanay ng naghihintay sumakay",
+    "imagePrompt": "A realistic photograph of commuters standing in an orderly line at a bus or jeepney terminal in the Philippines. Bright daylight, clear details, calm scene.",
+    "sentence": "Mahaba ang pila."
+  },
+  {
+    "id": "jeep",
+    "word": "jeep",
+    "imageKey": "sakay/jeep.webp",
+    "imageLabel": "Jeep",
+    "imageCaption": "Sasakyang pampasahero sa Pilipinas",
+    "imagePrompt": "A realistic photograph of a colorful Philippine jeepney on a city road with passengers nearby. Bright daylight, clear cultural details, safe traffic scene.",
+    "sentence": "Dumating ang jeep."
+  },
+  {
+    "id": "bus",
+    "word": "bus",
+    "imageKey": "sakay/bus.webp",
+    "imageLabel": "Bus",
+    "imageCaption": "Malaking sasakyang pampasahero",
+    "imagePrompt": "A realistic photograph of a clean city bus at a bus stop in the Philippines with passengers boarding safely. Bright daylight, clear details.",
+    "sentence": "Sumakay kami sa bus."
+  },
+  {
+    "id": "tricycle",
+    "word": "tricycle",
+    "imageKey": "sakay/tricycle.webp",
+    "imageLabel": "Tricycle",
+    "imageCaption": "Maliit na sasakyang karaniwan sa barangay",
+    "imagePrompt": "A realistic photograph of a Filipino tricycle parked near a barangay road with a passenger about to ride. Bright daylight, friendly neighborhood setting.",
+    "sentence": "Malapit ang tricycle."
+  },
+  {
+    "id": "taxi",
+    "word": "taxi",
+    "imageKey": "sakay/taxi.webp",
+    "imageLabel": "Taxi",
+    "imageCaption": "Sasakyang binabayaran para sa biyahe",
+    "imagePrompt": "A realistic photograph of a taxi waiting by the roadside in a Philippine city. Bright daylight, clear details, safe urban setting.",
+    "sentence": "Tumawag kami ng taxi."
+  },
+  {
+    "id": "van",
+    "word": "van",
+    "imageKey": "sakay/van.webp",
+    "imageLabel": "Van",
+    "imageCaption": "Sasakyang pangmaramihan o pangbiyahe",
+    "imagePrompt": "A realistic photograph of a passenger van at a transport terminal in the Philippines, with commuters nearby. Bright daylight, clean scene, clear details.",
+    "sentence": "Puno na ang van."
+  },
+  {
+    "id": "tren",
+    "word": "tren",
+    "imageKey": "sakay/tren.webp",
+    "imageLabel": "Tren",
+    "imageCaption": "Sasakyang tumatakbo sa riles",
+    "imagePrompt": "A realistic photograph of a commuter train at a station platform with passengers waiting safely. Bright daylight, clear modern transit details.",
+    "sentence": "Dumating ang tren."
+  },
+  {
+    "id": "ticket",
+    "word": "ticket",
+    "imageKey": "sakay/ticket.webp",
+    "imageLabel": "Ticket",
+    "imageCaption": "Katibayan ng bayad sa biyahe",
+    "imagePrompt": "A realistic close-up photograph of a transit ticket or bus ticket held by a commuter. Clear details, neutral background, travel context.",
+    "sentence": "Hawak ko ang ticket."
+  },
+  {
+    "id": "ruta",
+    "word": "ruta",
+    "imageKey": "sakay/ruta.webp",
+    "imageLabel": "Ruta",
+    "imageCaption": "Daan o direksyon ng biyahe",
+    "imagePrompt": "A realistic photograph of a route sign on a jeepney, bus, or terminal board in the Philippines. Clear readable route display, bright daylight.",
+    "sentence": "Tingnan ang ruta."
+  },
+  {
+    "id": "biyahe",
+    "word": "biyahe",
+    "imageKey": "sakay/biyahe.webp",
+    "imageLabel": "Biyahe",
+    "imageCaption": "Paglalakbay gamit ang sasakyan",
+    "imagePrompt": "A realistic photograph from inside a public vehicle looking out at a Philippine road during a calm commute. Bright daylight, clear travel mood.",
+    "sentence": "Mahaba ang biyahe."
+  },
+  {
+    "id": "upo",
+    "word": "upo",
+    "imageKey": "sakay/upo.webp",
+    "imageLabel": "Upo",
+    "imageCaption": "Paglagay ng katawan sa upuan",
+    "imagePrompt": "A realistic photograph of a commuter sitting safely inside a bus, jeepney, or train. Clear details, respectful composition, everyday commute scene.",
+    "sentence": "Dito ka umupo."
+  },
+  {
+    "id": "upuan",
+    "word": "upuan",
+    "imageKey": "sakay/upuan.webp",
+    "imageLabel": "Upuan",
+    "imageCaption": "Lugar na inuupuan sa sasakyan",
+    "imagePrompt": "A realistic photograph of clean passenger seats inside a bus, van, or train. Clear details, soft daylight, simple commute setting.",
+    "sentence": "May bakanteng upuan."
+  },
+  {
+    "id": "hawakan",
+    "word": "hawakan",
+    "imageKey": "sakay/hawakan.webp",
+    "imageLabel": "Hawakan",
+    "imageCaption": "Gamit na kinakapitan habang nakatayo",
+    "imagePrompt": "A realistic close-up photograph of a hand holding a bus or train handrail for safety. Clear details, public transport interior, soft lighting.",
+    "sentence": "Kumapit sa hawakan."
+  },
+  {
+    "id": "pinto",
+    "word": "pinto",
+    "imageKey": "sakay/pinto.webp",
+    "imageLabel": "Pinto",
+    "imageCaption": "Daanan papasok at palabas ng sasakyan",
+    "imagePrompt": "A realistic photograph of a public vehicle door opening safely for passengers. Clear details, daylight, everyday commute context.",
+    "sentence": "Bukas ang pinto."
+  },
+  {
+    "id": "bintana",
+    "word": "bintana",
+    "imageKey": "sakay/bintana.webp",
+    "imageLabel": "Bintana",
+    "imageCaption": "Salamin o bukasan sa gilid ng sasakyan",
+    "imagePrompt": "A realistic photograph of a vehicle window showing a view of the road outside during a commute. Clear details, daylight, calm travel mood.",
+    "sentence": "Sarado ang bintana."
+  },
+  {
+    "id": "driver",
+    "word": "driver",
+    "imageKey": "sakay/driver.webp",
+    "imageLabel": "Driver",
+    "imageCaption": "Taong nagmamaneho ng sasakyan",
+    "imagePrompt": "A realistic photograph of a Filipino public transport driver seated safely at the wheel, focused on the road. Bright daylight, respectful everyday scene.",
+    "sentence": "Maingat ang driver."
+  },
+  {
+    "id": "konduktor",
+    "word": "konduktor",
+    "imageKey": "sakay/konduktor.webp",
+    "imageLabel": "Konduktor",
+    "imageCaption": "Taong nangongolekta ng pamasahe",
+    "imagePrompt": "A realistic photograph of a bus conductor collecting fares from passengers inside a bus in the Philippines. Clear details, everyday commute setting.",
+    "sentence": "Lumapit ang konduktor."
+  },
+  {
+    "id": "direksyon",
+    "word": "direksyon",
+    "imageKey": "sakay/direksyon.webp",
+    "imageLabel": "Direksyon",
+    "imageCaption": "Tamang daan papunta sa pupuntahan",
+    "imagePrompt": "A realistic photograph of a commuter looking at a simple direction sign or map on a phone while near a public transport stop. Clear details, daylight.",
+    "sentence": "Alamin ang direksyon."
+  },
+  {
+    "id": "malapit",
+    "word": "malapit",
+    "imageKey": "sakay/malapit.webp",
+    "imageLabel": "Malapit",
+    "imageCaption": "Hindi malayo ang pupuntahan",
+    "imagePrompt": "A realistic photograph of a nearby destination sign or landmark seen from a public transport stop. Bright daylight, clear details, simple travel context.",
+    "sentence": "Malapit na tayo."
+  },
+  {
+    "id": "malayo",
+    "word": "malayo",
+    "imageKey": "sakay/malayo.webp",
+    "imageLabel": "Malayo",
+    "imageCaption": "Malaki ang distansya ng pupuntahan",
+    "imagePrompt": "A realistic photograph of a long road view from a public vehicle window, showing a distant destination. Bright daylight, clear travel mood.",
+    "sentence": "Malayo pa tayo."
+  },
+  {
+    "id": "traffic",
+    "word": "traffic",
+    "imageKey": "sakay/traffic.webp",
+    "imageLabel": "Traffic",
+    "imageCaption": "Mabagal na daloy ng sasakyan",
+    "imagePrompt": "A realistic photograph of moderate traffic on a Philippine road with cars, jeepneys, and tricycles moving slowly. Daylight, clear details, safe urban scene.",
+    "sentence": "Mabagal ang traffic."
+  },
+  {
+    "id": "ingat",
+    "word": "ingat",
+    "imageKey": "sakay/ingat.webp",
+    "imageLabel": "Ingat",
+    "imageCaption": "Pag-iwas sa aksidente habang bumibiyahe",
+    "imagePrompt": "A realistic photograph of a commuter carefully stepping down from a vehicle while holding the handrail. Bright daylight, clear safety-focused scene.",
+    "sentence": "Mag-ingat sa pagbaba."
+  },
+  {
+    "id": "para",
+    "word": "para",
+    "imageKey": "sakay/para.webp",
+    "imageLabel": "Para",
+    "imageCaption": "Sinasabi kapag gustong bumaba",
+    "imagePrompt": "A realistic photograph of a Filipino commuter raising a hand or speaking politely to signal a jeepney or tricycle driver to stop. Everyday commute scene, bright daylight.",
+    "sentence": "Para po sa tabi."
+  }
+]

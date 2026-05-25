@@ -23,10 +23,29 @@
   <ul>
     <li><a href="index.html">Home</a></li>
     <li><a href="features.html">Features</a></li>
+    <li><a href="howto.html">Paano</a></li>
     <li><a href="faq.html">FAQ</a></li>
   </ul>
-  <a class="nav-cta" href="download.html"><i data-lucide="download"></i> I-download</a>
+  <a class="nav-cta" href="download.html" class="active"><i data-lucide="download"></i> I-download</a>
+  <button class="nav-hamburger" aria-label="Buksan ang menu" onclick="openMenu()">
+    <i data-lucide="menu"></i>
+  </button>
 </nav>
+
+<div class="nav-mobile-menu" id="mobileMenu">
+  <button class="nav-mobile-close" aria-label="Isara ang menu" onclick="closeMenu()">
+    <i data-lucide="x"></i>
+  </button>
+  <ul class="nav-mobile-links">
+    <li><a href="index.html" onclick="closeMenu()">Home</a></li>
+    <li><a href="features.html" onclick="closeMenu()">Features</a></li>
+    <li><a href="howto.html" onclick="closeMenu()">Paano</a></li>
+    <li><a href="faq.html" onclick="closeMenu()">FAQ</a></li>
+  </ul>
+  <a class="nav-mobile-cta" href="download.html">
+    <i data-lucide="download"></i> I-download — Libre
+  </a>
+</div>
 
 <div class="download-hero">
   <p class="overline reveal" style="justify-content:center;">Available na</p>
@@ -87,6 +106,7 @@
   <div class="footer-links">
     <a href="index.html">Home</a>
     <a href="features.html">Features</a>
+    <a href="howto.html">Paano</a>
     <a href="faq.html">FAQ</a>
     <a href="mailto:hello@basakonek.app">hello@basakonek.app</a>
   </div>
@@ -96,6 +116,17 @@
 <script src="https://unpkg.com/lucide@latest"></script>
 <script>
   lucide.createIcons();
+
+  function openMenu() {
+    document.getElementById('mobileMenu').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu() {
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
   }, { threshold: 0.12 });

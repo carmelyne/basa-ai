@@ -1,0 +1,31 @@
+{
+  "includedFiles": [
+    "bayarin.json",
+    "bangko.json",
+    "forms.json",
+    "gamot.json",
+    "sakay.json",
+    "emergency.json"
+  ],
+  "entriesPerFile": {
+    "bayarin.json": 30,
+    "bangko.json": 30,
+    "forms.json": 30,
+    "gamot.json": 30,
+    "sakay.json": 30,
+    "emergency.json": 30
+  },
+  "skippedExisting": [
+    "phone-buttons.json",
+    "pagbebenta.json"
+  ],
+  "pattern": [
+    "id",
+    "imageCaption",
+    "imageKey",
+    "imageLabel",
+    "imagePrompt",
+    "sentence",
+    "word"
+  ]
+}

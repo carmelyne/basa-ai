@@ -34,6 +34,7 @@ type StartScreenProps = {
   onContinue: () => void;
   onRestoreProgress: () => void;
   onStart: () => void;
+  onLogoTap: () => void;
   totalWords: number;
 };
 
@@ -44,6 +45,7 @@ export function StartScreen({
   onContinue,
   onRestoreProgress,
   onStart,
+  onLogoTap,
   totalWords,
 }: StartScreenProps) {
   const hasProgress = completedWords > 0;
@@ -54,8 +56,10 @@ export function StartScreen({
   return (
     <View style={styles.content}>
       <View style={styles.brandBlock}>
-        <SvgXml xml={logoMarkXml} width={64} height={64} />
-        <SvgXml xml={logoTextXml} width={200} height={28} style={{ marginBottom: 40 }} />
+        <Pressable onPress={onLogoTap}>
+          <SvgXml xml={logoMarkXml} width={64} height={64} />
+        </Pressable>
+        <SvgXml xml={logoTextXml} width={200} height={28} style={{ marginTop: 24, marginBottom: 40 }} />
         <Text style={styles.tagline}>Matutong magbasa.</Text>
         <View style={styles.privacyRow}>
           <ShieldCheck color={colors.forestSoft} size={18} strokeWidth={2.2} />
@@ -63,34 +67,36 @@ export function StartScreen({
         </View>
       </View>
 
-      <View style={styles.continueCard}>
-        <View style={styles.continueTopRow}>
-          <View style={styles.lessonIcon}>
-            <Book color={colors.forestAction} size={20} strokeWidth={2.1} />
-          </View>
-          <View style={styles.cardCopy}>
-            <Text style={styles.cardTitle}>
-              {isCompleted ? "Tapos na ang aralin!" : "Ipagpatuloy ang pag-aaral"}
-            </Text>
-            <View style={styles.progressTrack}>
-              <View style={[styles.progressFill, { width: `${progressPercent}%` }]} />
+      {hasProgress && (
+        <View style={styles.continueCard}>
+          <View style={styles.continueTopRow}>
+            <View style={styles.lessonIcon}>
+              <Book color={colors.forestAction} size={20} strokeWidth={2.1} />
             </View>
-            <Text style={styles.cardText}>
-              {hasProgress
-                ? `Aralin ${completedWords} ng ${totalWords}`
-                : `Aralin 1 ng ${totalWords}`}
-            </Text>
+            <View style={styles.cardCopy}>
+              <Text style={styles.cardTitle}>
+                {isCompleted ? "Tapos na ang aralin!" : "Ipagpatuloy ang pag-aaral"}
+              </Text>
+              <View style={styles.progressTrack}>
+                <View style={[styles.progressFill, { width: `${progressPercent}%` }]} />
+              </View>
+              <Text style={styles.cardText}>
+                {hasProgress
+                  ? `Aralin ${completedWords} ng ${totalWords}`
+                  : `Aralin 1 ng ${totalWords}`}
+              </Text>
+            </View>
           </View>
+
+          <View style={styles.divider} />
+
+          <AppButton
+            icon={<Play color={colors.surface} fill={colors.surface} size={16} />}
+            label={isCompleted ? "Ulitin" : "Magpatuloy"}
+            onPress={onContinue}
+          />
         </View>
-
-        <View style={styles.divider} />
-
-        <AppButton
-          icon={<Play color={colors.surface} fill={colors.surface} size={16} />}
-          label={isCompleted ? "Ulitin" : "Magpatuloy"}
-          onPress={onContinue}
-        />
-      </View>
+      )}
 
       <View style={[styles.actions, { marginTop: 40 }]}>
         <AppButton
@@ -98,6 +104,7 @@ export function StartScreen({
           label="New Lesson"
           onPress={onStart}
           variant="secondary"
+          style={{ marginBottom: 24 }}
         />
 
         <Pressable

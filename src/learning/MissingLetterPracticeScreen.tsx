@@ -48,6 +48,39 @@ export function MissingLetterPracticeScreen({
   const [answerState, setAnswerState] = useState<"idle" | "correct" | "wrong">(
     "idle"
   );
+  
+  // Dynamic missing letter logic
+  const [missingLetterConfig, setMissingLetterConfig] = useState<{
+    prompt: string;
+    answer: string;
+    options: string[];
+  } | null>(null);
+
+  useEffect(() => {
+    const word = lessonWord.word.toLowerCase();
+    const randomIndex = Math.floor(Math.random() * word.length);
+    const answer = word[randomIndex];
+    
+    // Create prompt
+    const prompt = word.split('').map((char, idx) => idx === randomIndex ? '_' : char).join('');
+    
+    // Generate options: answer + 2 random letters
+    const alphabet = "abcdefghijklmnoprstuvwy";
+    const options = new Set([answer]);
+    while (options.size < 3) {
+      options.add(alphabet[Math.floor(Math.random() * alphabet.length)]);
+    }
+    
+    setMissingLetterConfig({
+      prompt,
+      answer,
+      options: Array.from(options).sort(() => Math.random() - 0.5),
+    });
+    setSelectedLetter(null);
+    setAnswerState("idle");
+    setFeedback(null);
+  }, [lessonWord.word]);
+
   const [showHint, setShowHint] = useState(false);
   const ttsSupportStatus = useTtsSupport();
   const showVoiceNote =
@@ -131,12 +164,13 @@ export function MissingLetterPracticeScreen({
   };
 
   function handleSelectLetter(letter: string) {
+    if (!missingLetterConfig) return;
     setSelectedLetter(letter);
     
     // Hide Kuya AI hint card when showing feedback card
     setShowHint(false);
 
-    if (letter === lessonWord.missingLetterAnswer) {
+    if (letter === missingLetterConfig.answer) {
       setAnswerState("correct");
       setFeedback("Correct!");
       speakFilipino("Correct!", { rate: 0.8 });
@@ -160,6 +194,8 @@ export function MissingLetterPracticeScreen({
       return nextValue;
     });
   }
+
+  if (!missingLetterConfig) return null;
 
   return (
     <View style={{ flex: 1, backgroundColor: colors.cream }}>
@@ -221,7 +257,7 @@ export function MissingLetterPracticeScreen({
           <Text style={styles.prompt}>Anong nawawalang letra?</Text>
 
           {(() => {
-            const parts = lessonWord.missingLetterPrompt.split("_");
+            const parts = missingLetterConfig.prompt.split("_");
             const before = parts[0] || "";
             const after = parts[1] || "";
             return (
@@ -270,7 +306,7 @@ export function MissingLetterPracticeScreen({
           })()}
 
           <View style={styles.optionRow}>
-            {lessonWord.missingLetterOptions.map((letter) => (
+            {missingLetterConfig.options.map((letter) => (
               <Pressable
                 accessibilityRole="button"
                 key={letter}
@@ -335,10 +371,10 @@ export function MissingLetterPracticeScreen({
             <Text style={styles.feedback}>{feedback}</Text>
           ) : null}
 
-          {showHint && answerState === "idle" ? (
+          {showHint && answerState === "idle" && missingLetterConfig ? (
             <KuyaHintCard
-              hint={lessonWord.phoneticHint}
-              sound={lessonWord.phoneticSound}
+              hint={`Ang nawawalang letra ay may tunog na /${missingLetterConfig.answer}/.`}
+              sound={missingLetterConfig.answer}
             />
           ) : null}
 

@@ -223,6 +223,24 @@ export default function App() {
     resetTo("start");
   }
 
+  const [tapCount, setTapCount] = useState(0);
+
+  function handleLogoTap() {
+    const newCount = tapCount + 1;
+    if (newCount >= 8) {
+      clearLocalProgress().then(() => {
+        setCompletedWordIds([]);
+        setCorrectAnswerIds([]);
+        setLessonRepeatCounts({});
+        setTapCount(0);
+        setRouteStack(["start"]);
+        console.log("Progress reset! Stack is now:", ["start"]);
+      });
+    } else {
+      setTapCount(newCount);
+    }
+  }
+
   return (
     <SafeAreaView style={styles.screen}>
       <StatusBar style="dark" />
@@ -237,6 +255,7 @@ export default function App() {
           onRestoreProgress={() => openAuth("restore")}
           onStart={startLesson}
           totalWords={lessonWords.length}
+          onLogoTap={handleLogoTap}
         />
       ) : (
         <>

@@ -1,0 +1,281 @@
+[
+  {
+    "id": "presyo",
+    "word": "presyo",
+    "imageKey": "pagbebenta/presyo.webp",
+    "imageLabel": "Presyo",
+    "imageCaption": "Halaga ng bibilhin",
+    "imagePrompt": "A realistic close-up photograph of small price tags attached to snacks and goods inside a Filipino sari-sari store. Clear readable price labels, colorful goods, bright lighting.",
+    "sentence": "Presyo ng bigas."
+  },
+  {
+    "id": "sukli",
+    "word": "sukli",
+    "imageKey": "pagbebenta/sukli.webp",
+    "imageLabel": "Sukli",
+    "imageCaption": "Baryang ibinabalik",
+    "imagePrompt": "A close-up realistic photograph of a sari-sari store vendor giving peso coins as change to a customer. Filipino neighborhood store setting, warm natural light, clear details.",
+    "sentence": "May sukli si ate."
+  },
+  {
+    "id": "benta",
+    "word": "benta",
+    "imageKey": "pagbebenta/benta.webp",
+    "imageLabel": "Benta",
+    "imageCaption": "Isang tindera na nag-aabot ng paninda",
+    "imagePrompt": "A close-up, high-quality, realistic photograph of a Filipino sari-sari store vendor handing a small item to a customer. Warm natural lighting, friendly neighborhood store setting, clear details, shallow depth of field.",
+    "sentence": "May benta si Ana."
+  },
+  {
+    "id": "tindera",
+    "word": "tindera",
+    "imageKey": "pagbebenta/tindera.webp",
+    "imageLabel": "Tindera",
+    "imageCaption": "Babaeng nagbebenta sa tindahan",
+    "imagePrompt": "A realistic photograph of a friendly Filipina sari-sari store vendor standing behind a small store counter with snacks and goods displayed neatly. Bright, welcoming, everyday neighborhood setting.",
+    "sentence": "Mabait ang tindera."
+  },
+  {
+    "id": "tindero",
+    "word": "tindero",
+    "imageKey": "pagbebenta/tindero.webp",
+    "imageLabel": "Tindero",
+    "imageCaption": "Lalaking nagbebenta sa tindahan",
+    "imagePrompt": "A realistic photograph of a friendly Filipino male vendor at a sari-sari store counter, surrounded by neatly arranged snacks, canned goods, and small household items. Bright natural light, clear details.",
+    "sentence": "Nakangiti ang tindero."
+  },
+  {
+    "id": "suki",
+    "word": "suki",
+    "imageKey": "pagbebenta/suki.webp",
+    "imageLabel": "Suki",
+    "imageCaption": "Madalas bumili sa tindahan",
+    "imagePrompt": "A realistic photograph of a smiling Filipino customer buying goods from a small neighborhood sari-sari store. Friendly vendor, casual everyday scene, bright and warm lighting.",
+    "sentence": "Suki si Lito."
+  },
+  {
+    "id": "bayad",
+    "word": "bayad",
+    "imageKey": "pagbebenta/bayad.webp",
+    "imageLabel": "Bayad",
+    "imageCaption": "Pera na ibinibigay kapalit ng binili",
+    "imagePrompt": "A close-up realistic photograph of a Filipino customer handing peso coins and bills to a sari-sari store vendor. Clear focus on the payment, warm store background.",
+    "sentence": "Narito ang bayad."
+  },
+  {
+    "id": "halaga",
+    "word": "halaga",
+    "imageKey": "pagbebenta/halaga.webp",
+    "imageLabel": "Halaga",
+    "imageCaption": "Kabuuang presyo ng bibilhin",
+    "imagePrompt": "A realistic photograph of a small notebook and calculator on a sari-sari store counter, with snacks and goods nearby. The scene suggests computing the total cost of items.",
+    "sentence": "Tama ang halaga."
+  },
+  {
+    "id": "mura",
+    "word": "mura",
+    "imageKey": "pagbebenta/mura.webp",
+    "imageLabel": "Mura",
+    "imageCaption": "Panindang mababa ang presyo",
+    "imagePrompt": "A realistic photograph of affordable Filipino snacks displayed in a sari-sari store with small low-price tags. Bright friendly store lighting, colorful packaging, clear details.",
+    "sentence": "Mura ang kendi."
+  },
+  {
+    "id": "mahal",
+    "word": "mahal",
+    "imageKey": "pagbebenta/mahal.webp",
+    "imageLabel": "Mahal",
+    "imageCaption": "Panindang mataas ang presyo",
+    "imagePrompt": "A realistic photograph of a more expensive item on a store shelf with a clear price tag, surrounded by other Filipino store goods. Clean composition, warm lighting.",
+    "sentence": "Mahal ang laruan."
+  },
+  {
+    "id": "paninda",
+    "word": "paninda",
+    "imageKey": "pagbebenta/paninda.webp",
+    "imageLabel": "Paninda",
+    "imageCaption": "Mga bagay na ipinagbibili",
+    "imagePrompt": "A high-quality realistic photograph of various Filipino sari-sari store goods arranged neatly on shelves, including snacks, canned goods, sachets, and small household items. Bright, clear, inviting.",
+    "sentence": "Marami ang paninda."
+  },
+  {
+    "id": "bilihin",
+    "word": "bilihin",
+    "imageKey": "pagbebenta/bilihin.webp",
+    "imageLabel": "Bilihin",
+    "imageCaption": "Mga bagay na maaaring bilhin",
+    "imagePrompt": "A realistic photograph of common Filipino household goods and snacks displayed for sale in a small neighborhood store. Neatly arranged, bright natural light, clear details.",
+    "sentence": "Piliin ang bilihin."
+  },
+  {
+    "id": "kita",
+    "word": "kita",
+    "imageKey": "pagbebenta/kita.webp",
+    "imageLabel": "Kita",
+    "imageCaption": "Perang kinita sa pagbebenta",
+    "imagePrompt": "A realistic close-up photograph of a small sari-sari store cash box with peso coins and bills, beside a notebook for sales. Warm lighting, practical Filipino store setting.",
+    "sentence": "May kita si Nanay."
+  },
+  {
+    "id": "tubo",
+    "word": "tubo",
+    "imageKey": "pagbebenta/tubo.webp",
+    "imageLabel": "Tubo",
+    "imageCaption": "Dagdag na kita mula sa pagbebenta",
+    "imagePrompt": "A realistic photograph of a sari-sari store vendor writing numbers in a notebook beside coins, bills, and goods for sale. Clear details, warm neighborhood store feel.",
+    "sentence": "May tubo sa benta."
+  },
+  {
+    "id": "puwesto",
+    "word": "puwesto",
+    "imageKey": "pagbebenta/puwesto.webp",
+    "imageLabel": "Puwesto",
+    "imageCaption": "Lugar kung saan nagbebenta",
+    "imagePrompt": "A realistic photograph of a small Filipino market stall with goods displayed on a table. Bright daylight, friendly local market atmosphere, clear details.",
+    "sentence": "Malinis ang puwesto."
+  },
+  {
+    "id": "palengke",
+    "word": "palengke",
+    "imageKey": "pagbebenta/palengke.webp",
+    "imageLabel": "Palengke",
+    "imageCaption": "Lugar na maraming nagbebenta",
+    "imagePrompt": "A realistic photograph of a Filipino public market with vendors selling vegetables, fruits, and dry goods. Busy but clean scene, bright daylight, colorful displays.",
+    "sentence": "Pumunta kami sa palengke."
+  },
+  {
+    "id": "tindahan",
+    "word": "tindahan",
+    "imageKey": "pagbebenta/tindahan.webp",
+    "imageLabel": "Tindahan",
+    "imageCaption": "Lugar kung saan bumibili at nagbebenta",
+    "imagePrompt": "A realistic photograph of a small Filipino sari-sari store with colorful snacks, sachets, canned goods, and a friendly storefront. Bright welcoming neighborhood setting.",
+    "sentence": "Bukas ang tindahan."
+  },
+  {
+    "id": "panukat",
+    "word": "panukat",
+    "imageKey": "pagbebenta/panukat.webp",
+    "imageLabel": "Panukat",
+    "imageCaption": "Gamit sa pagsukat ng paninda",
+    "imagePrompt": "A realistic photograph of a measuring cup and small weighing scale on a Filipino store counter with rice, beans, or dry goods nearby. Clear details, practical store setting.",
+    "sentence": "Gamitin ang panukat."
+  },
+  {
+    "id": "timbangan",
+    "word": "timbangan",
+    "imageKey": "pagbebenta/timbangan.webp",
+    "imageLabel": "Timbangan",
+    "imageCaption": "Gamit sa pagtimbang ng paninda",
+    "imagePrompt": "A realistic photograph of a small weighing scale in a Filipino market stall with vegetables or rice nearby. Bright daylight, clear details, local market atmosphere.",
+    "sentence": "Nasa mesa ang timbangan."
+  },
+  {
+    "id": "supot",
+    "word": "supot",
+    "imageKey": "pagbebenta/supot.webp",
+    "imageLabel": "Supot",
+    "imageCaption": "Lalagyan ng binili",
+    "imagePrompt": "A realistic close-up photograph of small goods being placed into a simple paper or plastic bag at a Filipino sari-sari store counter. Warm lighting, clear details.",
+    "sentence": "Ilagay sa supot."
+  },
+  {
+    "id": "lista",
+    "word": "lista",
+    "imageKey": "pagbebenta/lista.webp",
+    "imageLabel": "Lista",
+    "imageCaption": "Talaan ng benta o bilihin",
+    "imagePrompt": "A realistic photograph of a handwritten sales list in a notebook on a sari-sari store counter, with a pencil, coins, and small goods nearby. Clear close-up, warm lighting.",
+    "sentence": "Isulat sa lista."
+  },
+  {
+    "id": "resibo",
+    "word": "resibo",
+    "imageKey": "pagbebenta/resibo.webp",
+    "imageLabel": "Resibo",
+    "imageCaption": "Katibayan ng binili",
+    "imagePrompt": "A realistic close-up photograph of a small receipt on a store counter with peso coins, a pen, and purchased goods nearby. Clean composition, bright lighting.",
+    "sentence": "Kunin ang resibo."
+  },
+  {
+    "id": "kahon",
+    "word": "kahon",
+    "imageKey": "pagbebenta/kahon.webp",
+    "imageLabel": "Kahon",
+    "imageCaption": "Lalagyan ng mga paninda",
+    "imagePrompt": "A realistic photograph of cardboard boxes filled with store goods inside a Filipino sari-sari store or small stockroom. Neatly arranged, warm natural lighting, clear details.",
+    "sentence": "Puno ang kahon."
+  },
+  {
+    "id": "istante",
+    "word": "istante",
+    "imageKey": "pagbebenta/istante.webp",
+    "imageLabel": "Istante",
+    "imageCaption": "Patungan ng mga paninda",
+    "imagePrompt": "A realistic photograph of a sari-sari store shelf filled with colorful snacks, canned goods, and sachets. Clear details, bright welcoming lighting, neatly organized.",
+    "sentence": "Puno ang istante."
+  },
+  {
+    "id": "lalagyan",
+    "word": "lalagyan",
+    "imageKey": "pagbebenta/lalagyan.webp",
+    "imageLabel": "Lalagyan",
+    "imageCaption": "Pinaglalagyan ng paninda",
+    "imagePrompt": "A realistic photograph of clear plastic containers filled with candies, biscuits, and small goods on a sari-sari store counter. Bright, colorful, clean details.",
+    "sentence": "May kendi sa lalagyan."
+  },
+  {
+    "id": "bili",
+    "word": "bili",
+    "imageKey": "pagbebenta/bili.webp",
+    "imageLabel": "Bili",
+    "imageCaption": "Bagay na kinuha kapalit ng bayad",
+    "imagePrompt": "A realistic photograph of a Filipino customer holding small purchased items from a sari-sari store, with the vendor and colorful goods in the background. Warm friendly lighting.",
+    "sentence": "Ito ang bili ko."
+  },
+  {
+    "id": "barya",
+    "word": "barya",
+    "imageKey": "pagbebenta/barya.webp",
+    "imageLabel": "Barya",
+    "imageCaption": "Maliliit na perang pambayad",
+    "imagePrompt": "A realistic close-up photograph of Philippine peso coins on a sari-sari store counter beside small snacks and a notebook. Clear details, warm natural light.",
+    "sentence": "May barya ako."
+  },
+  {
+    "id": "pera",
+    "word": "pera",
+    "imageKey": "pagbebenta/pera.webp",
+    "imageLabel": "Pera",
+    "imageCaption": "Ginagamit na pambayad",
+    "imagePrompt": "A realistic close-up photograph of Philippine peso bills and coins on a sari-sari store counter, with colorful goods softly blurred in the background. Bright, clear, detailed.",
+    "sentence": "May pera si Ben."
+  },
+  {
+    "id": "utang",
+    "word": "utang",
+    "imageKey": "pagbebenta/utang.webp",
+    "imageLabel": "Utang",
+    "imageCaption": "Babayaran sa ibang araw",
+    "imagePrompt": "A realistic photograph of a small notebook labeled as a store credit list on a sari-sari store counter, with a pen and small goods nearby. Clear close-up, warm lighting.",
+    "sentence": "May utang si Nena."
+  },
+  {
+    "id": "alukan",
+    "word": "alukan",
+    "imageKey": "pagbebenta/alukan.webp",
+    "imageLabel": "Alukan",
+    "imageCaption": "Hikayatin ang iba na bumili",
+    "imagePrompt": "A realistic photograph of a Filipino vendor smiling while offering goods to a customer at a small store or market stall. Friendly everyday scene, bright natural light, clear details.",
+    "sentence": "Alukan mo siya."
+  },
+  {
+    "id": "tinda",
+    "word": "tinda",
+    "imageKey": "pagbebenta/tinda.webp",
+    "imageLabel": "Tinda",
+    "imageCaption": "Mga paninda sa tindahan",
+    "imagePrompt": "A close-up, high-quality, realistic photograph of various colorful Filipino snacks and goods (chichirya) arranged neatly on a sari-sari store shelf. Bright, welcoming colors, shallow depth of field, professional studio lighting, clear details.",
+    "sentence": "Marami ang tinda."
+  }
+]

@@ -1,0 +1,272 @@
+[
+  {
+    "id": "tulong",
+    "word": "tulong",
+    "imageKey": "emergency/tulong.webp",
+    "imageLabel": "Tulong",
+    "imageCaption": "Paghingi ng ayuda sa oras ng kailangan",
+    "imagePrompt": "A realistic photograph of a Filipino person calling for help in a safe, non-graphic emergency situation, with another person approaching to assist. Clear daylight, respectful composition.",
+    "sentence": "Kailangan ko ng tulong."
+  },
+  {
+    "id": "emergency",
+    "word": "emergency",
+    "imageKey": "emergency/emergency.webp",
+    "imageLabel": "Emergency",
+    "imageCaption": "Biglaang pangyayaring kailangan ng agarang aksyon",
+    "imagePrompt": "A realistic photograph of an emergency sign or emergency button in a public place. Clear details, bright lighting, serious but calm safety context.",
+    "sentence": "May emergency sa labas."
+  },
+  {
+    "id": "pulis",
+    "word": "pulis",
+    "imageKey": "emergency/pulis.webp",
+    "imageLabel": "Pulis",
+    "imageCaption": "Taong tumutulong sa seguridad at batas",
+    "imagePrompt": "A realistic photograph of a Filipino police officer helping a citizen in a public area. Respectful, calm scene, bright daylight, clear details.",
+    "sentence": "Tumawag ng pulis."
+  },
+  {
+    "id": "bumbero",
+    "word": "bumbero",
+    "imageKey": "emergency/bumbero.webp",
+    "imageLabel": "Bumbero",
+    "imageCaption": "Taong tumutulong sa sunog",
+    "imagePrompt": "A realistic photograph of Filipino firefighters standing near a fire truck, ready to help. Non-graphic, calm emergency response scene, clear details.",
+    "sentence": "Dumating ang bumbero."
+  },
+  {
+    "id": "ospital",
+    "word": "ospital",
+    "imageKey": "emergency/ospital.webp",
+    "imageLabel": "Ospital",
+    "imageCaption": "Lugar para sa gamutan at agarang lunas",
+    "imagePrompt": "A realistic photograph of a hospital entrance in the Philippines with clear signage and calm people nearby. Bright daylight, clean and safe scene.",
+    "sentence": "Dalhin siya sa ospital."
+  },
+  {
+    "id": "ambulansya",
+    "word": "ambulansya",
+    "imageKey": "emergency/ambulansya.webp",
+    "imageLabel": "Ambulansya",
+    "imageCaption": "Sasakyang nagdadala ng may sakit o nasugatan",
+    "imagePrompt": "A realistic photograph of an ambulance parked outside a hospital or on a safe roadside, with emergency lights visible but no graphic injury. Clear daylight, respectful scene.",
+    "sentence": "Tumawag ng ambulansya."
+  },
+  {
+    "id": "saklolo",
+    "word": "saklolo",
+    "imageKey": "emergency/saklolo.webp",
+    "imageLabel": "Saklolo",
+    "imageCaption": "Malakas na paghingi ng tulong",
+    "imagePrompt": "A realistic photograph of a person waving for help from a safe location during a non-graphic emergency situation. Clear daylight, serious but respectful scene.",
+    "sentence": "Sumigaw siya ng saklolo."
+  },
+  {
+    "id": "aksidente",
+    "word": "aksidente",
+    "imageKey": "emergency/aksidente.webp",
+    "imageLabel": "Aksidente",
+    "imageCaption": "Hindi inaasahang masamang pangyayari",
+    "imagePrompt": "A realistic photograph of a minor roadside accident scene with safety cones and responders nearby, no visible injuries, no graphic content. Clear daylight, calm safety context.",
+    "sentence": "May aksidente sa daan."
+  },
+  {
+    "id": "sunog",
+    "word": "sunog",
+    "imageKey": "emergency/sunog.webp",
+    "imageLabel": "Sunog",
+    "imageCaption": "Apoy na kumakalat at delikado",
+    "imagePrompt": "A realistic photograph of firefighters responding to smoke from a building at a safe distance, no visible injuries, non-graphic. Serious emergency scene, clear details.",
+    "sentence": "May sunog sa kanto."
+  },
+  {
+    "id": "baha",
+    "word": "baha",
+    "imageKey": "emergency/baha.webp",
+    "imageLabel": "Baha",
+    "imageCaption": "Mataas na tubig sa daan o bahay",
+    "imagePrompt": "A realistic photograph of a flooded street in the Philippines with people safely walking on higher ground. No danger close-up, respectful disaster context, cloudy daylight.",
+    "sentence": "Mataas ang baha."
+  },
+  {
+    "id": "lindol",
+    "word": "lindol",
+    "imageKey": "emergency/lindol.webp",
+    "imageLabel": "Lindol",
+    "imageCaption": "Pagyanig ng lupa",
+    "imagePrompt": "A realistic photograph of people calmly practicing an earthquake drill under sturdy tables in a classroom or office. Clear safety context, no damage or injuries.",
+    "sentence": "May lindol kanina."
+  },
+  {
+    "id": "bagyo",
+    "word": "bagyo",
+    "imageKey": "emergency/bagyo.webp",
+    "imageLabel": "Bagyo",
+    "imageCaption": "Malakas na ulan at hangin",
+    "imagePrompt": "A realistic photograph of heavy rain and strong wind outside a safe home window in the Philippines. Non-graphic, clear weather emergency context.",
+    "sentence": "Malakas ang bagyo."
+  },
+  {
+    "id": "ulan",
+    "word": "ulan",
+    "imageKey": "emergency/ulan.webp",
+    "imageLabel": "Ulan",
+    "imageCaption": "Tubig na bumabagsak mula sa langit",
+    "imagePrompt": "A realistic photograph of rain falling on a street in the Philippines, with people using umbrellas safely. Clear details, calm rainy day scene.",
+    "sentence": "Malakas ang ulan."
+  },
+  {
+    "id": "hangin",
+    "word": "hangin",
+    "imageKey": "emergency/hangin.webp",
+    "imageLabel": "Hangin",
+    "imageCaption": "Malakas na ihip na maaaring delikado",
+    "imagePrompt": "A realistic photograph of trees bending in strong wind during bad weather, seen from a safe distance. Non-graphic, clear weather safety scene.",
+    "sentence": "Malakas ang hangin."
+  },
+  {
+    "id": "babala",
+    "word": "babala",
+    "imageKey": "emergency/babala.webp",
+    "imageLabel": "Babala",
+    "imageCaption": "Paalaala tungkol sa panganib",
+    "imagePrompt": "A realistic photograph of a warning sign in a public place, clearly visible and easy to understand. Bright lighting, safety-focused composition.",
+    "sentence": "Basahin ang babala."
+  },
+  {
+    "id": "ingat",
+    "word": "ingat",
+    "imageKey": "emergency/ingat.webp",
+    "imageLabel": "Ingat",
+    "imageCaption": "Pag-iwas sa panganib",
+    "imagePrompt": "A realistic photograph of a person carefully walking on a wet sidewalk while holding a handrail. Clear details, everyday safety context.",
+    "sentence": "Mag-ingat ka."
+  },
+  {
+    "id": "delikado",
+    "word": "delikado",
+    "imageKey": "emergency/delikado.webp",
+    "imageLabel": "Delikado",
+    "imageCaption": "May panganib o hindi ligtas",
+    "imagePrompt": "A realistic photograph of a blocked unsafe area with caution tape and warning signs. No injuries, clear safety context, bright daylight.",
+    "sentence": "Delikado dito."
+  },
+  {
+    "id": "ligtas",
+    "word": "ligtas",
+    "imageKey": "emergency/ligtas.webp",
+    "imageLabel": "Ligtas",
+    "imageCaption": "Walang panganib",
+    "imagePrompt": "A realistic photograph of people gathered calmly in a safe evacuation area or open space. Bright daylight, reassuring safety context.",
+    "sentence": "Ligtas na tayo."
+  },
+  {
+    "id": "labas",
+    "word": "labas",
+    "imageKey": "emergency/labas.webp",
+    "imageLabel": "Labas",
+    "imageCaption": "Lugar sa labas ng bahay o gusali",
+    "imagePrompt": "A realistic photograph of people calmly exiting a building toward an open safe area during a drill. Clear daylight, non-graphic safety scene.",
+    "sentence": "Lumabas nang maayos."
+  },
+  {
+    "id": "exit",
+    "word": "exit",
+    "imageKey": "emergency/exit.webp",
+    "imageLabel": "Exit",
+    "imageCaption": "Daan palabas sa gusali",
+    "imagePrompt": "A realistic photograph of a clearly marked exit sign above a doorway in a public building. Clean interior, bright lighting, safety-focused composition.",
+    "sentence": "Hanapin ang exit."
+  },
+  {
+    "id": "gamot",
+    "word": "gamot",
+    "imageKey": "emergency/gamot.webp",
+    "imageLabel": "Gamot",
+    "imageCaption": "Iniinom o ginagamit para gumaling",
+    "imagePrompt": "A realistic photograph of labeled medicine bottles and tablets on a clean table, with no specific brand names. Bright lighting, clear health safety context.",
+    "sentence": "Kailangan niya ng gamot."
+  },
+  {
+    "id": "sugat",
+    "word": "sugat",
+    "imageKey": "emergency/sugat.webp",
+    "imageLabel": "Sugat",
+    "imageCaption": "Bahaging nasaktan o napunit ang balat",
+    "imagePrompt": "A realistic non-graphic photograph of a small bandage on a person's arm or hand, suggesting a minor wound. Clean, respectful, medical safety context.",
+    "sentence": "May sugat sa kamay."
+  },
+  {
+    "id": "dugo",
+    "word": "dugo",
+    "imageKey": "emergency/dugo.webp",
+    "imageLabel": "Dugo",
+    "imageCaption": "Pulang likido sa katawan",
+    "imagePrompt": "A realistic non-graphic medical photograph showing a small drop of blood on a clean gauze pad, with first aid supplies nearby. Respectful, minimal, educational context.",
+    "sentence": "May dugo sa tela."
+  },
+  {
+    "id": "lagnat",
+    "word": "lagnat",
+    "imageKey": "emergency/lagnat.webp",
+    "imageLabel": "Lagnat",
+    "imageCaption": "Mataas na temperatura ng katawan",
+    "imagePrompt": "A realistic photograph of a thermometer being used to check a person's temperature at home. Clear details, caring health context, soft lighting.",
+    "sentence": "May lagnat siya."
+  },
+  {
+    "id": "ubo",
+    "word": "ubo",
+    "imageKey": "emergency/ubo.webp",
+    "imageLabel": "Ubo",
+    "imageCaption": "Pag-ubo dahil sa iritasyon o sakit",
+    "imagePrompt": "A realistic photograph of a person covering their mouth with tissue while coughing, in a respectful health safety context. Clean indoor setting, soft lighting.",
+    "sentence": "Malakas ang ubo."
+  },
+  {
+    "id": "sakit",
+    "word": "sakit",
+    "imageKey": "emergency/sakit.webp",
+    "imageLabel": "Sakit",
+    "imageCaption": "Pakiramdam na may masama sa katawan",
+    "imagePrompt": "A realistic photograph of a person holding their stomach or head gently, showing discomfort without distress. Clean home setting, respectful health context.",
+    "sentence": "May sakit ako."
+  },
+  {
+    "id": "hilo",
+    "word": "hilo",
+    "imageKey": "emergency/hilo.webp",
+    "imageLabel": "Hilo",
+    "imageCaption": "Pakiramdam na umiikot ang paligid",
+    "imagePrompt": "A realistic photograph of a person sitting down safely while feeling dizzy, with another person nearby to help. Clean indoor setting, respectful health context.",
+    "sentence": "Nahihilo ako."
+  },
+  {
+    "id": "first-aid",
+    "word": "first aid",
+    "imageKey": "emergency/first-aid.webp",
+    "imageLabel": "First Aid",
+    "imageCaption": "Unang tulong bago makarating sa doktor",
+    "imagePrompt": "A realistic photograph of a first aid kit opened on a clean table with bandages, gauze, and basic supplies. Bright lighting, clear educational safety context.",
+    "sentence": "Kunin ang first aid."
+  },
+  {
+    "id": "hotline",
+    "word": "hotline",
+    "imageKey": "emergency/hotline.webp",
+    "imageLabel": "Hotline",
+    "imageCaption": "Numerong tinatawagan kapag may emergency",
+    "imagePrompt": "A realistic close-up photograph of a smartphone screen showing an emergency hotline contact page, with fictional numbers only. Clean modern UI, serious safety context.",
+    "sentence": "Tawagan ang hotline."
+  },
+  {
+    "id": "evacuation",
+    "word": "evacuation",
+    "imageKey": "emergency/evacuation.webp",
+    "imageLabel": "Evacuation",
+    "imageCaption": "Paglipat sa mas ligtas na lugar",
+    "imagePrompt": "A realistic photograph of people calmly entering an evacuation center or safe area, assisted by volunteers. Non-graphic, respectful disaster preparedness scene.",
+    "sentence": "Pumunta sa evacuation."
+  }
+]

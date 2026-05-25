@@ -1,0 +1,272 @@
+[
+  {
+    "id": "form",
+    "word": "form",
+    "imageKey": "forms/form.webp",
+    "imageLabel": "Form",
+    "imageCaption": "Papel o screen na kailangang sagutan",
+    "imagePrompt": "A realistic photograph of a generic application form on a table with a pen. No real personal information, clear details, soft lighting.",
+    "sentence": "Sagutan ang form."
+  },
+  {
+    "id": "pangalan",
+    "word": "pangalan",
+    "imageKey": "forms/pangalan.webp",
+    "imageLabel": "Pangalan",
+    "imageCaption": "Tawag sa isang tao",
+    "imagePrompt": "A realistic close-up photograph of a generic form field labeled name with fictional sample text. Clean paper, pen nearby, no real personal data.",
+    "sentence": "Isulat ang pangalan."
+  },
+  {
+    "id": "apelyido",
+    "word": "apelyido",
+    "imageKey": "forms/apelyido.webp",
+    "imageLabel": "Apelyido",
+    "imageCaption": "Pangalan ng pamilya",
+    "imagePrompt": "A realistic photograph of a form showing a surname or last name field with fictional text. Clear details, no real personal information.",
+    "sentence": "Isulat ang apelyido."
+  },
+  {
+    "id": "address",
+    "word": "address",
+    "imageKey": "forms/address.webp",
+    "imageLabel": "Address",
+    "imageCaption": "Lugar kung saan nakatira",
+    "imagePrompt": "A realistic close-up photograph of a generic form address field with fictional address text. Clean layout, no real personal data, clear details.",
+    "sentence": "Ilagay ang address."
+  },
+  {
+    "id": "birthday",
+    "word": "birthday",
+    "imageKey": "forms/birthday.webp",
+    "imageLabel": "Birthday",
+    "imageCaption": "Araw ng kapanganakan",
+    "imagePrompt": "A realistic photograph of a generic form field for date of birth beside a small calendar. Fictional details only, clean table, clear lighting.",
+    "sentence": "Ilagay ang birthday."
+  },
+  {
+    "id": "edad",
+    "word": "edad",
+    "imageKey": "forms/edad.webp",
+    "imageLabel": "Edad",
+    "imageCaption": "Bilang ng taon ng isang tao",
+    "imagePrompt": "A realistic close-up photograph of a generic form field labeled age with fictional number. Clean paper, pen nearby, clear details.",
+    "sentence": "Isulat ang edad."
+  },
+  {
+    "id": "kasarian",
+    "word": "kasarian",
+    "imageKey": "forms/kasarian.webp",
+    "imageLabel": "Kasarian",
+    "imageCaption": "Impormasyon tungkol sa gender o sex sa form",
+    "imagePrompt": "A realistic photograph of a generic form section for gender or sex with blank checkboxes. No real personal data, respectful neutral composition.",
+    "sentence": "Piliin ang kasarian."
+  },
+  {
+    "id": "pirma",
+    "word": "pirma",
+    "imageKey": "forms/pirma.webp",
+    "imageLabel": "Pirma",
+    "imageCaption": "Lagda ng pangalan",
+    "imagePrompt": "A realistic close-up photograph of a person signing a generic document with a pen. No real personal information, clear details.",
+    "sentence": "Ilagay ang pirma."
+  },
+  {
+    "id": "valid-id",
+    "word": "valid ID",
+    "imageKey": "forms/valid-id.webp",
+    "imageLabel": "Valid ID",
+    "imageCaption": "Opisyal na pagkakakilanlan",
+    "imagePrompt": "A realistic photograph of a generic identification card beside an application form, with fictional or blurred details only. Clean table, clear lighting.",
+    "sentence": "Dalhin ang valid ID."
+  },
+  {
+    "id": "contact-number",
+    "word": "contact number",
+    "imageKey": "forms/contact-number.webp",
+    "imageLabel": "Contact Number",
+    "imageCaption": "Numero ng telepono",
+    "imagePrompt": "A realistic close-up photograph of a generic form field labeled contact number with fictional digits. Clean paper, no real data.",
+    "sentence": "Isulat ang contact number."
+  },
+  {
+    "id": "email",
+    "word": "email",
+    "imageKey": "forms/email.webp",
+    "imageLabel": "Email",
+    "imageCaption": "Address para sa online message",
+    "imagePrompt": "A realistic photograph of a generic form field labeled email address with fictional sample text. Clean screen or paper, no real data.",
+    "sentence": "Ilagay ang email."
+  },
+  {
+    "id": "date",
+    "word": "date",
+    "imageKey": "forms/date.webp",
+    "imageLabel": "Date",
+    "imageCaption": "Araw, buwan, at taon",
+    "imagePrompt": "A realistic close-up photograph of a form date field beside a calendar and pen. Fictional details only, clear lighting.",
+    "sentence": "Isulat ang date."
+  },
+  {
+    "id": "barangay",
+    "word": "barangay",
+    "imageKey": "forms/barangay.webp",
+    "imageLabel": "Barangay",
+    "imageCaption": "Maliit na bahagi ng lungsod o bayan",
+    "imagePrompt": "A realistic photograph of a generic barangay hall exterior in the Philippines with no identifiable private information. Bright daylight, clear details.",
+    "sentence": "Pumunta sa barangay."
+  },
+  {
+    "id": "city",
+    "word": "city",
+    "imageKey": "forms/city.webp",
+    "imageLabel": "City",
+    "imageCaption": "Lungsod sa address",
+    "imagePrompt": "A realistic close-up photograph of a generic address form showing a city field with fictional text. Clean layout, no real data.",
+    "sentence": "Ilagay ang city."
+  },
+  {
+    "id": "province",
+    "word": "province",
+    "imageKey": "forms/province.webp",
+    "imageLabel": "Province",
+    "imageCaption": "Lalawigan sa address",
+    "imagePrompt": "A realistic close-up photograph of a generic address form showing a province field with fictional text. Clean paper, no real personal data.",
+    "sentence": "Ilagay ang province."
+  },
+  {
+    "id": "zip-code",
+    "word": "zip code",
+    "imageKey": "forms/zip-code.webp",
+    "imageLabel": "Zip Code",
+    "imageCaption": "Numero ng lugar sa address",
+    "imagePrompt": "A realistic close-up photograph of a generic form zip code field with fictional numbers. Clear details, clean table, no real data.",
+    "sentence": "Isulat ang zip code."
+  },
+  {
+    "id": "single",
+    "word": "single",
+    "imageKey": "forms/single.webp",
+    "imageLabel": "Single",
+    "imageCaption": "Hindi kasal",
+    "imagePrompt": "A realistic close-up photograph of a generic civil status section on a form with single as one option. Blank or fictional only, clear details.",
+    "sentence": "Piliin ang single."
+  },
+  {
+    "id": "married",
+    "word": "married",
+    "imageKey": "forms/married.webp",
+    "imageLabel": "Married",
+    "imageCaption": "Kasal",
+    "imagePrompt": "A realistic close-up photograph of a generic civil status section on a form with married as one option. Blank or fictional only, clear details.",
+    "sentence": "Piliin ang married."
+  },
+  {
+    "id": "application",
+    "word": "application",
+    "imageKey": "forms/application.webp",
+    "imageLabel": "Application",
+    "imageCaption": "Pagsumite ng kahilingan o pag-apply",
+    "imagePrompt": "A realistic photograph of a generic application form on a desk with a pen and folder. No real personal information, clean setting.",
+    "sentence": "Ipasa ang application."
+  },
+  {
+    "id": "signature",
+    "word": "signature",
+    "imageKey": "forms/signature.webp",
+    "imageLabel": "Signature",
+    "imageCaption": "English na salita para sa pirma",
+    "imagePrompt": "A realistic close-up photograph of a signature line on a generic document with a pen. No real name, clear details.",
+    "sentence": "Ilagay ang signature."
+  },
+  {
+    "id": "submit",
+    "word": "submit",
+    "imageKey": "forms/submit.webp",
+    "imageLabel": "Submit",
+    "imageCaption": "Pindutan para ipasa ang form",
+    "imagePrompt": "A realistic close-up photograph of a smartphone or computer screen showing a generic submit button on a form. Clean modern UI, no real data.",
+    "sentence": "Pindutin ang submit."
+  },
+  {
+    "id": "required",
+    "word": "required",
+    "imageKey": "forms/required.webp",
+    "imageLabel": "Required",
+    "imageCaption": "Kailangang sagutan",
+    "imagePrompt": "A realistic close-up photograph of a generic online form with a required field marked by an asterisk. Clean UI, fictional details only.",
+    "sentence": "Required ang pangalan."
+  },
+  {
+    "id": "optional",
+    "word": "optional",
+    "imageKey": "forms/optional.webp",
+    "imageLabel": "Optional",
+    "imageCaption": "Puwedeng sagutan o hindi",
+    "imagePrompt": "A realistic close-up photograph of a generic online form field labeled optional. Clean UI, fictional details only.",
+    "sentence": "Optional ang field."
+  },
+  {
+    "id": "check-box",
+    "word": "check box",
+    "imageKey": "forms/check-box.webp",
+    "imageLabel": "Check Box",
+    "imageCaption": "Kahon na nilalagyan ng check",
+    "imagePrompt": "A realistic close-up photograph of check boxes on a generic form with a pen nearby. Clean paper, no real personal information.",
+    "sentence": "Lagyan ng check box."
+  },
+  {
+    "id": "blank",
+    "word": "blank",
+    "imageKey": "forms/blank.webp",
+    "imageLabel": "Blank",
+    "imageCaption": "Walang nakasulat",
+    "imagePrompt": "A realistic photograph of a blank form field on paper, with a pen nearby. Clean composition, clear details.",
+    "sentence": "Blank pa ang form."
+  },
+  {
+    "id": "copy",
+    "word": "copy",
+    "imageKey": "forms/copy.webp",
+    "imageLabel": "Copy",
+    "imageCaption": "Kopya ng dokumento",
+    "imagePrompt": "A realistic photograph of photocopied documents stacked neatly beside an original document. No real personal data, clear details.",
+    "sentence": "Magdala ng copy."
+  },
+  {
+    "id": "original",
+    "word": "original",
+    "imageKey": "forms/original.webp",
+    "imageLabel": "Original",
+    "imageCaption": "Tunay na dokumento, hindi kopya",
+    "imagePrompt": "A realistic photograph of an original document folder beside photocopies, with labels but no real personal information. Clean table, clear details.",
+    "sentence": "Dalhin ang original."
+  },
+  {
+    "id": "document",
+    "word": "document",
+    "imageKey": "forms/document.webp",
+    "imageLabel": "Document",
+    "imageCaption": "Mahalagang papel o file",
+    "imagePrompt": "A realistic photograph of important documents in a folder on a clean table. No real personal data, clear details, soft lighting.",
+    "sentence": "Itago ang document."
+  },
+  {
+    "id": "clearance",
+    "word": "clearance",
+    "imageKey": "forms/clearance.webp",
+    "imageLabel": "Clearance",
+    "imageCaption": "Dokumentong nagpapatunay na malinis ang record",
+    "imagePrompt": "A realistic photograph of a generic clearance document on a table, with all details fictional or blurred. Clean official-looking layout, clear details.",
+    "sentence": "Kumuha ng clearance."
+  },
+  {
+    "id": "record",
+    "word": "record",
+    "imageKey": "forms/record.webp",
+    "imageLabel": "Record",
+    "imageCaption": "Talaan ng impormasyon",
+    "imagePrompt": "A realistic photograph of a generic records folder or file cabinet with labeled folders. Professional setting, no real personal information.",
+    "sentence": "Tingnan ang record."
+  }
+]

@@ -1,0 +1,272 @@
+[
+  {
+    "id": "gamot",
+    "word": "gamot",
+    "imageKey": "gamot/gamot.webp",
+    "imageLabel": "Gamot",
+    "imageCaption": "Iniinom o ginagamit para gumaling",
+    "imagePrompt": "A realistic photograph of medicine tablets and bottles on a clean table, with no brand names. Bright lighting, clear health education context.",
+    "sentence": "Inumin ang gamot."
+  },
+  {
+    "id": "botika",
+    "word": "botika",
+    "imageKey": "gamot/botika.webp",
+    "imageLabel": "Botika",
+    "imageCaption": "Lugar na bilihan ng gamot",
+    "imagePrompt": "A realistic photograph of a small pharmacy or drugstore counter in the Philippines with shelves of medicine, no readable brand names. Clean, bright, professional setting.",
+    "sentence": "Pumunta sa botika."
+  },
+  {
+    "id": "reseta",
+    "word": "reseta",
+    "imageKey": "gamot/reseta.webp",
+    "imageLabel": "Reseta",
+    "imageCaption": "Sulat ng doktor para sa gamot",
+    "imagePrompt": "A realistic close-up photograph of a generic prescription paper beside a pen and medicine bottle. No real personal data, clear details.",
+    "sentence": "Dalhin ang reseta."
+  },
+  {
+    "id": "doktor",
+    "word": "doktor",
+    "imageKey": "gamot/doktor.webp",
+    "imageLabel": "Doktor",
+    "imageCaption": "Taong tumitingin at gumagamot sa pasyente",
+    "imagePrompt": "A realistic photograph of a doctor speaking kindly with a patient in a clinic. Respectful, clean medical setting, soft lighting.",
+    "sentence": "Tanungin ang doktor."
+  },
+  {
+    "id": "nurse",
+    "word": "nurse",
+    "imageKey": "gamot/nurse.webp",
+    "imageLabel": "Nurse",
+    "imageCaption": "Taong tumutulong sa pag-aalaga ng pasyente",
+    "imagePrompt": "A realistic photograph of a nurse assisting a patient in a clinic or health center. Respectful, clean medical setting, bright lighting.",
+    "sentence": "Lumapit sa nurse."
+  },
+  {
+    "id": "tablet",
+    "word": "tablet",
+    "imageKey": "gamot/tablet.webp",
+    "imageLabel": "Tablet",
+    "imageCaption": "Gamot na buo at iniinom",
+    "imagePrompt": "A realistic close-up photograph of plain medicine tablets on a clean surface, no brand names. Clear details, bright lighting, educational context.",
+    "sentence": "Isang tablet lang."
+  },
+  {
+    "id": "capsule",
+    "word": "capsule",
+    "imageKey": "gamot/capsule.webp",
+    "imageLabel": "Capsule",
+    "imageCaption": "Gamot na may balot na kapsula",
+    "imagePrompt": "A realistic close-up photograph of generic capsules on a clean table, no brand names. Clear details, bright health education setting.",
+    "sentence": "Inumin ang capsule."
+  },
+  {
+    "id": "syrup",
+    "word": "syrup",
+    "imageKey": "gamot/syrup.webp",
+    "imageLabel": "Syrup",
+    "imageCaption": "Likidong gamot",
+    "imagePrompt": "A realistic photograph of a generic medicine syrup bottle with a measuring cup on a clean table, no brand names. Bright lighting, clear details.",
+    "sentence": "Sukatin ang syrup."
+  },
+  {
+    "id": "inom",
+    "word": "inom",
+    "imageKey": "gamot/inom.webp",
+    "imageLabel": "Inom",
+    "imageCaption": "Paglagok ng tubig o gamot",
+    "imagePrompt": "A realistic photograph of a person drinking water while taking medicine safely. Respectful, clean home setting, soft lighting.",
+    "sentence": "Inom ng tubig."
+  },
+  {
+    "id": "umaga",
+    "word": "umaga",
+    "imageKey": "gamot/umaga.webp",
+    "imageLabel": "Umaga",
+    "imageCaption": "Maagang bahagi ng araw",
+    "imagePrompt": "A realistic photograph of medicine beside a glass of water and a morning clock on a bedside table. Warm morning light, clear details.",
+    "sentence": "Inumin sa umaga."
+  },
+  {
+    "id": "gabi",
+    "word": "gabi",
+    "imageKey": "gamot/gabi.webp",
+    "imageLabel": "Gabi",
+    "imageCaption": "Huling bahagi ng araw",
+    "imagePrompt": "A realistic photograph of medicine beside a glass of water and a nightstand lamp. Soft evening lighting, clear health context.",
+    "sentence": "Inumin sa gabi."
+  },
+  {
+    "id": "bawal",
+    "word": "bawal",
+    "imageKey": "gamot/bawal.webp",
+    "imageLabel": "Bawal",
+    "imageCaption": "Hindi dapat gawin o inumin",
+    "imagePrompt": "A realistic photograph of a warning label on a generic medicine box or bottle, with a clear caution symbol. No brand names, clean medical context.",
+    "sentence": "Bawal ito sa akin."
+  },
+  {
+    "id": "allergy",
+    "word": "allergy",
+    "imageKey": "gamot/allergy.webp",
+    "imageLabel": "Allergy",
+    "imageCaption": "Masamang reaksyon ng katawan sa pagkain, gamot, o bagay",
+    "imagePrompt": "A realistic non-graphic photograph of a person reading a medicine label carefully, with an allergy warning card nearby. Clean health safety setting.",
+    "sentence": "May allergy ako."
+  },
+  {
+    "id": "dose",
+    "word": "dose",
+    "imageKey": "gamot/dose.webp",
+    "imageLabel": "Dose",
+    "imageCaption": "Tamang dami ng gamot",
+    "imagePrompt": "A realistic close-up photograph of a measuring cup with liquid medicine and a generic label showing dosage instructions. No brand names, clear details.",
+    "sentence": "Tama ang dose."
+  },
+  {
+    "id": "label",
+    "word": "label",
+    "imageKey": "gamot/label.webp",
+    "imageLabel": "Label",
+    "imageCaption": "Sulat sa bote o kahon ng gamot",
+    "imagePrompt": "A realistic close-up photograph of a generic medicine label on a bottle, with fictional text only. Clear details, bright lighting.",
+    "sentence": "Basahin ang label."
+  },
+  {
+    "id": "expiry",
+    "word": "expiry",
+    "imageKey": "gamot/expiry.webp",
+    "imageLabel": "Expiry",
+    "imageCaption": "Petsa kung kailan hindi na dapat gamitin",
+    "imagePrompt": "A realistic close-up photograph of an expiry date printed on a generic medicine package, with fictional date. Clear details, no brand names.",
+    "sentence": "Tingnan ang expiry."
+  },
+  {
+    "id": "lagnat",
+    "word": "lagnat",
+    "imageKey": "gamot/lagnat.webp",
+    "imageLabel": "Lagnat",
+    "imageCaption": "Mataas na temperatura ng katawan",
+    "imagePrompt": "A realistic photograph of a thermometer being used to check a person's temperature at home. Clear details, caring health context.",
+    "sentence": "May lagnat siya."
+  },
+  {
+    "id": "ubo",
+    "word": "ubo",
+    "imageKey": "gamot/ubo.webp",
+    "imageLabel": "Ubo",
+    "imageCaption": "Pag-ubo dahil sa sakit o iritasyon",
+    "imagePrompt": "A realistic photograph of a person covering their mouth with tissue while coughing. Clean indoor setting, respectful health context.",
+    "sentence": "May ubo ako."
+  },
+  {
+    "id": "sipon",
+    "word": "sipon",
+    "imageKey": "gamot/sipon.webp",
+    "imageLabel": "Sipon",
+    "imageCaption": "Likido o bara sa ilong kapag may sakit",
+    "imagePrompt": "A realistic photograph of tissues, a warm drink, and a generic medicine box on a bedside table, suggesting a cold. Clean, non-graphic health context.",
+    "sentence": "May sipon siya."
+  },
+  {
+    "id": "sakit",
+    "word": "sakit",
+    "imageKey": "gamot/sakit.webp",
+    "imageLabel": "Sakit",
+    "imageCaption": "Masamang pakiramdam ng katawan",
+    "imagePrompt": "A realistic photograph of a person sitting on a bed holding their head gently, showing discomfort without distress. Clean home health context.",
+    "sentence": "May sakit ako."
+  },
+  {
+    "id": "tiyan",
+    "word": "tiyan",
+    "imageKey": "gamot/tiyan.webp",
+    "imageLabel": "Tiyan",
+    "imageCaption": "Bahagi ng katawan sa may sikmura",
+    "imagePrompt": "A realistic respectful photograph of a person gently holding their stomach, suggesting stomach discomfort. Clean home setting, non-graphic.",
+    "sentence": "Masakit ang tiyan."
+  },
+  {
+    "id": "ulo",
+    "word": "ulo",
+    "imageKey": "gamot/ulo.webp",
+    "imageLabel": "Ulo",
+    "imageCaption": "Bahagi ng katawan sa itaas",
+    "imagePrompt": "A realistic photograph of a person gently holding their head while sitting, suggesting a headache. Clean home setting, respectful health context.",
+    "sentence": "Masakit ang ulo."
+  },
+  {
+    "id": "pahid",
+    "word": "pahid",
+    "imageKey": "gamot/pahid.webp",
+    "imageLabel": "Pahid",
+    "imageCaption": "Paglalagay ng gamot sa balat",
+    "imagePrompt": "A realistic close-up photograph of a person applying a small amount of ointment to a hand or arm, non-graphic. Clean medical context.",
+    "sentence": "Ipahid ang gamot."
+  },
+  {
+    "id": "patak",
+    "word": "patak",
+    "imageKey": "gamot/patak.webp",
+    "imageLabel": "Patak",
+    "imageCaption": "Maliit na tulo ng gamot",
+    "imagePrompt": "A realistic close-up photograph of generic eye drops or ear drops bottle above a clean surface, no brand names. Clear medical education context.",
+    "sentence": "Isang patak lang."
+  },
+  {
+    "id": "ointment",
+    "word": "ointment",
+    "imageKey": "gamot/ointment.webp",
+    "imageLabel": "Ointment",
+    "imageCaption": "Gamot na ipinapahid",
+    "imagePrompt": "A realistic photograph of a generic ointment tube on a clean table beside cotton and bandage. No brand names, clear details.",
+    "sentence": "Gamitin ang ointment."
+  },
+  {
+    "id": "vitamins",
+    "word": "vitamins",
+    "imageKey": "gamot/vitamins.webp",
+    "imageLabel": "Vitamins",
+    "imageCaption": "Karagdagang sustansya para sa katawan",
+    "imagePrompt": "A realistic photograph of generic vitamin tablets and a bottle on a clean table, no brand names. Bright lighting, health education context.",
+    "sentence": "Inumin ang vitamins."
+  },
+  {
+    "id": "checkup",
+    "word": "checkup",
+    "imageKey": "gamot/checkup.webp",
+    "imageLabel": "Checkup",
+    "imageCaption": "Pagpapatingin sa doktor",
+    "imagePrompt": "A realistic photograph of a doctor checking a patient's blood pressure during a routine checkup. Clean clinic setting, respectful composition.",
+    "sentence": "May checkup bukas."
+  },
+  {
+    "id": "clinic",
+    "word": "clinic",
+    "imageKey": "gamot/clinic.webp",
+    "imageLabel": "Clinic",
+    "imageCaption": "Lugar para magpatingin",
+    "imagePrompt": "A realistic photograph of a small clean clinic waiting area in the Philippines. Bright lighting, calm health care setting.",
+    "sentence": "Pumunta sa clinic."
+  },
+  {
+    "id": "presyon",
+    "word": "presyon",
+    "imageKey": "gamot/presyon.webp",
+    "imageLabel": "Presyon",
+    "imageCaption": "Sukat ng lakas ng daloy ng dugo",
+    "imagePrompt": "A realistic photograph of a nurse checking blood pressure with a cuff in a clinic. Clear details, respectful medical context.",
+    "sentence": "Sukatin ang presyon."
+  },
+  {
+    "id": "pahinga",
+    "word": "pahinga",
+    "imageKey": "gamot/pahinga.webp",
+    "imageLabel": "Pahinga",
+    "imageCaption": "Pagpapahinga para gumaling",
+    "imagePrompt": "A realistic photograph of a person resting in bed with water and medicine on a bedside table. Soft lighting, caring home health context.",
+    "sentence": "Kailangan ng pahinga."
+  }
+]

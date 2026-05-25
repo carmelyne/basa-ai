@@ -40,3 +40,16 @@ next-env.d.ts
 
 # prisma
 prisma/migrations/
+
+# Nexus Swarm Stack
+.DS_Store
+.nexus/locks/
+*.lockdir
+*.flock
+
+# Agent-specific folders
+.agy/
+.claude/
+.codex/
+.gemini/
+.antigravitycli/

@@ -1,0 +1,272 @@
+[
+  {
+    "id": "bangko",
+    "word": "bangko",
+    "imageKey": "bangko/bangko.webp",
+    "imageLabel": "Bangko",
+    "imageCaption": "Lugar para sa pera at account",
+    "imagePrompt": "A realistic photograph of a bank building entrance in the Philippines with generic signage and people entering calmly. Bright daylight, clean professional setting.",
+    "sentence": "Pumunta ako sa bangko."
+  },
+  {
+    "id": "account",
+    "word": "account",
+    "imageKey": "bangko/account.webp",
+    "imageLabel": "Account",
+    "imageCaption": "Talaan ng pera sa bangko",
+    "imagePrompt": "A realistic photograph of a generic bank account screen on a smartphone or tablet, with fictional details only. Clean UI, professional lighting.",
+    "sentence": "May account ako."
+  },
+  {
+    "id": "savings",
+    "word": "savings",
+    "imageKey": "bangko/savings.webp",
+    "imageLabel": "Savings",
+    "imageCaption": "Perang iniipon",
+    "imagePrompt": "A realistic photograph of Philippine peso bills being placed into a savings envelope or piggy bank. Clear details, warm home lighting.",
+    "sentence": "Dagdagan ang savings."
+  },
+  {
+    "id": "deposit",
+    "word": "deposit",
+    "imageKey": "bangko/deposit.webp",
+    "imageLabel": "Deposit",
+    "imageCaption": "Paglalagay ng pera sa account",
+    "imagePrompt": "A realistic photograph of a person filling out a generic bank deposit slip beside peso bills. No real personal data, clear details, professional setting.",
+    "sentence": "Mag-deposit ng pera."
+  },
+  {
+    "id": "withdraw",
+    "word": "withdraw",
+    "imageKey": "bangko/withdraw.webp",
+    "imageLabel": "Withdraw",
+    "imageCaption": "Pagkuha ng pera mula sa account",
+    "imagePrompt": "A realistic photograph of a hand receiving cash from an ATM, with no visible private details. Bright lighting, safe banking context.",
+    "sentence": "Mag-withdraw sa ATM."
+  },
+  {
+    "id": "balance",
+    "word": "balance",
+    "imageKey": "bangko/balance.webp",
+    "imageLabel": "Balance",
+    "imageCaption": "Natitirang pera sa account",
+    "imagePrompt": "A realistic close-up photograph of a smartphone banking app showing a fictional account balance. Clean modern UI, no real bank branding.",
+    "sentence": "Tingnan ang balance."
+  },
+  {
+    "id": "atm",
+    "word": "ATM",
+    "imageKey": "bangko/atm.webp",
+    "imageLabel": "ATM",
+    "imageCaption": "Makina para kumuha o mag-check ng pera",
+    "imagePrompt": "A realistic photograph of an ATM machine in a safe, well-lit public place. Generic design, no bank logo, clear details.",
+    "sentence": "May ATM sa mall."
+  },
+  {
+    "id": "card",
+    "word": "card",
+    "imageKey": "bangko/card.webp",
+    "imageLabel": "Card",
+    "imageCaption": "Gamit sa ATM o pagbabayad",
+    "imagePrompt": "A realistic photograph of a generic bank card held near an ATM. No logo, no real numbers, clean safe banking context.",
+    "sentence": "Hawak ko ang card."
+  },
+  {
+    "id": "pin",
+    "word": "PIN",
+    "imageKey": "bangko/pin.webp",
+    "imageLabel": "PIN",
+    "imageCaption": "Lihim na numero ng card",
+    "imagePrompt": "A realistic photograph of an ATM keypad with a hand covering the keys for privacy. Safe banking context, clear details.",
+    "sentence": "Itago ang PIN."
+  },
+  {
+    "id": "resibo",
+    "word": "resibo",
+    "imageKey": "bangko/resibo.webp",
+    "imageLabel": "Resibo",
+    "imageCaption": "Katibayan ng transaksyon",
+    "imagePrompt": "A realistic close-up photograph of a generic ATM receipt on a table, with all details fictional or blurred. Clear details, safe banking context.",
+    "sentence": "Kunin ang resibo."
+  },
+  {
+    "id": "teller",
+    "word": "teller",
+    "imageKey": "bangko/teller.webp",
+    "imageLabel": "Teller",
+    "imageCaption": "Taong tumutulong sa counter ng bangko",
+    "imagePrompt": "A realistic photograph of a bank teller assisting a customer at a bank counter. Professional, respectful setting, no real branding.",
+    "sentence": "Lumapit sa teller."
+  },
+  {
+    "id": "counter",
+    "word": "counter",
+    "imageKey": "bangko/counter.webp",
+    "imageLabel": "Counter",
+    "imageCaption": "Lugar sa bangko kung saan nakikipagtransaksyon",
+    "imagePrompt": "A realistic photograph of a clean bank service counter with a customer and staff member. Professional lighting, generic banking environment.",
+    "sentence": "Pumunta sa counter."
+  },
+  {
+    "id": "pila",
+    "word": "pila",
+    "imageKey": "bangko/pila.webp",
+    "imageLabel": "Pila",
+    "imageCaption": "Hanay ng naghihintay",
+    "imagePrompt": "A realistic photograph of customers standing in an orderly line inside a bank. Clean interior, calm professional setting.",
+    "sentence": "Mahaba ang pila."
+  },
+  {
+    "id": "number",
+    "word": "number",
+    "imageKey": "bangko/number.webp",
+    "imageLabel": "Number",
+    "imageCaption": "Numero sa pila o transaksyon",
+    "imagePrompt": "A realistic photograph of a queue number ticket held by a bank customer. Clear details, fictional number, professional indoor setting.",
+    "sentence": "Kunin ang number."
+  },
+  {
+    "id": "form",
+    "word": "form",
+    "imageKey": "bangko/form.webp",
+    "imageLabel": "Form",
+    "imageCaption": "Papel na pinupunan sa bangko",
+    "imagePrompt": "A realistic photograph of a generic bank form on a table with a pen, no real personal information. Clear details, professional setting.",
+    "sentence": "Sagutan ang form."
+  },
+  {
+    "id": "pirma",
+    "word": "pirma",
+    "imageKey": "bangko/pirma.webp",
+    "imageLabel": "Pirma",
+    "imageCaption": "Lagda ng pangalan",
+    "imagePrompt": "A realistic close-up photograph of a person signing a generic bank document. No real information, clear details, professional lighting.",
+    "sentence": "Ilagay ang pirma."
+  },
+  {
+    "id": "valid-id",
+    "word": "valid ID",
+    "imageKey": "bangko/valid-id.webp",
+    "imageLabel": "Valid ID",
+    "imageCaption": "Opisyal na pagkakakilanlan",
+    "imagePrompt": "A realistic photograph of a generic identification card beside a bank form, with all details fictional or blurred. Clean table, professional lighting.",
+    "sentence": "Dalhin ang valid ID."
+  },
+  {
+    "id": "loan",
+    "word": "loan",
+    "imageKey": "bangko/loan.webp",
+    "imageLabel": "Loan",
+    "imageCaption": "Perang hinihiram at babayaran",
+    "imagePrompt": "A realistic photograph of a generic loan application form beside a calculator and pen. No real personal data, clear details, professional setting.",
+    "sentence": "May loan siya."
+  },
+  {
+    "id": "utang",
+    "word": "utang",
+    "imageKey": "bangko/utang.webp",
+    "imageLabel": "Utang",
+    "imageCaption": "Perang kailangang bayaran",
+    "imagePrompt": "A realistic photograph of a notebook showing a simple debt list with fictional amounts, beside peso bills and a calculator. Clear details, practical context.",
+    "sentence": "Bayaran ang utang."
+  },
+  {
+    "id": "interes",
+    "word": "interes",
+    "imageKey": "bangko/interes.webp",
+    "imageLabel": "Interes",
+    "imageCaption": "Dagdag halaga sa ipon o utang",
+    "imagePrompt": "A realistic photograph of a calculator and a paper showing a simple interest example with fictional numbers. Clean table, clear educational context.",
+    "sentence": "May interes ang loan."
+  },
+  {
+    "id": "bank-transfer",
+    "word": "bank transfer",
+    "imageKey": "bangko/bank-transfer.webp",
+    "imageLabel": "Bank Transfer",
+    "imageCaption": "Paglipat ng pera mula isang account sa iba",
+    "imagePrompt": "A realistic close-up photograph of a smartphone showing a generic bank transfer screen with fictional details. Clean UI, no real bank logos.",
+    "sentence": "Gumamit ng bank transfer."
+  },
+  {
+    "id": "send-money",
+    "word": "send money",
+    "imageKey": "bangko/send-money.webp",
+    "imageLabel": "Send Money",
+    "imageCaption": "Pagpapadala ng pera",
+    "imagePrompt": "A realistic photograph of a smartphone showing a generic send money button with fictional account details. Clean mobile banking UI.",
+    "sentence": "Pindutin ang send money."
+  },
+  {
+    "id": "receive-money",
+    "word": "receive money",
+    "imageKey": "bangko/receive-money.webp",
+    "imageLabel": "Receive Money",
+    "imageCaption": "Pagtanggap ng pera",
+    "imagePrompt": "A realistic photograph of a smartphone showing a generic received money notification with fictional details. Clean UI, no real personal information.",
+    "sentence": "May receive money."
+  },
+  {
+    "id": "mobile-banking",
+    "word": "mobile banking",
+    "imageKey": "bangko/mobile-banking.webp",
+    "imageLabel": "Mobile Banking",
+    "imageCaption": "Pagbabangko gamit ang phone",
+    "imagePrompt": "A realistic photograph of a smartphone showing a generic mobile banking home screen beside a wallet. Clean modern UI, fictional details only.",
+    "sentence": "Buksan ang mobile banking."
+  },
+  {
+    "id": "password",
+    "word": "password",
+    "imageKey": "bangko/password.webp",
+    "imageLabel": "Password",
+    "imageCaption": "Lihim na salita para makapasok sa account",
+    "imagePrompt": "A realistic close-up photograph of a smartphone login screen with a password field, no real data. Clean UI, privacy-focused banking context.",
+    "sentence": "Itago ang password."
+  },
+  {
+    "id": "otp",
+    "word": "OTP",
+    "imageKey": "bangko/otp.webp",
+    "imageLabel": "OTP",
+    "imageCaption": "Isang beses na code para sa seguridad",
+    "imagePrompt": "A realistic photograph of a smartphone showing a generic one-time password message with fictional numbers. Clean UI, privacy-safe, no real data.",
+    "sentence": "Ilagay ang OTP."
+  },
+  {
+    "id": "scam",
+    "word": "scam",
+    "imageKey": "bangko/scam.webp",
+    "imageLabel": "Scam",
+    "imageCaption": "Panloloko para makuha ang pera o impormasyon",
+    "imagePrompt": "A realistic educational photograph of a smartphone showing a suspicious generic message warning, with a caution icon. No real phone numbers, clear anti-scam context.",
+    "sentence": "Iwasan ang scam."
+  },
+  {
+    "id": "secure",
+    "word": "secure",
+    "imageKey": "bangko/secure.webp",
+    "imageLabel": "Secure",
+    "imageCaption": "Ligtas at protektado",
+    "imagePrompt": "A realistic photograph of a smartphone banking app with a lock icon and generic secure message. Clean UI, no real bank branding, safety-focused.",
+    "sentence": "Dapat secure ang account."
+  },
+  {
+    "id": "branch",
+    "word": "branch",
+    "imageKey": "bangko/branch.webp",
+    "imageLabel": "Branch",
+    "imageCaption": "Sangay o lokasyon ng bangko",
+    "imagePrompt": "A realistic photograph of a generic bank branch exterior in the Philippines. Bright daylight, no real brand names, clear professional setting.",
+    "sentence": "Malapit ang branch."
+  },
+  {
+    "id": "cashier",
+    "word": "cashier",
+    "imageKey": "bangko/cashier.webp",
+    "imageLabel": "Cashier",
+    "imageCaption": "Taong tumatanggap ng bayad",
+    "imagePrompt": "A realistic photograph of a cashier window or payment counter inside a bank or payment center. Generic setting, clear details, professional lighting.",
+    "sentence": "Nasa cashier ang bayad."
+  }
+]

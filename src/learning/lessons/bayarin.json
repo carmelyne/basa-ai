@@ -1,0 +1,272 @@
+[
+  {
+    "id": "bayad",
+    "word": "bayad",
+    "imageKey": "bayarin/bayad.webp",
+    "imageLabel": "Bayad",
+    "imageCaption": "Perang ibinibigay kapalit ng serbisyo o utang",
+    "imagePrompt": "A realistic close-up photograph of Philippine peso bills and coins on a table beside household bills. Clear details, soft lighting, practical everyday setting.",
+    "sentence": "Kailangan ng bayad."
+  },
+  {
+    "id": "bill",
+    "word": "bill",
+    "imageKey": "bayarin/bill.webp",
+    "imageLabel": "Bill",
+    "imageCaption": "Listahan ng kailangang bayaran",
+    "imagePrompt": "A realistic photograph of a household utility bill on a clean table with a pen and phone nearby. Clear details, no real personal information, soft lighting.",
+    "sentence": "Dumating ang bill."
+  },
+  {
+    "id": "resibo",
+    "word": "resibo",
+    "imageKey": "bayarin/resibo.webp",
+    "imageLabel": "Resibo",
+    "imageCaption": "Katibayan na nakabayad na",
+    "imagePrompt": "A realistic close-up photograph of a payment receipt on a table beside peso coins and a smartphone. Clear details, no real personal data, soft lighting.",
+    "sentence": "Itago ang resibo."
+  },
+  {
+    "id": "kuryente",
+    "word": "kuryente",
+    "imageKey": "bayarin/kuryente.webp",
+    "imageLabel": "Kuryente",
+    "imageCaption": "Serbisyo ng ilaw at gamit na de-kuryente",
+    "imagePrompt": "A realistic photograph of an electric meter outside a Filipino home with a utility bill nearby. Clear details, daylight, practical household setting.",
+    "sentence": "Bayaran ang kuryente."
+  },
+  {
+    "id": "tubig",
+    "word": "tubig",
+    "imageKey": "bayarin/tubig.webp",
+    "imageLabel": "Tubig",
+    "imageCaption": "Serbisyo ng tubig sa bahay",
+    "imagePrompt": "A realistic photograph of a water meter or faucet outside a Filipino home with a water bill nearby. Clear daylight, practical household setting.",
+    "sentence": "May bill sa tubig."
+  },
+  {
+    "id": "internet",
+    "word": "internet",
+    "imageKey": "bayarin/internet.webp",
+    "imageLabel": "Internet",
+    "imageCaption": "Serbisyo para makakonekta online",
+    "imagePrompt": "A realistic photograph of a Wi-Fi router on a table beside an internet bill and smartphone. Clean home setting, soft lighting, clear details.",
+    "sentence": "Bayad na ang internet."
+  },
+  {
+    "id": "renta",
+    "word": "renta",
+    "imageKey": "bayarin/renta.webp",
+    "imageLabel": "Renta",
+    "imageCaption": "Bayad sa tinitirhang bahay o kuwarto",
+    "imagePrompt": "A realistic photograph of a small rent payment envelope beside a house key and notebook. Clean table, soft lighting, everyday Filipino home context.",
+    "sentence": "Bayaran ang renta."
+  },
+  {
+    "id": "due-date",
+    "word": "due date",
+    "imageKey": "bayarin/due-date.webp",
+    "imageLabel": "Due Date",
+    "imageCaption": "Huling araw ng pagbabayad",
+    "imagePrompt": "A realistic close-up photograph of a calendar with a marked due date beside a utility bill. Clear details, no real personal data, soft lighting.",
+    "sentence": "Tingnan ang due date."
+  },
+  {
+    "id": "late-fee",
+    "word": "late fee",
+    "imageKey": "bayarin/late-fee.webp",
+    "imageLabel": "Late Fee",
+    "imageCaption": "Dagdag bayad kapag nahuli sa pagbabayad",
+    "imagePrompt": "A realistic photograph of a bill showing a generic late fee line, with no real personal data. Clean table, pen nearby, clear details.",
+    "sentence": "May late fee."
+  },
+  {
+    "id": "account-number",
+    "word": "account number",
+    "imageKey": "bayarin/account-number.webp",
+    "imageLabel": "Account Number",
+    "imageCaption": "Numero ng account sa bill",
+    "imagePrompt": "A realistic close-up photograph of a generic bill showing a highlighted account number area with fake numbers. Clear details, safe fictional information.",
+    "sentence": "Hanapin ang account number."
+  },
+  {
+    "id": "reference-number",
+    "word": "reference number",
+    "imageKey": "bayarin/reference-number.webp",
+    "imageLabel": "Reference Number",
+    "imageCaption": "Numero na ginagamit sa pagbayad o pag-check",
+    "imagePrompt": "A realistic close-up photograph of a payment slip or phone payment screen showing a fictional reference number. Clean layout, clear details, no real data.",
+    "sentence": "Isulat ang reference number."
+  },
+  {
+    "id": "paid",
+    "word": "paid",
+    "imageKey": "bayarin/paid.webp",
+    "imageLabel": "Paid",
+    "imageCaption": "Nabayaran na",
+    "imagePrompt": "A realistic photograph of a bill stamped with the word PAID beside a receipt and coins. Clear details, soft lighting, no real personal information.",
+    "sentence": "Paid na ang bill."
+  },
+  {
+    "id": "unpaid",
+    "word": "unpaid",
+    "imageKey": "bayarin/unpaid.webp",
+    "imageLabel": "Unpaid",
+    "imageCaption": "Hindi pa nababayaran",
+    "imagePrompt": "A realistic photograph of a household bill marked unpaid with a sticky note reminder. Clear details, no real personal data, soft lighting.",
+    "sentence": "Unpaid pa ito."
+  },
+  {
+    "id": "payment",
+    "word": "payment",
+    "imageKey": "bayarin/payment.webp",
+    "imageLabel": "Payment",
+    "imageCaption": "Proseso ng pagbabayad",
+    "imagePrompt": "A realistic close-up photograph of a smartphone showing a generic payment screen beside a bill and peso coins. Clean UI, fictional details only.",
+    "sentence": "Tapusin ang payment."
+  },
+  {
+    "id": "online-payment",
+    "word": "online payment",
+    "imageKey": "bayarin/online-payment.webp",
+    "imageLabel": "Online Payment",
+    "imageCaption": "Pagbabayad gamit ang phone o internet",
+    "imagePrompt": "A realistic photograph of a smartphone showing a generic online payment app screen beside a utility bill. Clean modern UI, no brand names, no real data.",
+    "sentence": "Gamitin ang online payment."
+  },
+  {
+    "id": "cash",
+    "word": "cash",
+    "imageKey": "bayarin/cash.webp",
+    "imageLabel": "Cash",
+    "imageCaption": "Pambayad na pera",
+    "imagePrompt": "A realistic close-up photograph of Philippine peso bills and coins arranged neatly on a table. Clear details, soft lighting, everyday payment setting.",
+    "sentence": "May cash ako."
+  },
+  {
+    "id": "card",
+    "word": "card",
+    "imageKey": "bayarin/card.webp",
+    "imageLabel": "Card",
+    "imageCaption": "Plastic card na ginagamit sa pagbabayad",
+    "imagePrompt": "A realistic photograph of a generic payment card beside a receipt and smartphone. No bank logos, no real information, clean table, soft lighting.",
+    "sentence": "Gamitin ang card."
+  },
+  {
+    "id": "wallet",
+    "word": "wallet",
+    "imageKey": "bayarin/wallet.webp",
+    "imageLabel": "Wallet",
+    "imageCaption": "Lalagyan ng pera o card",
+    "imagePrompt": "A realistic photograph of a wallet with Philippine peso bills and a generic card inside. Clear details, clean table, soft lighting.",
+    "sentence": "Nasa wallet ang pera."
+  },
+  {
+    "id": "load",
+    "word": "load",
+    "imageKey": "bayarin/load.webp",
+    "imageLabel": "Load",
+    "imageCaption": "Credit para sa tawag, text, o data",
+    "imagePrompt": "A realistic photograph of a smartphone showing a generic mobile load screen beside peso coins. Clean UI, no brand names, clear details.",
+    "sentence": "Bumili ng load."
+  },
+  {
+    "id": "data",
+    "word": "data",
+    "imageKey": "bayarin/data.webp",
+    "imageLabel": "Data",
+    "imageCaption": "Gamit para makapag-internet sa phone",
+    "imagePrompt": "A realistic close-up photograph of a smartphone showing mobile data settings or a generic data plan screen. Clean modern UI, clear details.",
+    "sentence": "Ubos na ang data."
+  },
+  {
+    "id": "balance",
+    "word": "balance",
+    "imageKey": "bayarin/balance.webp",
+    "imageLabel": "Balance",
+    "imageCaption": "Natitirang halaga",
+    "imagePrompt": "A realistic photograph of a generic mobile wallet or payment screen showing a fictional remaining balance. Clean UI, no real personal information.",
+    "sentence": "Tingnan ang balance."
+  },
+  {
+    "id": "reminder",
+    "word": "reminder",
+    "imageKey": "bayarin/reminder.webp",
+    "imageLabel": "Reminder",
+    "imageCaption": "Paalaala para hindi makalimot",
+    "imagePrompt": "A realistic photograph of a phone calendar reminder for a bill payment, with fictional details. Clean modern UI, clear details, soft lighting.",
+    "sentence": "May reminder sa phone."
+  },
+  {
+    "id": "penalty",
+    "word": "penalty",
+    "imageKey": "bayarin/penalty.webp",
+    "imageLabel": "Penalty",
+    "imageCaption": "Parusa o dagdag bayad",
+    "imagePrompt": "A realistic close-up photograph of a generic bill with a highlighted penalty line and a pen. No real personal data, clear details.",
+    "sentence": "May penalty kapag late."
+  },
+  {
+    "id": "discount",
+    "word": "discount",
+    "imageKey": "bayarin/discount.webp",
+    "imageLabel": "Discount",
+    "imageCaption": "Bawas sa babayaran",
+    "imagePrompt": "A realistic photograph of a receipt or bill showing a generic discount line. Clean table, soft lighting, clear details.",
+    "sentence": "May discount sa bill."
+  },
+  {
+    "id": "total",
+    "word": "total",
+    "imageKey": "bayarin/total.webp",
+    "imageLabel": "Total",
+    "imageCaption": "Kabuuang halaga ng babayaran",
+    "imagePrompt": "A realistic close-up photograph of a bill or receipt with the total amount area highlighted, using fictional numbers. Clear details, soft lighting.",
+    "sentence": "Tingnan ang total."
+  },
+  {
+    "id": "amount",
+    "word": "amount",
+    "imageKey": "bayarin/amount.webp",
+    "imageLabel": "Amount",
+    "imageCaption": "Halagang kailangang bayaran",
+    "imagePrompt": "A realistic photograph of a payment form on a smartphone showing an amount field with fictional numbers. Clean modern UI, no real data.",
+    "sentence": "Ilagay ang amount."
+  },
+  {
+    "id": "meter",
+    "word": "meter",
+    "imageKey": "bayarin/meter.webp",
+    "imageLabel": "Meter",
+    "imageCaption": "Gamit sa pagsukat ng gamit sa tubig o kuryente",
+    "imagePrompt": "A realistic photograph of an electric or water meter outside a Filipino home. Clear details, daylight, practical household setting.",
+    "sentence": "Basahin ang meter."
+  },
+  {
+    "id": "service",
+    "word": "service",
+    "imageKey": "bayarin/service.webp",
+    "imageLabel": "Service",
+    "imageCaption": "Serbisyong binabayaran buwan-buwan",
+    "imagePrompt": "A realistic photograph of several household bills for utilities and services arranged neatly on a table. No real personal data, soft lighting.",
+    "sentence": "Bayad ang service."
+  },
+  {
+    "id": "cutoff",
+    "word": "cutoff",
+    "imageKey": "bayarin/cutoff.webp",
+    "imageLabel": "Cutoff",
+    "imageCaption": "Pagtigil ng serbisyo kapag hindi nabayaran",
+    "imagePrompt": "A realistic photograph of a utility notice with the word cutoff, using fictional details, beside a calendar and bill. Clear details, serious practical context.",
+    "sentence": "Iwasan ang cutoff."
+  },
+  {
+    "id": "due",
+    "word": "due",
+    "imageKey": "bayarin/due.webp",
+    "imageLabel": "Due",
+    "imageCaption": "Kailangan nang bayaran",
+    "imagePrompt": "A realistic close-up photograph of a bill showing a generic due amount and due date, with fictional information only. Clean table, clear details.",
+    "sentence": "Due na ang bill."
+  }
+]

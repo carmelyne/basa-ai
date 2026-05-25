@@ -16,6 +16,21 @@ export function ResponsiveLessonImage({
   source,
   variant = "card",
 }: ResponsiveLessonImageProps) {
+  if (!source) {
+    return (
+      <View
+        style={[
+          styles.frame,
+          variant === "thumbnail" ? styles.thumbnailFrame : styles.cardFrame,
+          variant !== "thumbnail" && { aspectRatio },
+          { backgroundColor: colors.surface, alignItems: 'center', justifyContent: 'center' }
+        ]}
+      >
+        {/* Placeholder - could be an icon or text here */}
+      </View>
+    );
+  }
+
   return (
     <View
       style={[
