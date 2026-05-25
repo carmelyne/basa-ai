@@ -59,5 +59,53 @@
       "ospital",
       "pulis"
     ]
+  },
+  {
+    "id": "bangko",
+    "title": "Bangko",
+    "shortTitle": "Bangko",
+    "description": "Mga salitang gamit sa bangko at pag-aari ng pera.",
+    "coverImageKey": "bangko/bangko.webp",
+    "seedWords": [
+      "bangko",
+      "account",
+      "savings"
+    ]
+  },
+  {
+    "id": "bayarin",
+    "title": "Bayarin",
+    "shortTitle": "Bayarin",
+    "description": "Mga salitang gamit sa pagbabayad ng bills.",
+    "coverImageKey": "bayarin/bayarin.webp",
+    "seedWords": [
+      "bill",
+      "due-date",
+      "bayad"
+    ]
+  },
+  {
+    "id": "forms",
+    "title": "Forms",
+    "shortTitle": "Forms",
+    "description": "Mga salitang madalas makita sa mga form.",
+    "coverImageKey": "forms/form.webp",
+    "seedWords": [
+      "pangalan",
+      "pirma",
+      "petsa"
+    ]
+  },
+  {
+    "id": "gamot",
+    "title": "Gamot",
+    "shortTitle": "Gamot",
+    "description": "Mga salitang gamit sa kalusugan at pag-inom ng gamot.",
+    "coverImageKey": "gamot/gamot.webp",
+    "seedWords": [
+      "gamot",
+      "doktor",
+      "reseta"
+    ]
   }
 ]

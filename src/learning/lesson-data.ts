@@ -4,6 +4,10 @@ import pagmamaneho from "./lessons/pagmamaneho.json";
 import phoneButtons from "./lessons/phone-buttons.json";
 import sakay from "./lessons/sakay.json";
 import emergency from "./lessons/emergency.json";
+import bangko from "./lessons/bangko.json";
+import bayarin from "./lessons/bayarin.json";
+import forms from "./lessons/forms.json";
+import gamot from "./lessons/gamot.json";
 import rawLessons from "./lessons.json";
 import { LESSON_IMAGES } from "./lesson-registry";
 
@@ -33,6 +37,10 @@ const wordsMap: Record<string, any[]> = {
   "phone-buttons": phoneButtons,
   sakay,
   emergency,
+  bangko,
+  bayarin,
+  forms,
+  gamot,
 };
 
 export const scenarioLessons: ScenarioLesson[] = (rawLessons as any[]).map((lesson) => ({

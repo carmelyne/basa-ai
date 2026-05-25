@@ -81,11 +81,16 @@ ${registryEntries.join('\n')}
   console.log(`[Asset Pipeline] ✨ Registry updated.`);
 }
 
-async function generateMissing() {
+async function generateMissing(specificFile) {
   const startTime = new Date().toLocaleTimeString();
   console.log(`[Asset Pipeline] ⏳ Started at: ${startTime}`);
 
-  const lessonFiles = fs.readdirSync(LESSONS_DIR).filter(f => f.endsWith('.json'));
+  let lessonFiles = fs.readdirSync(LESSONS_DIR).filter(f => f.endsWith('.json'));
+  if (specificFile) {
+    console.log(`[Asset Pipeline] 🎯 Filtering for: ${specificFile}`);
+    lessonFiles = lessonFiles.filter(f => f === specificFile);
+  }
+
   const allWords = [];
   for (const file of lessonFiles) allWords.push(...JSON.parse(fs.readFileSync(path.join(LESSONS_DIR, file), 'utf8')));
 
@@ -102,8 +107,11 @@ async function generateMissing() {
   console.log(`[Asset Pipeline] 🏁 Finished at: ${endTime}`);
 }
 
-if (process.argv.includes('--generate')) {
-  generateMissing().then(main).catch(console.error);
+const args = process.argv.slice(2);
+if (args.includes('--generate')) {
+  const fileIndex = args.indexOf('--generate') + 1;
+  const specificFile = (fileIndex < args.length && !args[fileIndex].startsWith('--')) ? args[fileIndex] : null;
+  generateMissing(specificFile).then(main).catch(console.error);
 } else {
   main().catch(console.error);
 }

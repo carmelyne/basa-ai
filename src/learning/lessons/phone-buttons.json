@@ -6,7 +6,7 @@
     "imageLabel": "Play",
     "imageCaption": "Pindutan para simulan ang video o kanta",
     "imagePrompt": "A realistic close-up photograph of a smartphone screen showing a large play button on a simple video or music player interface. Clean modern UI, clear details, soft lighting, neutral background.",
-    "sentence": "Pindutin ang play."
+    "sentence": "I-tap ang play para magsimula."
   },
   {
     "id": "pause",
@@ -15,7 +15,7 @@
     "imageLabel": "Pause",
     "imageCaption": "Pindutan para pansamantalang itigil ang pinapanood o pinapakinggan",
     "imagePrompt": "A realistic close-up photograph of a smartphone screen showing a pause button on a video or music player interface. Clean modern UI, clear details, soft lighting, neutral background.",
-    "sentence": "Pindutin ang pause."
+    "sentence": "Gamitin ang pause para huminto muna."
   },
   {
     "id": "stop",
@@ -24,7 +24,7 @@
     "imageLabel": "Stop",
     "imageCaption": "Pindutan para ihinto ang video o tunog",
     "imagePrompt": "A realistic close-up photograph of a smartphone screen showing a stop button on a simple media player interface. Clear icon, clean layout, soft lighting, neutral background.",
-    "sentence": "Pindutin ang stop."
+    "sentence": "Pindutin ang stop para tapusin na."
   },
   {
     "id": "back",
@@ -33,7 +33,7 @@
     "imageLabel": "Back",
     "imageCaption": "Pindutan para bumalik sa naunang screen",
     "imagePrompt": "A realistic close-up photograph of a smartphone screen showing a back arrow button on a simple app interface. Clean modern UI, clear details, soft lighting.",
-    "sentence": "Pindutin ang back."
+    "sentence": "Bumalik sa dati gamit ang back."
   },
   {
     "id": "next",
@@ -42,7 +42,7 @@
     "imageLabel": "Next",
     "imageCaption": "Pindutan para pumunta sa susunod",
     "imagePrompt": "A realistic close-up photograph of a smartphone screen showing a next button on a music or video player interface. Clean modern UI, clear icon, soft lighting.",
-    "sentence": "Pindutin ang next."
+    "sentence": "I-click ang next para tumuloy."
   },
   {
     "id": "rewind",
@@ -51,7 +51,7 @@
     "imageLabel": "Rewind",
     "imageCaption": "Pindutan para bumalik sa naunang bahagi",
     "imagePrompt": "A realistic close-up photograph of a smartphone screen showing a rewind button on a video player interface. Clean UI, clear icon, soft lighting, neutral background.",
-    "sentence": "Pindutin ang rewind."
+    "sentence": "Rewind natin para balikan ang eksena."
   },
   {
     "id": "fast-forward",
@@ -60,7 +60,7 @@
     "imageLabel": "Fast Forward",
     "imageCaption": "Pindutan para lumaktaw pasulong",
     "imagePrompt": "A realistic close-up photograph of a smartphone screen showing a fast forward button on a video player interface. Clean modern UI, clear icon, soft lighting.",
-    "sentence": "Pindutin ang fast forward."
+    "sentence": "Fast forward para mabilis na matapos."
   },
   {
     "id": "replay",
@@ -69,7 +69,7 @@
     "imageLabel": "Replay",
     "imageCaption": "Pindutan para ulitin ang video o kanta",
     "imagePrompt": "A realistic close-up photograph of a smartphone screen showing a replay button on a media player interface. Clean modern UI, clear circular arrow icon, soft lighting.",
-    "sentence": "Pindutin ang replay."
+    "sentence": "Replay natin para mapanood ulit."
   },
   {
     "id": "skip",
@@ -78,7 +78,7 @@
     "imageLabel": "Skip",
     "imageCaption": "Pindutan para laktawan ang bahagi",
     "imagePrompt": "A realistic close-up photograph of a smartphone screen showing a skip button on a video or music app interface. Clean modern UI, clear details, soft lighting.",
-    "sentence": "Pindutin ang skip."
+    "sentence": "Skip na natin 'yan."
   },
   {
     "id": "volume",
@@ -87,7 +87,7 @@
     "imageLabel": "Volume",
     "imageCaption": "Pindutan para lakasan o hinaan ang tunog",
     "imagePrompt": "A realistic close-up photograph of a smartphone screen showing a volume control slider and speaker icon. Clean modern UI, clear details, soft lighting.",
-    "sentence": "Ayusin ang volume."
+    "sentence": "Ayusin ang volume para malinaw ang tunog."
   },
   {
     "id": "mute",
@@ -96,7 +96,7 @@
     "imageLabel": "Mute",
     "imageCaption": "Pindutan para patayin ang tunog",
     "imagePrompt": "A realistic close-up photograph of a smartphone screen showing a mute button with a speaker icon and slash. Clean modern UI, clear details, soft lighting.",
-    "sentence": "Pindutin ang mute."
+    "sentence": "I-mute muna natin ang tunog."
   },
   {
     "id": "speaker",
@@ -105,7 +105,7 @@
     "imageLabel": "Speaker",
     "imageCaption": "Pindutan para ilabas ang tunog sa speaker",
     "imagePrompt": "A realistic close-up photograph of a smartphone call screen showing a speaker button. Clean modern UI, clear icon, soft lighting, neutral background.",
-    "sentence": "Buksan ang speaker."
+    "sentence": "Gamitin ang speaker para marinig nang maigi."
   },
   {
     "id": "record",
@@ -114,7 +114,7 @@
     "imageLabel": "Record",
     "imageCaption": "Pindutan para magrekord ng tunog o video",
     "imagePrompt": "A realistic close-up photograph of a smartphone screen showing a red record button on a voice recorder or camera app. Clean modern UI, clear details, soft lighting.",
-    "sentence": "Pindutin ang record."
+    "sentence": "I-record natin ang boses mo."
   },
   {
     "id": "camera",
@@ -123,7 +123,7 @@
     "imageLabel": "Camera",
     "imageCaption": "Pindutan para kumuha ng larawan",
     "imagePrompt": "A realistic close-up photograph of a smartphone screen showing a camera app button. Clean modern UI, clear camera icon, soft lighting.",
-    "sentence": "Buksan ang camera."
+    "sentence": "Buksan ang camera para kumuha ng litrato."
   },
   {
     "id": "video",
@@ -132,7 +132,7 @@
     "imageLabel": "Video",
     "imageCaption": "Pindutan para kumuha o manood ng video",
     "imagePrompt": "A realistic close-up photograph of a smartphone screen showing a video camera button on a simple app interface. Clean modern UI, clear details, soft lighting.",
-    "sentence": "Buksan ang video."
+    "sentence": "I-video natin ang pangyayari."
   },
   {
     "id": "call",
@@ -141,7 +141,7 @@
     "imageLabel": "Call",
     "imageCaption": "Pindutan para tumawag",
     "imagePrompt": "A realistic close-up photograph of a smartphone screen showing a green call button with a phone icon. Clean modern UI, clear details, soft lighting.",
-    "sentence": "Pindutin ang call."
+    "sentence": "I-call na natin ang tropa."
   },
   {
     "id": "text",
@@ -150,7 +150,7 @@
     "imageLabel": "Text",
     "imageCaption": "Pindutan o app para magpadala ng mensahe",
     "imagePrompt": "A realistic close-up photograph of a smartphone screen showing a text message app icon or text button. Clean modern UI, clear details, soft lighting.",
-    "sentence": "Buksan ang text."
+    "sentence": "Mag-text tayo sa kanila."
   },
   {
     "id": "send",
@@ -159,7 +159,7 @@
     "imageLabel": "Send",
     "imageCaption": "Pindutan para ipadala ang mensahe",
     "imagePrompt": "A realistic close-up photograph of a smartphone messaging app showing a send button with a paper plane or arrow icon. Clean modern UI, clear details, soft lighting.",
-    "sentence": "Pindutin ang send."
+    "sentence": "I-send na ang mensahe."
   },
   {
     "id": "delete",
@@ -168,7 +168,7 @@
     "imageLabel": "Delete",
     "imageCaption": "Pindutan para burahin ang napili",
     "imagePrompt": "A realistic close-up photograph of a smartphone screen showing a delete button with a trash bin icon. Clean modern UI, clear details, soft lighting.",
-    "sentence": "Pindutin ang delete."
+    "sentence": "Burahin natin ang delete."
   },
   {
     "id": "save",
@@ -177,7 +177,7 @@
     "imageLabel": "Save",
     "imageCaption": "Pindutan para itago o i-save ang ginawa",
     "imagePrompt": "A realistic close-up photograph of a smartphone screen showing a save button on a simple app interface. Clean modern UI, clear details, soft lighting.",
-    "sentence": "Pindutin ang save."
+    "sentence": "I-save para hindi mawala."
   },
   {
     "id": "share",
@@ -186,7 +186,7 @@
     "imageLabel": "Share",
     "imageCaption": "Pindutan para ibahagi ang larawan, video, o link",
     "imagePrompt": "A realistic close-up photograph of a smartphone screen showing a share button on a simple app interface. Clean modern UI, clear share icon, soft lighting.",
-    "sentence": "Pindutin ang share."
+    "sentence": "I-share natin sa mga kaibigan."
   },
   {
     "id": "search",
@@ -195,7 +195,7 @@
     "imageLabel": "Search",
     "imageCaption": "Pindutan para maghanap",
     "imagePrompt": "A realistic close-up photograph of a smartphone screen showing a search bar and magnifying glass icon. Clean modern UI, clear details, soft lighting.",
-    "sentence": "Gamitin ang search."
+    "sentence": "Gamitin ang search kung may hinahanap."
   },
   {
     "id": "menu",
@@ -204,7 +204,7 @@
     "imageLabel": "Menu",
     "imageCaption": "Pindutan para makita ang ibang pagpipilian",
     "imagePrompt": "A realistic close-up photograph of a smartphone screen showing a menu button with three lines or three dots. Clean modern UI, clear details, soft lighting.",
-    "sentence": "Buksan ang menu."
+    "sentence": "Buksan ang menu para sa iba pang options."
   },
   {
     "id": "home",
@@ -213,7 +213,7 @@
     "imageLabel": "Home",
     "imageCaption": "Pindutan para bumalik sa pangunahing screen",
     "imagePrompt": "A realistic close-up photograph of a smartphone screen showing a home button or home icon on a simple interface. Clean modern UI, clear details, soft lighting.",
-    "sentence": "Pindutin ang home."
+    "sentence": "Bumalik sa main screen gamit ang home."
   },
   {
     "id": "lock",
@@ -222,7 +222,7 @@
     "imageLabel": "Lock",
     "imageCaption": "Pindutan para isara at protektahan ang phone",
     "imagePrompt": "A realistic close-up photograph of a smartphone screen showing a lock icon on a lock screen. Clean modern UI, clear details, soft lighting.",
-    "sentence": "Pindutin ang lock."
+    "sentence": "I-lock para ligtas ang phone."
   },
   {
     "id": "click",
@@ -231,7 +231,7 @@
     "imageLabel": "Click",
     "imageCaption": "Pagpindot sa button o link",
     "imagePrompt": "A realistic close-up photograph of a finger tapping a button on a smartphone screen. Clean modern UI, clear details, soft lighting, neutral background.",
-    "sentence": "I-click ang button."
+    "sentence": "I-click lang ang button."
   },
   {
     "id": "add-to-cart",
@@ -240,7 +240,7 @@
     "imageLabel": "Add to Cart",
     "imageCaption": "Pindutan para ilagay ang produkto sa cart",
     "imagePrompt": "A realistic close-up photograph of a smartphone shopping app showing an Add to Cart button near a product photo. Clean modern e-commerce UI, clear details, soft lighting.",
-    "sentence": "Pindutin ang add to cart."
+    "sentence": "Ilagay sa cart gamit ang add to cart."
   },
   {
     "id": "checkout",
@@ -249,7 +249,7 @@
     "imageLabel": "Checkout",
     "imageCaption": "Pindutan para tapusin ang pagbili",
     "imagePrompt": "A realistic close-up photograph of a smartphone shopping app showing a Checkout button and a simple cart summary. Clean modern e-commerce UI, clear details, soft lighting.",
-    "sentence": "Pindutin ang checkout."
+    "sentence": "I-checkout na para makuha na."
   },
   {
     "id": "buy-now",
@@ -258,7 +258,7 @@
     "imageLabel": "Buy Now",
     "imageCaption": "Pindutan para bumili agad",
     "imagePrompt": "A realistic close-up photograph of a smartphone shopping app showing a Buy Now button near a product listing. Clean modern e-commerce UI, clear details, soft lighting.",
-    "sentence": "Pindutin ang buy now."
+    "sentence": "I-buy now para mabilis."
   },
   {
     "id": "login",
@@ -267,6 +267,6 @@
     "imageLabel": "Login",
     "imageCaption": "Pindutan para pumasok sa account",
     "imagePrompt": "A realistic close-up photograph of a smartphone screen showing a login button on a simple app sign-in page. Clean modern UI, clear details, soft lighting.",
-    "sentence": "Pindutin ang login."
+    "sentence": "Mag-login para makapasok."
   }
 ]
