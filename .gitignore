@@ -53,3 +53,4 @@ prisma/migrations/
 .codex/
 .gemini/
 .antigravitycli/
+deploy_website.sh
