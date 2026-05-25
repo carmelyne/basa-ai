@@ -58,7 +58,7 @@ async function generateImageLocally(prompt, outputPath, width, height) {
 }
 
 async function main() {
-  const lessonFiles = fs.readdirSync(LESSONS_DIR).filter(f => f.endsWith('.json'));
+  const lessonFiles = fs.readdirSync(LESSONS_DIR).filter(f => f.endsWith('.json') && f !== 'manifest.json');
   const allWords = [];
   for (const file of lessonFiles) {
     allWords.push(...JSON.parse(fs.readFileSync(path.join(LESSONS_DIR, file), 'utf8')));
@@ -85,7 +85,7 @@ async function generateMissing(specificFile) {
   const startTime = new Date().toLocaleTimeString();
   console.log(`[Asset Pipeline] ⏳ Started at: ${startTime}`);
 
-  let lessonFiles = fs.readdirSync(LESSONS_DIR).filter(f => f.endsWith('.json'));
+  let lessonFiles = fs.readdirSync(LESSONS_DIR).filter(f => f.endsWith('.json') && f !== 'manifest.json');
   if (specificFile) {
     console.log(`[Asset Pipeline] 🎯 Filtering for: ${specificFile}`);
     lessonFiles = lessonFiles.filter(f => f === specificFile);

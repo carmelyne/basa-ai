@@ -342,6 +342,7 @@ export default function App() {
               currentProgress={{
                 completedWordIds,
                 correctAnswerIds,
+                lessonRepeatCounts,
                 updatedAt: Math.floor(Date.now() / 1000),
               }}
               onBack={goBack}

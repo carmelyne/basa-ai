@@ -57,7 +57,3 @@ export const scenarioLessons: ScenarioLesson[] = (rawLessons as any[]).map((less
 }));
 
 export const defaultScenario = scenarioLessons[0];
-
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { scenarioLessons, defaultScenario };
-}
