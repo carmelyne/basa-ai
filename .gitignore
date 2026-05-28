@@ -32,6 +32,14 @@ session-logs/
 .env
 .deploy.env
 
+# remotion
+remotion-lab/
+
+# project docs and scratch
+scratch/
+docs/
+AGENTS.md
+
 # vercel
 .vercel
 
