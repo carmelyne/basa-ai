@@ -30,6 +30,7 @@ session-logs/
 # local env files
 .env*.local
 .env
+.deploy.env
 
 # vercel
 .vercel
