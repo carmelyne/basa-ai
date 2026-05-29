@@ -801,6 +801,7 @@ details a {
 
 /* ── FOOTER ──────────────────────────────────── */
 footer {
+  background: transparent !important;
   border-top: 1px solid rgba(168, 213, 162, 0.08);
   padding: 48px 80px;
   display: flex;
@@ -1280,7 +1281,7 @@ footer {
 .howto-cta {
   padding: 64px 24px;
   text-align: center;
-  background: var(--cream);
+  background: transparent;
   color: var(--ink);
 }
 
@@ -1320,7 +1321,21 @@ footer {
   }
 
   .nav-cta {
-    display: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border-radius: 50%;
+  }
+
+  .nav-cta span {
+    display: none !important;
+  }
+  
+  .nav-cta [data-lucide] {
+    margin: 0;
   }
 
   .hero {
@@ -1356,8 +1371,14 @@ footer {
   }
 
   .stat {
-    min-width: 50%;
-    padding: 24px 16px;
+    min-width: 100%;
+    padding: 32px 24px;
+    border-right: none;
+    border-bottom: 1px solid var(--cream2);
+  }
+
+  .stat:last-child {
+    border-bottom: none;
   }
 
   .feature-row {
